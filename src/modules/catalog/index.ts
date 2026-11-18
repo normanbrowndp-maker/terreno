@@ -1,5 +1,5 @@
-import type { Coordinates, CountryCode } from '@/modules/geography';
-import type { Locale } from '@/shared/config/locales';
+import type { Coordinates, CountryCode } from "@/modules/geography";
+import type { Locale } from "@/shared/config/locales";
 
 export interface PlaceSummary {
   id: string;
@@ -8,7 +8,7 @@ export interface PlaceSummary {
   countryCode: CountryCode;
   regionId: string;
   categoryCodes: readonly string[];
-  location: { type: 'Point'; coordinates: Coordinates };
+  location: { type: "Point"; coordinates: Coordinates };
   version: number;
 }
 
@@ -16,3 +16,7 @@ export interface PlaceSummary {
 export interface CatalogReader {
   findPublishedById(id: string, locale: Locale): Promise<PlaceSummary | null>;
 }
+
+export * from "./model";
+export * from "./queries";
+export { italyDemo } from "./demo";

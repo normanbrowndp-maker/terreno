@@ -17,7 +17,7 @@ describe('real PostgreSQL/PostGIS foundation', () => {
   it('applies the schema with tracked migration checksums', async () => {
     await migrateDatabase(url, 'test');
     const result = await client.query('SELECT checksum FROM travel_migration_checksums');
-    expect(result.rowCount).toBe(4);
+    expect(result.rowCount).toBe(6);
     expect(result.rows[0].checksum).toMatch(/^[a-f0-9]{64}$/);
   });
   it('does not reapply an already committed migration', async () => {
@@ -58,7 +58,7 @@ describe('real PostgreSQL/PostGIS foundation', () => {
     } finally { await client.query('ROLLBACK'); }
   });
   it('does not leave fixture content after transactional tests', async () => {
-    expect((await client.query('SELECT count(*)::int AS count FROM places')).rows[0].count).toBe(0);
+    expect((await client.query("SELECT count(*)::int AS count FROM places WHERE id IN ('11111111-1111-4111-8111-111111111111','55555555-5555-4555-8555-555555555555')")).rows[0].count).toBe(0);
   });
   it('rejects moving the last translation away from a published place', async () => {
     await client.query('BEGIN');
@@ -73,7 +73,7 @@ describe('real PostgreSQL/PostGIS foundation', () => {
     try {
       await client.query(await readFile('db/fixtures/publication.sql', 'utf8'));
       await client.query('SET CONSTRAINTS ALL IMMEDIATE');
-      expect((await client.query("SELECT count(*)::int AS count FROM places WHERE status='published'")).rows[0].count).toBe(1);
+      expect((await client.query("SELECT count(*)::int AS count FROM places WHERE status='published' AND id='11111111-1111-4111-8111-111111111111'")).rows[0].count).toBe(1);
     } finally { await client.query('ROLLBACK'); }
   });
   it('refuses concurrent migration writers before running DDL', async () => {
@@ -91,11 +91,11 @@ describe('real PostgreSQL/PostGIS foundation', () => {
       await writeFile(first, original + '\n-- modified applied migration\n');
       await expect(migrateDatabase(url, 'test', directory)).rejects.toThrow('checksum mismatch');
       await writeFile(first, original);
-      await writeFile(join(directory, '1794960000004_failure.sql'), 'CREATE TABLE transactional_probe(id int); SELECT missing_test_function();');
+      await writeFile(join(directory, '1794960000006_failure.sql'), 'CREATE TABLE transactional_probe(id int); SELECT missing_test_function();');
       await expect(migrateDatabase(url, 'test', directory)).rejects.toMatchObject({ code: '42883' });
       expect((await client.query("SELECT to_regclass('public.transactional_probe') AS name")).rows[0].name).toBeNull();
-      expect((await client.query('SELECT count(*)::int AS count FROM travel_migration_checksums')).rows[0].count).toBe(4);
-      expect((await client.query('SELECT count(*)::int AS count FROM travel_migrations')).rows[0].count).toBe(4);
+      expect((await client.query('SELECT count(*)::int AS count FROM travel_migration_checksums')).rows[0].count).toBe(6);
+      expect((await client.query('SELECT count(*)::int AS count FROM travel_migrations')).rows[0].count).toBe(6);
     } finally {
       if (!resolve(directory).startsWith(resolve(tmpdir()) + sep + 'travel-stage1-migration-')) throw new Error('Unsafe test cleanup path');
       await rm(directory, { recursive: true, force: true });

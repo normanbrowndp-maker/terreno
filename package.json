@@ -21,6 +21,7 @@
     "check:docs": "python -B docs/audit/verify_stage1.py",
     "check": "npm run lint && npm run typecheck && npm run check:architecture && npm run check:secrets && npm run check:docs && npm run check:dependencies && npm run test:unit && npm run test:integration && npm run build",
     "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed:demo": "tsx scripts/seed-italy.ts",
     "db:local": "tsx scripts/local-database.ts",
     "db:download": "powershell -NoProfile -File scripts/install-portable-postgres.ps1",
     "db:restore-check": "tsx scripts/verify-restore.ts"

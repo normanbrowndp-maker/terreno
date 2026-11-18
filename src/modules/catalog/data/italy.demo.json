@@ -1,0 +1,1827 @@
+{
+  "dataset": "italy-editorial-demo-v1",
+  "verifiedAt": "2026-11-18",
+  "countryCode": "IT",
+  "sourcePdfSha256": "65408b3c78c3f0a2db1b4f91a952051c0d12346eeabb640c78d379ac2bbb451a",
+  "cities": [
+    {
+      "id": "c0000000-0000-4000-8000-000000000001",
+      "slug": "firenze",
+      "name": "Firenze",
+      "aliases": ["Firenze", "Florence"],
+      "countryCode": "IT",
+      "region": "Toscana",
+      "regionSlug": "toscana",
+      "longitude": 11.254166666667,
+      "latitude": 43.771388888889,
+      "wikidataId": "Q2044",
+      "verifiedAt": "2026-11-18",
+      "featured": true,
+      "subtitle": "Art in the open. Life in the side streets.",
+      "description": "Step beyond the familiar into the gardens, galleries and piazzas of a city lived in.",
+      "photo": {
+        "src": "/images/italy/city-Q2044.jpg",
+        "depicts": "Firenze",
+        "alt": "Firenze, Italy",
+        "author": "Wikibusters",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramica_Firenze.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Panoramica_Firenze.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Panoramica Firenze.jpg — Wikibusters / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 386
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2044",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000002",
+      "slug": "siena",
+      "name": "Siena",
+      "aliases": ["Siena"],
+      "countryCode": "IT",
+      "region": "Toscana",
+      "regionSlug": "toscana",
+      "longitude": 11.331388888889,
+      "latitude": 43.318333333333,
+      "wikidataId": "Q2751",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Toscana.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2751",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000003",
+      "slug": "pisa",
+      "name": "Pisa",
+      "aliases": ["Pisa"],
+      "countryCode": "IT",
+      "region": "Toscana",
+      "regionSlug": "toscana",
+      "longitude": 10.4,
+      "latitude": 43.716666666667,
+      "wikidataId": "Q13375",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Toscana.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13375",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000004",
+      "slug": "lucca",
+      "name": "Lucca",
+      "aliases": ["Lucca"],
+      "countryCode": "IT",
+      "region": "Toscana",
+      "regionSlug": "toscana",
+      "longitude": 10.516666666667,
+      "latitude": 43.85,
+      "wikidataId": "Q13373",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Toscana.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13373",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000005",
+      "slug": "arezzo",
+      "name": "Arezzo",
+      "aliases": ["Arezzo"],
+      "countryCode": "IT",
+      "region": "Toscana",
+      "regionSlug": "toscana",
+      "longitude": 11.878055555556,
+      "latitude": 43.463055555556,
+      "wikidataId": "Q13378",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Toscana.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13378",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000006",
+      "slug": "bologna",
+      "name": "Bologna",
+      "aliases": ["Bologna"],
+      "countryCode": "IT",
+      "region": "Emilia-Romagna",
+      "regionSlug": "emilia-romagna",
+      "longitude": 11.342777777778,
+      "latitude": 44.493888888889,
+      "wikidataId": "Q1891",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Emilia-Romagna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1891",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000007",
+      "slug": "parma",
+      "name": "Parma",
+      "aliases": ["Parma"],
+      "countryCode": "IT",
+      "region": "Emilia-Romagna",
+      "regionSlug": "emilia-romagna",
+      "longitude": 10.328,
+      "latitude": 44.801472222222,
+      "wikidataId": "Q2683",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Emilia-Romagna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2683",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000008",
+      "slug": "modena",
+      "name": "Modena",
+      "aliases": ["Modena"],
+      "countryCode": "IT",
+      "region": "Emilia-Romagna",
+      "regionSlug": "emilia-romagna",
+      "longitude": 10.92572,
+      "latitude": 44.64582,
+      "wikidataId": "Q279",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Emilia-Romagna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q279",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000009",
+      "slug": "ravenna",
+      "name": "Ravenna",
+      "aliases": ["Ravenna"],
+      "countryCode": "IT",
+      "region": "Emilia-Romagna",
+      "regionSlug": "emilia-romagna",
+      "longitude": 12.201666666666666,
+      "latitude": 44.416111111111114,
+      "wikidataId": "Q13364",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Emilia-Romagna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13364",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000010",
+      "slug": "ferrara",
+      "name": "Ferrara",
+      "aliases": ["Ferrara"],
+      "countryCode": "IT",
+      "region": "Emilia-Romagna",
+      "regionSlug": "emilia-romagna",
+      "longitude": 11.6175,
+      "latitude": 44.839166666666664,
+      "wikidataId": "Q13362",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Emilia-Romagna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13362",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000011",
+      "slug": "rimini",
+      "name": "Rimini",
+      "aliases": ["Rimini"],
+      "countryCode": "IT",
+      "region": "Emilia-Romagna",
+      "regionSlug": "emilia-romagna",
+      "longitude": 12.568333333333,
+      "latitude": 44.059444444444,
+      "wikidataId": "Q13369",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Emilia-Romagna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13369",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000012",
+      "slug": "milano",
+      "name": "Milano",
+      "aliases": ["Milano", "Milan"],
+      "countryCode": "IT",
+      "region": "Lombardia",
+      "regionSlug": "lombardia",
+      "longitude": 9.19,
+      "latitude": 45.466944444444,
+      "wikidataId": "Q490",
+      "verifiedAt": "2026-11-18",
+      "featured": true,
+      "subtitle": "Stone, design, and a different rhythm.",
+      "description": "Look beyond the familiar towards a city of monumental architecture and remarkable collections.",
+      "photo": {
+        "src": "/images/italy/city-Q490.jpg",
+        "depicts": "Milano",
+        "alt": "Milano, Italy",
+        "author": "Steffen Schmitz",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milano,_Duomo_with_Milan_Cathedral_and_Galleria_Vittorio_Emanuele_II,_2016.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Milano%2C_Duomo_with_Milan_Cathedral_and_Galleria_Vittorio_Emanuele_II%2C_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Milano, Duomo with Milan Cathedral and Galleria Vittorio Emanuele II, 2016.jpg — Steffen Schmitz / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 750
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q490",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000013",
+      "slug": "bergamo",
+      "name": "Bergamo",
+      "aliases": ["Bergamo"],
+      "countryCode": "IT",
+      "region": "Lombardia",
+      "regionSlug": "lombardia",
+      "longitude": 9.67,
+      "latitude": 45.695,
+      "wikidataId": "Q628",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Lombardia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q628",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000014",
+      "slug": "brescia",
+      "name": "Brescia",
+      "aliases": ["Brescia"],
+      "countryCode": "IT",
+      "region": "Lombardia",
+      "regionSlug": "lombardia",
+      "longitude": 10.220280555556,
+      "latitude": 45.538888888889,
+      "wikidataId": "Q6221",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Lombardia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q6221",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000015",
+      "slug": "como",
+      "name": "Como",
+      "aliases": ["Como"],
+      "countryCode": "IT",
+      "region": "Lombardia",
+      "regionSlug": "lombardia",
+      "longitude": 9.0861388888889,
+      "latitude": 45.81025,
+      "wikidataId": "Q1308",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Lombardia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1308",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000016",
+      "slug": "mantova",
+      "name": "Mantova",
+      "aliases": ["Mantova", "Mantua"],
+      "countryCode": "IT",
+      "region": "Lombardia",
+      "regionSlug": "lombardia",
+      "longitude": 10.791111111111,
+      "latitude": 45.156388888889,
+      "wikidataId": "Q6247",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Lombardia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q6247",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000017",
+      "slug": "pavia",
+      "name": "Pavia",
+      "aliases": ["Pavia"],
+      "countryCode": "IT",
+      "region": "Lombardia",
+      "regionSlug": "lombardia",
+      "longitude": 9.155,
+      "latitude": 45.185280555556,
+      "wikidataId": "Q6259",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Lombardia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q6259",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000018",
+      "slug": "torino",
+      "name": "Torino",
+      "aliases": ["Torino", "Turin"],
+      "countryCode": "IT",
+      "region": "Piemonte",
+      "regionSlug": "piemonte",
+      "longitude": 7.676111111111111,
+      "latitude": 45.079166666666666,
+      "wikidataId": "Q495",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Piemonte.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q495",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000019",
+      "slug": "aosta",
+      "name": "Aosta",
+      "aliases": ["Aosta"],
+      "countryCode": "IT",
+      "region": "Valle d’Aosta",
+      "regionSlug": "valle-daosta",
+      "longitude": 7.3205555555556,
+      "latitude": 45.737222222222,
+      "wikidataId": "Q3367",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Valle d’Aosta.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3367",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000020",
+      "slug": "genova",
+      "name": "Genova",
+      "aliases": ["Genova", "Genoa"],
+      "countryCode": "IT",
+      "region": "Liguria",
+      "regionSlug": "liguria",
+      "longitude": 8.93388888888889,
+      "latitude": 44.407222222222224,
+      "wikidataId": "Q1449",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Liguria.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1449",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000021",
+      "slug": "la-spezia",
+      "name": "La Spezia",
+      "aliases": ["La Spezia"],
+      "countryCode": "IT",
+      "region": "Liguria",
+      "regionSlug": "liguria",
+      "longitude": 9.8288805555556,
+      "latitude": 44.108044444444,
+      "wikidataId": "Q8611",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Liguria.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q8611",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000022",
+      "slug": "sanremo",
+      "name": "Sanremo",
+      "aliases": ["Sanremo"],
+      "countryCode": "IT",
+      "region": "Liguria",
+      "regionSlug": "liguria",
+      "longitude": 7.775,
+      "latitude": 43.8175,
+      "wikidataId": "Q33962",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Liguria.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q33962",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000023",
+      "slug": "venezia",
+      "name": "Venezia",
+      "aliases": ["Venezia", "Venice"],
+      "countryCode": "IT",
+      "region": "Veneto",
+      "regionSlug": "veneto",
+      "longitude": 12.331944444444,
+      "latitude": 45.439722222222,
+      "wikidataId": "Q641",
+      "verifiedAt": "2026-11-18",
+      "featured": true,
+      "subtitle": "Beyond the postcard, along the water.",
+      "description": "Begin at San Marco, then take time to discover the city on the lagoon.",
+      "photo": {
+        "src": "/images/italy/city-Q641.jpg",
+        "depicts": "Venezia",
+        "alt": "Venezia, Italy",
+        "author": "Pierbou",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Venizi_-_lanscape_from_San_Giorgio_Maggiore.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Venizi_-_lanscape_from_San_Giorgio_Maggiore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "attribution": "Venizi - lanscape from San Giorgio Maggiore.jpg — Pierbou / Wikimedia Commons / CC BY 3.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 246
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q641",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000024",
+      "slug": "verona",
+      "name": "Verona",
+      "aliases": ["Verona"],
+      "countryCode": "IT",
+      "region": "Veneto",
+      "regionSlug": "veneto",
+      "longitude": 10.992777777777778,
+      "latitude": 45.43861111111111,
+      "wikidataId": "Q2028",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Veneto.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2028",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000025",
+      "slug": "padova",
+      "name": "Padova",
+      "aliases": ["Padova", "Padua"],
+      "countryCode": "IT",
+      "region": "Veneto",
+      "regionSlug": "veneto",
+      "longitude": 11.873333333333333,
+      "latitude": 45.40777777777778,
+      "wikidataId": "Q617",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Veneto.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q617",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000026",
+      "slug": "vicenza",
+      "name": "Vicenza",
+      "aliases": ["Vicenza"],
+      "countryCode": "IT",
+      "region": "Veneto",
+      "regionSlug": "veneto",
+      "longitude": 11.55,
+      "latitude": 45.55,
+      "wikidataId": "Q6537",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Veneto.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q6537",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000027",
+      "slug": "treviso",
+      "name": "Treviso",
+      "aliases": ["Treviso"],
+      "countryCode": "IT",
+      "region": "Veneto",
+      "regionSlug": "veneto",
+      "longitude": 12.245555555555555,
+      "latitude": 45.66583333333333,
+      "wikidataId": "Q5475",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Veneto.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5475",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000028",
+      "slug": "trento",
+      "name": "Trento",
+      "aliases": ["Trento"],
+      "countryCode": "IT",
+      "region": "Trentino-Alto Adige",
+      "regionSlug": "trentino-alto-adige",
+      "longitude": 11.11666667,
+      "latitude": 46.06666667,
+      "wikidataId": "Q3376",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Trentino-Alto Adige.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3376",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000029",
+      "slug": "bolzano",
+      "name": "Bolzano",
+      "aliases": ["Bolzano"],
+      "countryCode": "IT",
+      "region": "Trentino-Alto Adige",
+      "regionSlug": "trentino-alto-adige",
+      "longitude": 11.35478,
+      "latitude": 46.498113,
+      "wikidataId": "Q6526",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Trentino-Alto Adige.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q6526",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000030",
+      "slug": "trieste",
+      "name": "Trieste",
+      "aliases": ["Trieste"],
+      "countryCode": "IT",
+      "region": "Friuli-Venezia Giulia",
+      "regionSlug": "friuli-venezia-giulia",
+      "longitude": 13.770277777777778,
+      "latitude": 45.65027777777778,
+      "wikidataId": "Q546",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Friuli-Venezia Giulia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q546",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000031",
+      "slug": "udine",
+      "name": "Udine",
+      "aliases": ["Udine"],
+      "countryCode": "IT",
+      "region": "Friuli-Venezia Giulia",
+      "regionSlug": "friuli-venezia-giulia",
+      "longitude": 13.233333333333,
+      "latitude": 46.066666666667,
+      "wikidataId": "Q2790",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Friuli-Venezia Giulia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2790",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000032",
+      "slug": "perugia",
+      "name": "Perugia",
+      "aliases": ["Perugia"],
+      "countryCode": "IT",
+      "region": "Umbria",
+      "regionSlug": "umbria",
+      "longitude": 12.38854847,
+      "latitude": 43.11191816,
+      "wikidataId": "Q3437",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Umbria.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3437",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000033",
+      "slug": "assisi",
+      "name": "Assisi",
+      "aliases": ["Assisi"],
+      "countryCode": "IT",
+      "region": "Umbria",
+      "regionSlug": "umbria",
+      "longitude": 12.61499803,
+      "latitude": 43.07081201,
+      "wikidataId": "Q20103",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Umbria.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q20103",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000034",
+      "slug": "ancona",
+      "name": "Ancona",
+      "aliases": ["Ancona"],
+      "countryCode": "IT",
+      "region": "Marche",
+      "regionSlug": "marche",
+      "longitude": 13.516666666667,
+      "latitude": 43.616666666667,
+      "wikidataId": "Q3415",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Marche.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3415",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000035",
+      "slug": "urbino",
+      "name": "Urbino",
+      "aliases": ["Urbino"],
+      "countryCode": "IT",
+      "region": "Marche",
+      "regionSlug": "marche",
+      "longitude": 12.6372,
+      "latitude": 43.725238888889,
+      "wikidataId": "Q2759",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Marche.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2759",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000036",
+      "slug": "roma",
+      "name": "Roma",
+      "aliases": ["Roma", "Rome"],
+      "countryCode": "IT",
+      "region": "Lazio",
+      "regionSlug": "lazio",
+      "longitude": 12.482777777778,
+      "latitude": 41.893055555556,
+      "wikidataId": "Q220",
+      "verifiedAt": "2026-11-18",
+      "featured": true,
+      "subtitle": "Layers of history. A city still unfolding.",
+      "description": "Meet ancient monuments and lived-in squares, one neighbourhood at a time.",
+      "photo": {
+        "src": "/images/italy/city-Q220.jpg",
+        "depicts": "Roma",
+        "alt": "Roma, Italy",
+        "author": "Bert Kaufmann from Roermond, Netherlands",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rome_Skyline_(8012016319).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Rome_Skyline_%288012016319%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "attribution": "Rome Skyline (8012016319).jpg — Bert Kaufmann from Roermond, Netherlands / Wikimedia Commons / CC BY-SA 2.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 853
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q220",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000037",
+      "slug": "viterbo",
+      "name": "Viterbo",
+      "aliases": ["Viterbo"],
+      "countryCode": "IT",
+      "region": "Lazio",
+      "regionSlug": "lazio",
+      "longitude": 12.104166666667,
+      "latitude": 42.418611111111,
+      "wikidataId": "Q13395",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Lazio.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13395",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000038",
+      "slug": "laquila",
+      "name": "L’Aquila",
+      "aliases": ["L’Aquila", "L'Aquila"],
+      "countryCode": "IT",
+      "region": "Abruzzo",
+      "regionSlug": "abruzzo",
+      "longitude": 13.391991666667,
+      "latitude": 42.354008333333,
+      "wikidataId": "Q3476",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Abruzzo.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3476",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000039",
+      "slug": "napoli",
+      "name": "Napoli",
+      "aliases": ["Napoli", "Naples"],
+      "countryCode": "IT",
+      "region": "Campania",
+      "regionSlug": "campania",
+      "longitude": 14.248611111111112,
+      "latitude": 40.83583333333333,
+      "wikidataId": "Q2634",
+      "verifiedAt": "2026-11-18",
+      "featured": true,
+      "subtitle": "A city of layers, seen at your own pace.",
+      "description": "From the archaeological collections to the waterfront fortress, make room for a closer look.",
+      "photo": {
+        "src": "/images/italy/city-Q2634.jpg",
+        "depicts": "Napoli",
+        "alt": "Napoli, Italy",
+        "author": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me a  message. \n\n\n\nThis image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here are not appropriate.\n\n\n\nPlease do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naples_from_the_Castello_Sant_Elmo_with_Abbazia_San_Martino_the_port_and_the_Vesuv.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Naples_from_the_Castello_Sant_Elmo_with_Abbazia_San_Martino_the_port_and_the_Vesuv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Naples from the Castello Sant Elmo with Abbazia San Martino the port and the Vesuv.jpg — This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me a  message. \n\n\n\nThis image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here are not appropriate.\n\n\n\nPlease do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract. / Wikimedia Commons / CC BY-SA 3.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 854
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2634",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000040",
+      "slug": "salerno",
+      "name": "Salerno",
+      "aliases": ["Salerno"],
+      "countryCode": "IT",
+      "region": "Campania",
+      "regionSlug": "campania",
+      "longitude": 14.759444444444444,
+      "latitude": 40.68055555555556,
+      "wikidataId": "Q1083",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Campania.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1083",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000041",
+      "slug": "bari",
+      "name": "Bari",
+      "aliases": ["Bari"],
+      "countryCode": "IT",
+      "region": "Puglia",
+      "regionSlug": "puglia",
+      "longitude": 16.866666666667,
+      "latitude": 41.125277777778,
+      "wikidataId": "Q3519",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Puglia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3519",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000042",
+      "slug": "lecce",
+      "name": "Lecce",
+      "aliases": ["Lecce"],
+      "countryCode": "IT",
+      "region": "Puglia",
+      "regionSlug": "puglia",
+      "longitude": 18.169138888889,
+      "latitude": 40.352011111111,
+      "wikidataId": "Q13386",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Puglia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13386",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000043",
+      "slug": "matera",
+      "name": "Matera",
+      "aliases": ["Matera"],
+      "countryCode": "IT",
+      "region": "Basilicata",
+      "regionSlug": "basilicata",
+      "longitude": 16.6,
+      "latitude": 40.666666666667,
+      "wikidataId": "Q13616",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Basilicata.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13616",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000044",
+      "slug": "reggio-calabria",
+      "name": "Reggio Calabria",
+      "aliases": ["Reggio Calabria"],
+      "countryCode": "IT",
+      "region": "Calabria",
+      "regionSlug": "calabria",
+      "longitude": 15.65,
+      "latitude": 38.114438888889,
+      "wikidataId": "Q8471",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Calabria.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q8471",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000045",
+      "slug": "palermo",
+      "name": "Palermo",
+      "aliases": ["Palermo"],
+      "countryCode": "IT",
+      "region": "Sicilia",
+      "regionSlug": "sicilia",
+      "longitude": 13.361261944444445,
+      "latitude": 38.115658055555556,
+      "wikidataId": "Q2656",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Sicilia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2656",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000046",
+      "slug": "catania",
+      "name": "Catania",
+      "aliases": ["Catania"],
+      "countryCode": "IT",
+      "region": "Sicilia",
+      "regionSlug": "sicilia",
+      "longitude": 15.087269444444,
+      "latitude": 37.502669444444,
+      "wikidataId": "Q1903",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Sicilia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1903",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000047",
+      "slug": "siracusa",
+      "name": "Siracusa",
+      "aliases": ["Siracusa", "Syracuse"],
+      "countryCode": "IT",
+      "region": "Sicilia",
+      "regionSlug": "sicilia",
+      "longitude": 15.2875,
+      "latitude": 37.069166666667,
+      "wikidataId": "Q13670",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Sicilia.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13670",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "c0000000-0000-4000-8000-000000000048",
+      "slug": "cagliari",
+      "name": "Cagliari",
+      "aliases": ["Cagliari"],
+      "countryCode": "IT",
+      "region": "Sardegna",
+      "regionSlug": "sardegna",
+      "longitude": 9.1166666666667,
+      "latitude": 39.216666666667,
+      "wikidataId": "Q1897",
+      "verifiedAt": "2026-11-18",
+      "featured": false,
+      "subtitle": "A place to begin in Sardegna.",
+      "description": "This city is confirmed in the original48-city index. Its editorial places will be added after independent source and image checks.",
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1897",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "b0000000-0000-4000-8000-000000000001",
+      "slug": "giardino-bardini",
+      "name": "Giardino Bardini",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": ["garden", "viewpoint"],
+      "subtitle": "A different perspective on Firenze.",
+      "description": "Terraced gardens on the Oltrarno hillside, looking across the historic centre of Florence. Follow the broad staircase and take time to see the city from above.",
+      "address": "Costa San Giorgio 2, Firenze",
+      "longitude": 11.25735833,
+      "latitude": 43.76374722,
+      "wikidataId": "Q3763846",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.villabardini.it/en/organize-your-visit/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q3763846.jpg",
+        "depicts": "Giardino Bardini",
+        "alt": "Giardino Bardini, Firenze, Italy",
+        "author": "Francesco Bini",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giardino_bardini,_terrazze_della_scalinata_principale,_05.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Giardino_bardini%2C_terrazze_della_scalinata_principale%2C_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Giardino bardini, terrazze della scalinata principale, 05.jpg — Francesco Bini / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 864
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3763846",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.villabardini.it/en/organize-your-visit/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.villabardini.it/en/organize-your-visit/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000002",
+      "slug": "santa-croce",
+      "name": "Basilica di Santa Croce",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": ["landmark", "museum"],
+      "subtitle": "Art, history, and a quieter pause.",
+      "description": "A Franciscan monumental complex in Florence. The Bardi Chapel preserves Giotto’s frescoes telling the story of Saint Francis.",
+      "address": "Piazza di Santa Croce, Firenze",
+      "longitude": 11.26274,
+      "latitude": 43.76845,
+      "wikidataId": "Q51177",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.santacroceopera.it/en/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q51177.jpg",
+        "depicts": "Basilica di Santa Croce",
+        "alt": "Basilica di Santa Croce, Firenze, Italy",
+        "author": "Grueslayer",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:ITA_Firenze_Basilica_di_Santa_Croce_2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/ITA_Firenze_Basilica_di_Santa_Croce_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "ITA Firenze Basilica di Santa Croce 2.jpg — Grueslayer / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 960
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q51177",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.santacroceopera.it/en/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.santacroceopera.it/en/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000003",
+      "slug": "piazza-santo-spirito",
+      "name": "Piazza Santo Spirito",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": ["landmark"],
+      "subtitle": "The everyday, across the Arno.",
+      "description": "An Oltrarno square in front of the Basilica di Santo Spirito, designed by Filippo Brunelleschi. Take a moment to look at the square and its surrounding facades.",
+      "address": "Piazza Santo Spirito, Firenze",
+      "longitude": 11.24728889,
+      "latitude": 43.76657778,
+      "wikidataId": "Q3902330",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.visittuscany.com/en/attractions/santo-spirito-in-florence/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q3902330.jpg",
+        "depicts": "Piazza Santo Spirito",
+        "alt": "Piazza Santo Spirito, Firenze, Italy",
+        "author": "John Samuel",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Exterior_view_of_Santo_Spirito_(Florence)_03.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Exterior_view_of_Santo_Spirito_%28Florence%29_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Exterior view of Santo Spirito (Florence) 03.jpg — John Samuel / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 853
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3902330",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.visittuscany.com/en/attractions/santo-spirito-in-florence/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.visittuscany.com/en/attractions/santo-spirito-in-florence/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000004",
+      "slug": "uffizi",
+      "name": "Galleria degli Uffizi",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": ["museum"],
+      "subtitle": "A closer look at extraordinary art.",
+      "description": "The gallery occupies the first and second floors of the building designed by Giorgio Vasari. Its collections bring together ancient sculpture and paintings from the Middle Ages onwards.",
+      "address": "Piazzale degli Uffizi 6, Firenze",
+      "longitude": 11.255277777777778,
+      "latitude": 43.76833333333333,
+      "wikidataId": "Q51252",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.uffizi.it/en/the-uffizi",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q51252.jpg",
+        "depicts": "Galleria degli Uffizi",
+        "alt": "Galleria degli Uffizi, Firenze, Italy",
+        "author": "Arek N.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Florence,_Italy_-_panoramio_(125).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Florence%2C_Italy_-_panoramio_%28125%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Florence, Italy - panoramio (125).jpg — Arek N. / Wikimedia Commons / CC BY-SA 3.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 853
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q51252",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.uffizi.it/en/the-uffizi",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.uffizi.it/en/the-uffizi"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000005",
+      "slug": "colosseo",
+      "name": "Colosseo",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": ["landmark"],
+      "subtitle": "History, on an extraordinary scale.",
+      "description": "The Flavian Amphitheatre was built in the first century CE under the Flavian emperors. This ancient Roman arena stands on Piazza del Colosseo.",
+      "address": "Piazza del Colosseo, Roma",
+      "longitude": 12.492222222222,
+      "latitude": 41.890277777778,
+      "wikidataId": "Q10285",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://colosseo.it/en/area/the-colosseum/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q10285.jpg",
+        "depicts": "Colosseo",
+        "alt": "Colosseo, Roma, Italy",
+        "author": "FeaturedPics",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Colosseo 2020.jpg — FeaturedPics / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 897
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q10285",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://colosseo.it/en/area/the-colosseum/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://colosseo.it/en/area/the-colosseum/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000006",
+      "slug": "pantheon",
+      "name": "Pantheon",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": ["landmark"],
+      "subtitle": "An ancient monument, still part of the city.",
+      "description": "A Roman monument on Piazza della Rotonda, rebuilt during Hadrian’s reign. Today it is also the Basilica of Santa Maria ad Martyres.",
+      "address": "Piazza della Rotonda, Roma",
+      "longitude": 12.476944444444445,
+      "latitude": 41.89861111111111,
+      "wikidataId": "Q99309",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://direzionemuseiroma.cultura.gov.it/en/pantheon/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q99309.jpg",
+        "depicts": "Pantheon",
+        "alt": "Pantheon, Roma, Italy",
+        "author": "NikonZ7II",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantheon_(Rome)_-_Right_side_and_front.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Pantheon_%28Rome%29_-_Right_side_and_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Pantheon (Rome) - Right side and front.jpg — NikonZ7II / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 1031
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q99309",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://direzionemuseiroma.cultura.gov.it/en/pantheon/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://direzionemuseiroma.cultura.gov.it/en/pantheon/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000007",
+      "slug": "duomo-milano",
+      "name": "Duomo di Milano",
+      "citySlug": "milano",
+      "countryCode": "IT",
+      "categories": ["landmark", "museum"],
+      "subtitle": "The city, gathered around its cathedral.",
+      "description": "Milan’s cathedral stands on Piazza del Duomo. The monumental complex also includes a museum and an archaeological area.",
+      "address": "Piazza del Duomo, Milano",
+      "longitude": 9.190578,
+      "latitude": 45.463968,
+      "wikidataId": "Q18068",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.duomomilano.it/en/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q18068.jpg",
+        "depicts": "Duomo di Milano",
+        "alt": "Duomo di Milano, Milano, Italy",
+        "author": "Jakub Hałun",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:20110724_Milan_Cathedral_5260.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/20110724_Milan_Cathedral_5260.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "20110724 Milan Cathedral 5260.jpg — Jakub Hałun / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 1112
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q18068",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.duomomilano.it/en/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.duomomilano.it/en/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000008",
+      "slug": "castello-sforzesco",
+      "name": "Castello Sforzesco",
+      "citySlug": "milano",
+      "countryCode": "IT",
+      "categories": ["landmark", "museum"],
+      "subtitle": "A fortress with more to discover.",
+      "description": "The Castello Sforzesco houses museums and collections, including the Pinacoteca and the museum of Michelangelo’s Pietà Rondanini.",
+      "address": "Piazza Castello, Milano",
+      "longitude": 9.179693,
+      "latitude": 45.471005,
+      "wikidataId": "Q23354",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.milanocastello.it/en",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q23354.jpg",
+        "depicts": "Castello Sforzesco",
+        "alt": "Castello Sforzesco, Milano, Italy",
+        "author": "Jakub Hałun",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:20110725_Castello_Sforzesco_Milan_5557.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/20110725_Castello_Sforzesco_Milan_5557.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "20110725 Castello Sforzesco Milan 5557.jpg — Jakub Hałun / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 1927
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q23354",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.milanocastello.it/en",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.milanocastello.it/en"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000009",
+      "slug": "palazzo-ducale",
+      "name": "Palazzo Ducale",
+      "citySlug": "venezia",
+      "countryCode": "IT",
+      "categories": ["landmark", "museum"],
+      "subtitle": "A different view of the lagoon.",
+      "description": "The Doge’s Palace stands at San Marco by the Venetian waterfront. Its monumental rooms and art collections offer a starting point for discovering the city’s civic history.",
+      "address": "Piazza San Marco 1, Venezia",
+      "longitude": 12.340416666666666,
+      "latitude": 45.43366666666667,
+      "wikidataId": "Q189883",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://palazzoducale.visitmuve.it/en/home/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q189883.jpg",
+        "depicts": "Palazzo Ducale",
+        "alt": "Palazzo Ducale, Venezia, Italy",
+        "author": "Didier Descouens",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:(Venice)_Doge%27s_Palace_facing_the_sea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/%28Venice%29_Doge%27s_Palace_facing_the_sea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "(Venice) Doge's Palace facing the sea.jpg — Didier Descouens / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 783
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q189883",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://palazzoducale.visitmuve.it/en/home/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://palazzoducale.visitmuve.it/en/home/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000010",
+      "slug": "piazza-san-marco",
+      "name": "Piazza San Marco",
+      "citySlug": "venezia",
+      "countryCode": "IT",
+      "categories": ["landmark"],
+      "subtitle": "Room to pause, beside the lagoon.",
+      "description": "Venice’s monumental square is framed by the basilica, campanile and arcades. The waterfront opens towards the lagoon.",
+      "address": "Piazza San Marco, Venezia",
+      "longitude": 12.338,
+      "latitude": 45.434,
+      "wikidataId": "Q217527",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.italia.it/it/veneto/venezia/piazza-san-marco",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q217527.jpg",
+        "depicts": "Piazza San Marco",
+        "alt": "Piazza San Marco, Venezia, Italy",
+        "author": "Matthias Süßen",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piazza_San_Marco_(Venice)_at_night-msu-2021-6449-.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Piazza_San_Marco_%28Venice%29_at_night-msu-2021-6449-.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Piazza San Marco (Venice) at night-msu-2021-6449-.jpg — Matthias Süßen / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 920
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q217527",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.italia.it/it/veneto/venezia/piazza-san-marco",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.italia.it/it/veneto/venezia/piazza-san-marco"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000011",
+      "slug": "mann",
+      "name": "Museo Archeologico Nazionale di Napoli",
+      "citySlug": "napoli",
+      "countryCode": "IT",
+      "categories": ["museum"],
+      "subtitle": "Ancient stories, seen up close.",
+      "description": "Naples’ national archaeological museum includes the Farnese collection, mosaics and numismatics among its collections. A place to begin exploring the archaeology of the region.",
+      "address": "Piazza Museo 19, Napoli",
+      "longitude": 14.250555555555556,
+      "latitude": 40.853611111111114,
+      "wikidataId": "Q637248",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.museoarcheologiconapoli.it/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q637248.jpg",
+        "depicts": "Museo Archeologico Nazionale di Napoli",
+        "alt": "Museo Archeologico Nazionale di Napoli, Napoli, Italy",
+        "author": "Mister No",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museo_Archeologico_Nazionale_di_Napoli_-_panoramio_(1).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Museo_Archeologico_Nazionale_di_Napoli_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "attribution": "Museo Archeologico Nazionale di Napoli - panoramio (1).jpg — Mister No / Wikimedia Commons / CC BY 3.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 1146
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q637248",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.museoarcheologiconapoli.it/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.museoarcheologiconapoli.it/"
+        }
+      ]
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000012",
+      "slug": "castel-nuovo",
+      "name": "Castel Nuovo",
+      "citySlug": "napoli",
+      "countryCode": "IT",
+      "categories": ["landmark", "museum"],
+      "subtitle": "Five towers, at the edge of the city.",
+      "description": "Also known as Maschio Angioino, this fortress houses the Civic Museum. Five cylindrical towers frame its trapezoidal plan near Piazza Municipio.",
+      "address": "Via Vittorio Emanuele III, Napoli",
+      "longitude": 14.253807,
+      "latitude": 40.838376,
+      "wikidataId": "Q781219",
+      "verifiedAt": "2026-11-18",
+      "officialUrl": "https://www.comune.napoli.it/vivere-il-comune/luoghi/castel-nuovo-maschio-angioino/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q781219.jpg",
+        "depicts": "Castel Nuovo",
+        "alt": "Castel Nuovo, Napoli, Italy",
+        "author": "Adam Harangozó",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castel_Nuovo,_Naples_002.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Castel_Nuovo%2C_Naples_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Castel Nuovo, Naples 002.jpg — Adam Harangozó / Wikimedia Commons / CC BY-SA 4.0. Displayed with an editorial crop.",
+        "verifiedAt": "2026-11-18",
+        "width": 1280,
+        "height": 853
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q781219",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official visitor information",
+          "url": "https://www.comune.napoli.it/vivere-il-comune/luoghi/castel-nuovo-maschio-angioino/",
+          "license": "Factual reference; original description",
+          "licenseUrl": "https://www.comune.napoli.it/vivere-il-comune/luoghi/castel-nuovo-maschio-angioino/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,15 @@
 # Предлагаемая архитектура
 
+**Текущая продуктовая география — Италия (TERRENO).** Новый запрос разрешил PDF-интерфейс, подтверждённый каталог и ограниченную географическую карту. Модульный монолит и PostGIS сохраняются; актуальные границы demo/production — [ITALY_IMPLEMENTATION_PLAN](ITALY_IMPLEMENTATION_PLAN.md). Упоминания этапа1 ниже описывают сохранённый фундамент, а не запрет новой разрешённой задачи.
+
+### Итальянский read model и интерфейс
+
+`catalog/model.ts` — проверяемые DTO, `queries.ts` — чистые bounded filters, `postgres.ts` — параметризованный reader существующих tables, `server.ts` — общий SSR/API loader. `seed.ts` явно загружает demo только после проверки владения БД. Новые migrations4/5 добавляют города и ссылки/metadata к places/media; исходные0…3 неизменны. Production rows отделены `dataset`; preview читает только `italy-editorial-demo-v1`. При отказе/отсутствии БД используется проверенный bundled snapshot с явными backend/availability metadata; интерфейс сообщает sample/offline collection.
+
+Страницы остаются App Router Server Components с metadata/notFound; интерактивные screens разделены на home/city-index/city/place/saved. Общие photo/cards/filters/shell используются композиционно. Каталог не зависит от внешнего API при просмотре; Commons media и OFL fonts локальны. OSM snapshots — статические данные трёх городов с ограниченной детализацией; Natural Earth — реальный контур Италии. SVG projection/zoom/pan не является routing engine. Display coordinates квантованы до0.001 SVG pixel только для детерминированной SSR; исходные WGS84 не округляются.
+
+Browser bookmarks используют versioned allowlisted IDs и `useSyncExternalStore`, отдельный store на provider; account/trip tables не подменяются. Другие вкладки синхронизируются через storage event. При запрете записи — честный memory-only режим, при corrupt data — сообщение и новый список после действия пользователя. Mutable user singletons на сервере отсутствуют.
+
 Статус: **модульный монолит Next.js/TypeScript + PostgreSQL/PostGIS утверждён владельцем**, 2026-11-18. Минимальная структура и инфраструктурные проверки созданы на этапе1; routing/auth/trips implementations, planner и карта остаются будущими. Исходное состояние сохранено в AUDIT_REPORT; текущее — в STAGE1_REPORT. Ниже сравнение вариантов и целевая модель, не заявление о готовности всего продукта.
 
 ## Варианты

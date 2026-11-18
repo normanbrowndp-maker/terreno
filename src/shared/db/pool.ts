@@ -4,6 +4,7 @@ import { parseServerConfig } from '@/shared/config/env';
 import { assertLocalDatabaseTarget } from './target';
 import { foundationMigration } from './schema-version';
 import { assertDatabaseIdentity } from './identity';
+import type { CatalogDatabase } from './catalog-database';
 
 let pool: Pool | undefined;
 
@@ -28,4 +29,11 @@ export async function checkDatabaseReadiness(): Promise<void> {
     [foundationMigration],
   );
   if (!result.rows[0]?.ready) throw new Error('Database schema not ready');
+}
+
+export async function withCatalogDatabase<T>(read: (db: CatalogDatabase) => Promise<T>): Promise<T> {
+  const db = runtimePool();
+  const target = assertLocalDatabaseTarget(parseServerConfig(process.env).databaseUrl!, 'runtime');
+  await assertDatabaseIdentity(db, target.database === 'travel_dev' ? 'development' : 'test');
+  return read(db);
 }

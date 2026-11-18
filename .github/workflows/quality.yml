@@ -44,6 +44,7 @@ jobs:
           PGPASSWORD: local-example
         run: psql -h 127.0.0.1 -p 55432 -U travel_admin -d postgres -v ON_ERROR_STOP=1 -f infra/local/init.sql
       - run: npm run db:migrate
+      - run: npm run db:seed:demo
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

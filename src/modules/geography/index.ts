@@ -8,3 +8,5 @@ export function coordinates(longitude: number, latitude: number): Coordinates {
   }
   return [longitude, latitude];
 }
+
+export { italyBoundary, createProjection, clampMapZoom, streetSnapshotCities, type Bounds, type MapPoint } from './projection';

@@ -5,3 +5,6 @@ export interface TripSummary { id: string; title: string; version: number; updat
 export interface OwnedTripReader {
   findById(principal: Principal, tripId: string): Promise<TripSummary | null>;
 }
+
+export { savedPlacesKey, parseSavedPlaces, toggleSavedPlace } from './saved-places';
+export { createSavedPlacesStore } from './browser-store';

@@ -42,7 +42,19 @@ if not package.get('private'): failures.append('Package must remain private')
 if not (root / 'package-lock.json').is_file(): failures.append('Missing dependency lock')
 git = ['git', '-c', 'safe.directory=' + root.as_posix()]
 remotes = subprocess.run([*git, 'remote'], capture_output=True, text=True)
-if remotes.returncode or (not os.environ.get('CI') and remotes.stdout.strip()): failures.append('Expected a local repository without remote outside CI checkout')
+if remotes.returncode:
+    failures.append('Cannot inspect Git remotes')
+elif not os.environ.get('CI'):
+    # TRAVEL-013 explicitly authorized this origin; other destinations remain closed.
+    approved = {'origin': 'https://github.com/normanbrowndp-maker/terreno.git'}
+    for name in remotes.stdout.splitlines():
+        if name not in approved:
+            failures.append('Unapproved Git remote name: ' + name)
+            continue
+        for arguments in (['get-url', '--all', name], ['get-url', '--push', '--all', name]):
+            urls = subprocess.run([*git, 'remote', *arguments], capture_output=True, text=True)
+            if urls.returncode or urls.stdout.splitlines() != [approved[name]]:
+                failures.append('Unapproved Git remote destination (values redacted): ' + name)
 ignored = ['.env.local', '.local/database-state.json', '.local/backups/private.dump', 'node_modules/package.json', 'test-results/result.json']
 for path in ignored:
     if subprocess.run([*git, 'check-ignore', '-q', path]).returncode: failures.append('Sensitive/generated path not ignored: ' + path)

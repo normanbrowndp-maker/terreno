@@ -1,5 +1,13 @@
 # Проект API-контрактов
 
+## Действующие Italy preview endpoints — TRAVEL-015
+
+`GET /api/v1/cities`, `/cities/{slug-or-id}`, `/places`, `/places/{slug-or-id}` под существующим префиксом `/api/v1` работают read-only. Списки принимают `q` (max80), `city` (slug), `category` (cafe/food/viewpoint/event/garden/museum/landmark), `openNow=true|false`, `limit=1…50` (default50). Дублированные/неизвестные параметры и неправильные значения дают400 `INVALID_QUERY`; отсутствующая запись404 `NOT_FOUND`. При `openNow=true` список пуст: live-расписания не подтверждены. Это честное отсутствие данных, не вычисление «открыто».
+
+Ответ: `{data,meta}`. В meta обязательны `dataset=italy-editorial-demo-v1`, фактический `backend=postgres|bundled`, `availability=ready|database-unavailable|not-seeded|database-not-configured`, `verifiedAt`, `contentLocale=en`, `openingStatus=not-verified`; списки также `total/limit`. Source/media metadata и исходные WGS84 доступны в DTO. При отсутствии БД возвращается явно помеченный bundled sample, без заявления о записи в PostgreSQL. HTTP ошибки не содержат SQL/credentials. Cache-Control:no-store.
+
+`/api/v1` сохраняет совместимую foundation metadata; `/health/live` и `/health/ready` сохранены. Public write/auth/bookmark API отсутствует; bookmarks только browser storage. Следующие разделы — прежний целевой контракт production/routing/trips, он не является перечнем реализованного. Прежние примеры другой географии исторические и не используются текущим каталогом.
+
 Статус: **бизнес-контракты предложены**, 2026-11-18. На этапе1 реализованы только GET /health/live, /health/ready и /api/v1 (metadata {data:{apiVersion:'v1',stage:'foundation'}}). Все places/map/routes/trips/auth endpoints ниже остаются будущими и не имитируются заглушками. Base path `/api/v1`, JSON UTF-8, Node runtime. OpenAPI3.1 для каталога — TRAVEL-010.
 
 ## Общие правила

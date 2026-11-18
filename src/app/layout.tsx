@@ -1,9 +1,52 @@
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
-import './globals.css';
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import localFont from "next/font/local";
+import { getItalyCatalog } from "@/modules/catalog/server";
+import { CatalogProvider } from "@/components/catalog-provider";
+import { MainNavigation, SiteHeader } from "@/components/site-shell";
+import "./globals.css";
 
-export const metadata: Metadata = { title: 'Travel — техническая основа', description: 'Туристическая платформа: технический фундамент.' };
+const display = localFont({
+  src: "../../public/fonts/playfair.ttf",
+  variable: "--font-display",
+  display: "swap",
+});
+const sans = localFont({
+  src: "../../public/fonts/inter.ttf",
+  variable: "--font-sans",
+  display: "swap",
+});
+const mono = localFont({
+  src: "../../public/fonts/jetbrains.ttf",
+  variable: "--font-mono",
+  display: "swap",
+  preload: false,
+});
+export const metadata: Metadata = {
+  title: { default: "terreno — A guide to Italy", template: "%s · terreno" },
+  description:
+    "48 Italian cities. Good places, carefully sourced. Your own pace.",
+};
+export const dynamic = "force-dynamic";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="ru"><body>{children}</body></html>;
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const catalog = await getItalyCatalog();
+  return (
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+    >
+      <body>
+        <CatalogProvider catalog={catalog}>
+          <SiteHeader />
+          {children}
+          <MainNavigation mobile />
+        </CatalogProvider>
+      </body>
+    </html>
+  );
 }

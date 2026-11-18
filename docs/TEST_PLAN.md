@@ -1,5 +1,11 @@
 # План проверки качества
 
+## TERRENO Italy — текущая регрессия
+
+TRAVEL-014…017: полная схема/файлы фото, точный48-city inventory/19 регионов, диакритика/aliases, bounded API input, категории/нет подтверждённых часов; browser saved version/corruption/denial/cross-tab/удаление фильтра; настоящая Mercator geometry и стабильная SSR serialization. Real PostGIS: повторный demo seed, production separation, coordinates/distance, runtime refusal и city-country FK. Исходные DB tests сохранены; counts обновляются с6 миграциями, transaction-fixture checks адресованы исходным UUID, а не предполагают пустоту всей demo-БД.
+
+E2E проверяет пять семейств экранов на1440/768/390/360, реальные фото, поиск/навигацию, ошибки/неизвестные записи, отсутствие runtime/hydration errors и photo fallback. Финальные screenshots и сравнение с PDF — отдельные artifacts. Итоговые команды/числа записываются после свежего полного прогона; старые результаты ниже не считаются подтверждением новых экранов.
+
 Статус: **план продукта и реализованные проверки фундамента**, 2026-11-18. Исторические проверки этапа0: [audit/VALIDATION](audit/VALIDATION.md). Сейчас установлены и реально запускаются unit, real-PostGIS integration, Chromium E2E, strict/lint/build и safety gates; числа/команды в STAGE1_REPORT. CI workflow подготовлен, удалённо не исполнялся. Будущие каталог/auth/planner тесты ниже остаются планом.
 
 ## Стратегия

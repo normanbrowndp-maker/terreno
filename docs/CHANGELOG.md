@@ -2,6 +2,14 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-18 — TERRENO Italy, TRAVEL-014…017
+
+- Прежняя география заменена Италией по новому запросу; PDF визуально исследован, точный48-city inventory извлечён и независимо проверен по country/coordinates/region ancestry.
+- Добавлены пять экранов desktop/mobile, поиск/категории, source/credits page и device-only saved со storage failure/cross-tab обработкой. Типографика/палитра/420px sidebar/88px header следуют PDF; serif явно приблизительный.
+- Отдельная editorial demo-коллекция48/12/17 (города/места/Commons photos); readonly API v1 + общий SSR loader, фактический backend/fallback metadata. Production не выдаётся за заполненный.
+- Существующий PostGIS расширен двумя additive migrations; исходные0…3 неизменны. Реальные Natural Earth/OSM координатные карты с zoom/pan; улицы трёх городов, остальные — явно ограниченный point overview.
+- Добавлены unit/real DB/browser регрессии, сохранены исходные тесты и CI. Локальный docs gate принимает только ранее разрешённый origin terreno. Никакого нового push/deploy.
+
 ## 2026-11-18 — Этап 1, TRAVEL-003…008 / TRAVEL-012
 
 - По прямому разрешению владельца создан локальный Git, baseline cec7ee7 и ветка foundation/stage-1; remote/push отсутствуют. Сохранены исходные docs/AGENTS/скиллы.
