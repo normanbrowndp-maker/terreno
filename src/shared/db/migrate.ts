@@ -4,6 +4,8 @@ import { basename, resolve } from 'node:path';
 import { Client, escapeLiteral } from 'pg';
 import { runner } from 'node-pg-migrate';
 import { assertLocalDatabaseTarget } from './target';
+import { assertDatabaseIdentity } from './identity';
+import { validateMigrationSql } from './safety';
 
 interface MigrationFile { name: string; sql: string; checksum: string }
 const wrapperLock = 23942026;
@@ -15,7 +17,7 @@ export async function migrateDatabase(url: string, purpose: 'development' | 'tes
   for (const filename of (await readdir(directory)).filter((name) => name.endsWith('.sql')).sort()) {
     if (!/^\d{13}_[a-z0-9_]+\.sql$/.test(filename)) throw new Error('Invalid migration filename');
     const sql = (await readFile(resolve(directory, filename), 'utf8')).replace(/\r\n/g, '\n');
-    if (/\b(?:DROP|TRUNCATE)\s+(?:TABLE|SCHEMA|DATABASE)\b/i.test(sql)) throw new Error('Destructive migration is not allowed');
+    validateMigrationSql(sql);
     const name = basename(filename, '.sql');
     files.set(name, { name, sql, checksum: createHash('sha256').update(sql).digest('hex') });
   }
@@ -24,6 +26,7 @@ export async function migrateDatabase(url: string, purpose: 'development' | 'tes
   await db.connect();
   let locked = false;
   try {
+    await assertDatabaseIdentity(db, purpose);
     locked = (await db.query<{ locked: boolean }>('SELECT pg_try_advisory_lock($1) AS locked', [wrapperLock])).rows[0]?.locked === true;
     if (!locked) throw new Error('Migration already running');
     await db.query('CREATE TABLE IF NOT EXISTS public.travel_migration_checksums (name text PRIMARY KEY, checksum text NOT NULL CHECK(length(checksum)=64))');

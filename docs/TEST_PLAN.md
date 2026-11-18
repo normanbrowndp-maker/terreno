@@ -1,6 +1,6 @@
 # План проверки качества
 
-Статус: **предложено для продукта**, 2026-11-18. Проверки этапа0 выполнены отдельно: [audit/VALIDATION](audit/VALIDATION.md). Продуктовых unit/integration/E2E, сборки и CI пока нет; ни один будущий тест не объявляется пройденным.
+Статус: **план продукта и реализованные проверки фундамента**, 2026-11-18. Исторические проверки этапа0: [audit/VALIDATION](audit/VALIDATION.md). Сейчас установлены и реально запускаются unit, real-PostGIS integration, Chromium E2E, strict/lint/build и safety gates; числа/команды в STAGE1_REPORT. CI workflow подготовлен, удалённо не исполнялся. Будущие каталог/auth/planner тесты ниже остаются планом.
 
 ## Стратегия
 
@@ -63,7 +63,7 @@ Web Vitals — цели LCP2.5с/INP200мс/CLS0.1, не результаты. �
 
 ## Команды будущего gate
 
-После TRAVEL-008 предполагаются: `npm ci`, `npm run lint`, `npm run typecheck`, `npm run test:unit`, `npm run test:integration`, `npm run build`; после UI — `npm run test:e2e`. Сейчас эти scripts отсутствуют, команды не запускались. За исключением документационной проверки, результаты по всем наборам продукта: **не выполнено / неприменимо на этапе0**.
+Команды npm ci/lint/typecheck/test:unit/test:integration/build/test:e2e уже созданы и запущены. npm run check объединяет quality gates, включая source/index secrets, immutable skills/docs и зависимость с истекающим dev-review. Integration не пропускается без БД. Будущие пользовательские QA-04…10 не выполнялись за исключением начального UI smoke, поскольку соответствующие функции ещё не реализованы.
 
 ## Отчёт и критерий выхода
 

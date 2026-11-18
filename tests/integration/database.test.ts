@@ -4,18 +4,20 @@ import { readFile, readdir, mkdtemp, copyFile, writeFile, rm } from 'node:fs/pro
 import { tmpdir } from 'node:os';
 import { resolve, join, sep } from 'node:path';
 import { migrateDatabase } from '../../src/shared/db/migrate';
+import { assertDatabaseIdentity } from '../../src/shared/db/identity';
+import { assertTestRuntimeTarget } from '../../src/shared/db/safety';
 
 const url = process.env.TEST_DATABASE_URL!;
 const client = new Client({ connectionString: url });
 
-beforeAll(async () => { await client.connect(); });
+beforeAll(async () => { await client.connect(); await assertDatabaseIdentity(client, 'test'); });
 afterAll(async () => { await client.end(); });
 
 describe('real PostgreSQL/PostGIS foundation', () => {
   it('applies the schema with tracked migration checksums', async () => {
     await migrateDatabase(url, 'test');
     const result = await client.query('SELECT checksum FROM travel_migration_checksums');
-    expect(result.rowCount).toBe(2);
+    expect(result.rowCount).toBe(4);
     expect(result.rows[0].checksum).toMatch(/^[a-f0-9]{64}$/);
   });
   it('does not reapply an already committed migration', async () => {
@@ -89,11 +91,11 @@ describe('real PostgreSQL/PostGIS foundation', () => {
       await writeFile(first, original + '\n-- modified applied migration\n');
       await expect(migrateDatabase(url, 'test', directory)).rejects.toThrow('checksum mismatch');
       await writeFile(first, original);
-      await writeFile(join(directory, '1794960000002_failure.sql'), 'CREATE TABLE transactional_probe(id int); SELECT missing_test_function();');
+      await writeFile(join(directory, '1794960000004_failure.sql'), 'CREATE TABLE transactional_probe(id int); SELECT missing_test_function();');
       await expect(migrateDatabase(url, 'test', directory)).rejects.toMatchObject({ code: '42883' });
       expect((await client.query("SELECT to_regclass('public.transactional_probe') AS name")).rows[0].name).toBeNull();
-      expect((await client.query('SELECT count(*)::int AS count FROM travel_migration_checksums')).rows[0].count).toBe(2);
-      expect((await client.query('SELECT count(*)::int AS count FROM travel_migrations')).rows[0].count).toBe(2);
+      expect((await client.query('SELECT count(*)::int AS count FROM travel_migration_checksums')).rows[0].count).toBe(4);
+      expect((await client.query('SELECT count(*)::int AS count FROM travel_migrations')).rows[0].count).toBe(4);
     } finally {
       if (!resolve(directory).startsWith(resolve(tmpdir()) + sep + 'travel-stage1-migration-')) throw new Error('Unsafe test cleanup path');
       await rm(directory, { recursive: true, force: true });
@@ -101,11 +103,62 @@ describe('real PostgreSQL/PostGIS foundation', () => {
   });
   it('uses a runtime identity without DDL permission', async () => {
     if (!process.env.TEST_RUNTIME_DATABASE_URL) throw new Error('TEST_RUNTIME_DATABASE_URL is required');
+    assertTestRuntimeTarget(url, process.env.TEST_RUNTIME_DATABASE_URL);
     const runtime = new Client({ connectionString: process.env.TEST_RUNTIME_DATABASE_URL });
     await runtime.connect();
     try {
+      await assertDatabaseIdentity(runtime, 'test');
+      await runtime.query('BEGIN');
       expect((await runtime.query('SELECT count(*) FROM places')).rowCount).toBe(1);
       await expect(runtime.query('CREATE TABLE should_not_exist(id int)')).rejects.toMatchObject({ code: '42501' });
-    } finally { await runtime.end(); }
+    } finally { await runtime.query('ROLLBACK'); await runtime.end(); }
+  });
+  it('rejects a source whose unknown license is padded with whitespace', async () => {
+    await client.query('BEGIN');
+    try {
+      await expect(client.query("INSERT INTO data_sources(name,canonical_url,license_code,attribution_text) VALUES('Synthetic','https://example.invalid',' unknown ','Synthetic')")).rejects.toMatchObject({ code: '23514' });
+    } finally { await client.query('ROLLBACK'); }
+  });
+  it('proves runtime has neither schema DDL nor inherited temporary-table privilege', async () => {
+    const runtimeUrl = process.env.TEST_RUNTIME_DATABASE_URL!;
+    assertTestRuntimeTarget(url, runtimeUrl);
+    const runtime = new Client({ connectionString: runtimeUrl });
+    await runtime.connect();
+    try {
+      await assertDatabaseIdentity(runtime, 'test');
+      expect((await runtime.query("SELECT has_database_privilege(current_user,current_database(),'TEMPORARY') AS temp")).rows[0].temp).toBe(false);
+      await runtime.query('BEGIN');
+      await expect(runtime.query('CREATE TEMP TABLE temporary_probe(id int)')).rejects.toMatchObject({ code: '42501' });
+    } finally { await runtime.query('ROLLBACK'); await runtime.end(); }
+  });
+  it('does not write migration metadata when the provisioned identity does not match', async () => {
+    const previous = process.env.TRAVEL_DATABASE_ID;
+    const count = (await client.query('SELECT count(*)::int AS count FROM travel_migrations')).rows[0].count;
+    try {
+      process.env.TRAVEL_DATABASE_ID = 'travel_wrong_project';
+      await expect(migrateDatabase(url, 'test')).rejects.toThrow('Project database identity mismatch');
+    } finally { if (previous === undefined) delete process.env.TRAVEL_DATABASE_ID; else process.env.TRAVEL_DATABASE_ID = previous; }
+    expect((await client.query('SELECT count(*)::int AS count FROM travel_migrations')).rows[0].count).toBe(count);
+  });
+  it('uses the spatial and name indexes on a realistic synthetic dataset without disabling sequential scans', async () => {
+    await client.query('BEGIN');
+    try {
+      await client.query("INSERT INTO countries(code,default_locale) VALUES('KZ','ru'); INSERT INTO regions(id,country_code,code,timezone) VALUES('22222222-2222-4222-8222-222222222222','KZ','synthetic','Asia/Almaty')");
+      await client.query("INSERT INTO places(country_code,region_id,location,timezone) SELECT 'KZ','22222222-2222-4222-8222-222222222222',ST_SetSRID(ST_Point(76.0+(i%100)*0.001,43.0+(i/100)*0.001),4326),'Asia/Almaty' FROM generate_series(1,10000) AS i");
+      await client.query("INSERT INTO place_translations(place_id,locale,name) SELECT id,'ru','Синтетическое место '||row_number() OVER(ORDER BY id) FROM places");
+      // Flush the bulk-load GIN pending list just as post-import maintenance does.
+      // Otherwise the planner correctly prices a fresh pending list above a scan.
+      await client.query("SELECT gin_clean_pending_list('place_names_search'::regclass)");
+      await client.query('ANALYZE places; ANALYZE place_translations');
+      const queries = [
+        ['places_bbox', 'SELECT id FROM places WHERE location && ST_MakeEnvelope(76.001,43.001,76.003,43.003,4326)'],
+        ['places_radius', 'SELECT id FROM places WHERE ST_DWithin(location::geography,ST_SetSRID(ST_Point(76.001,43.001),4326)::geography,100)'],
+        ['place_names_search', "SELECT place_id FROM place_translations WHERE lower(name) LIKE '%место 9876%'"],
+      ] as const;
+      for (const [index, query] of queries) {
+        const plan = (await client.query('EXPLAIN (FORMAT JSON) ' + query)).rows;
+        expect(JSON.stringify(plan)).toContain(index);
+      }
+    } finally { await client.query('ROLLBACK'); await client.query('ANALYZE places; ANALYZE place_translations'); }
   });
 });

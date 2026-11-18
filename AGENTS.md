@@ -53,3 +53,13 @@
 Не удалять существующие функции без необходимости. Не делать destructive migration, не менять неизвестную существующую БД, production или облачную инфраструктуру. Платные API и системные установки требуют отдельного разрешения. Доступный connector не означает разрешение использовать аккаунт. Секреты не читать без необходимости, не помещать в Git/логи/публичный frontend.
 
 Подробности: [WORKFLOW](docs/WORKFLOW.md), [TEST_PLAN](docs/TEST_PLAN.md), [SKILLS_AUDIT](docs/SKILLS_AUDIT.md).
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

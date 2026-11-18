@@ -19,7 +19,7 @@ jobs:
           POSTGRES_USER: travel_admin
           POSTGRES_PASSWORD: local-example
           POSTGRES_DB: postgres
-          POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale-provider=builtin --builtin-locale=C.UTF-8
+          POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale-provider=builtin --builtin-locale=C.UTF-8 --set=cluster_name=travel_foundation_ci
         ports: ["127.0.0.1:55432:5432"]
         options: >-
           --health-cmd "pg_isready -U travel_admin -d postgres"
@@ -27,6 +27,7 @@ jobs:
     env:
       CI: "true"
       NEXT_TELEMETRY_DISABLED: "1"
+      TRAVEL_DATABASE_ID: travel_foundation_ci
       DATABASE_URL: postgresql://travel_runtime:local-example@127.0.0.1:55432/travel_dev
       MIGRATION_DATABASE_URL: postgresql://travel_migrator:local-example@127.0.0.1:55432/travel_dev
       TEST_DATABASE_URL: postgresql://travel_test_migrator:local-example@127.0.0.1:55432/travel_test_foundation
@@ -53,5 +54,5 @@ jobs:
           path: |
             playwright-report/
             test-results/
-            .local/dependency-audit.json
+            artifacts/dependency-audit.json
           retention-days: 7

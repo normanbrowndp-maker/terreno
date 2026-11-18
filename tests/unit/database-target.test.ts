@@ -11,6 +11,8 @@ describe('database isolation guard', () => {
     'postgresql://postgres:example@127.0.0.1:55432/travel_test_foundation',
     'postgresql://travel_test_migrator:example@127.0.0.1:55432/postgres',
     'postgresql://travel_test_migrator:example@127.0.0.1:55432/travel_dev',
+    'postgresql://travel_test_migrator:example@127.0.0.1:55433/travel_test_restore',
+    'postgresql://travel_test_migrator:example@127.0.0.1:55433/%E0',
     'postgresql://travel_test_migrator:example@127.0.0.1:55432/travel_test_foundation?host=remote.example',
   ])('refuses unsafe targets before connecting', (url) => {
     expect(() => assertLocalDatabaseTarget(url, 'test')).toThrow('Unsafe database target');

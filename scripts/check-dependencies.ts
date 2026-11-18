@@ -7,6 +7,8 @@ if (!npm) throw new Error('Run this check through npm run check:dependencies');
 const response = spawnSync(process.execPath, [npm, 'audit', '--json'], { encoding: 'utf8', timeout: 60000, windowsHide: true });
 await mkdir('.local', { recursive: true });
 await writeFile('.local/dependency-audit.json', response.stdout || '{}');
+await mkdir('artifacts', { recursive: true });
+await writeFile('artifacts/dependency-audit.json', response.stdout || '{}');
 const audit = JSON.parse(response.stdout || '{}');
 if (response.error || response.status === null || ![0, 1].includes(response.status) || audit.error || !audit.metadata || !audit.vulnerabilities) {
   throw new Error('Dependency audit could not complete; see ignored .local/dependency-audit.json');

@@ -2,6 +2,16 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-18 — Этап 1, TRAVEL-003…008 / TRAVEL-012
+
+- По прямому разрешению владельца создан локальный Git, baseline cec7ee7 и ветка foundation/stage-1; remote/push отсутствуют. Сохранены исходные docs/AGENTS/скиллы.
+- Добавлены Next.js16.4.6/React19.3.1/TypeScript5.9.3, strict, ESLint, фиксированный lock/runtime, техническая страница и три технических endpoints; пять модулей только как контракты.
+- Подготовлен отдельный portable PG17.12/PostGIS3.7 на55433, случайные ignored credentials, physical cluster/project/purpose guards и runtime без DDL/TEMP. Старые5432/55432 не изменялись.
+- Четыре forward-only SQL миграции, атомарные checksum/history, locks, публикационные/лицензионные ограничения. Реальные unit/integration/Chromium E2E/build и restore проверены; числа/команды — в STAGE1_REPORT.
+- Добавлены check архитектуры, secrets по Git index+worktree, проверка docs с обратимо проверенной LF/CRLF формой, dependency gate с явным истекающим dev-review. Full audit16 high не скрывается, production0.
+- Подготовлен будущий CI с pinned Actions и PostGIS digest; Docker/CI удалённо не запускались. Railway/Neon/SES/Cloudflare только запланированы.
+- Независимый review выявил unsafe target/env/index/CI случаи; исправления закреплены регрессионными тестами и новым SQL. Каталог, карта, маршруты, auth и production не реализовывались.
+
 ## 2026-11-18 — TRAVEL-011: инструкции и выбор скиллов
 
 - После анализа существующих docs создан корневой AGENTS.md: приоритет функциональности/архитектуры/тестов, выбор минимального подходящего набора скиллов и границы разрешённых действий.

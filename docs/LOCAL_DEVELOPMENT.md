@@ -11,9 +11,9 @@ npm run db:migrate
 npm run dev
 ```
 
-Приложение: http://127.0.0.1:3000. PostgreSQL проекта:127.0.0.1:55433. Имеющиеся5432 и55432 не менялись. `db:local` не регистрирует Windows service, использует `.local/postgresql` и `.local/postgres-data`. `start` повторяем: существующие роли/БД/env сохраняются; неизвестный data directory не принимается. Инициализатор проверяет cluster_name и data_directory перед provisioning.
+Приложение: http://127.0.0.1:3000. PostgreSQL проекта:127.0.0.1:55433. Имеющиеся5432 и55432 не менялись. `db:local` не регистрирует Windows service, использует `.local/postgresql` и `.local/postgres-data`. Перед start/stop/config проверяются реальный путь и system identifier из pg_controldata против local state. Перед provisioning — cluster_name/data_directory; существующая БД без marker/проверенного ownership не принимается. Новые/возобновляемые собственные БД регистрируются в state.
 
-Credentials генерируются случайно и хранятся только в ignored `.local/database-state.json` и `.env.local`; не копировать в docs, Git, скриншоты и логи. Если .env.local уже есть, setup его не перезаписывает: при несоответствии адресов корректировать свой env вручную, не сбрасывать БД. Остановка: `npm run db:local -- stop`; статус: `npm run db:local -- status`.
+Credentials генерируются случайно и хранятся только в ignored `.local/database-state.json` и `.env.local`; не копировать в docs/Git/логи. TRAVEL_DATABASE_ID должен совпадать с provisioned project/cluster marker. Setup не меняет существующие credentials/env URL; отсутствующий служебный ID добавляется. При несоответствии корректировать свой env вручную, не сбрасывать БД. Остановка: `npm run db:local -- stop`; статус: `npm run db:local -- status`. Известный minor: временный ignored initdb-password.txt пока сохраняется; см. ISSUES.
 
 При запуске через Codex Windows sandbox tsx может не иметь доступа к Windows userInfo. В этой сессии необходимые команды запускались разрешённым способом от владельца папки; это не требует изменения глобальных настроек ОС. Обычный пользовательский PowerShell запускает их напрямую.
 
@@ -45,9 +45,9 @@ npm run check
 
 ## Миграции и роли
 
-`db:migrate` использует MIGRATION_DATABASE_URL/travel_migrator/travel_dev. `db:migrate -- --test` — TEST_DATABASE_URL/travel_test_migrator/travel_test_foundation. Каждый URL проходит loopback/name/role/port guard до подключения. Runtime DATABASE_URL — travel_runtime, только SELECT каталога; суперпользователь не используется веб-приложением.
+`db:migrate` использует MIGRATION_DATABASE_URL/travel_migrator/travel_dev. `db:migrate -- --test` — TEST_DATABASE_URL/travel_test_migrator/**travel_test_foundation**. Guard допускает только числовой loopback, известные порты, конкретные роли/назначения; restore-имена не принимаются обычными тестами. После подключения — readonly marker/project/purpose check до первого DDL/fixture. Runtime — travel_runtime, SELECT каталога без CREATE/TEMPORARY. TEST_RUNTIME_DATABASE_URL обязан совпадать с host/port/database тестового migrator и иметь travel_test_runtime; пробный DDL всегда обёрнут BEGIN/ROLLBACK.
 
-PostGIS и pg_trgm provisioned отдельным admin только в новых БД. Node-pg-migrate9 запускает SQL forward-only, с advisory locks и общей транзакцией. Checksum пишется атомарно вместе с каждой миграцией; изменение применённого файла блокируется. Новые исправления — новым SQL-файлом. Build/start автоматически миграции не применяют.
+PostGIS, pg_trgm и неизменяемый для runtime/migrator identity marker provisioned отдельным admin. Node-pg-migrate9 запускает SQL forward-only, с locks и общей транзакцией. Checksum атомарен; изменение применённого файла блокируется. Консервативный preflight отвергает DROP/TRUNCATE/DELETE FROM, включая ALTER DROP; это дополнительная защита, не разрешение выполнять произвольный недоверенный SQL. Новые исправления — новым SQL. Build/start миграции не применяют.
 
 ## Качество и endpoints
 

@@ -1,1 +1,1 @@
-export const foundationMigration = '1794960000001_publication_move_guard';
+export const foundationMigration = '1794960000003_runtime_privileges';

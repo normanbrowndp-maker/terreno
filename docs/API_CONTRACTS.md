@@ -1,6 +1,6 @@
 # Проект API-контрактов
 
-Статус: **предложено**, 2026-11-18. **Ни один endpoint ещё не реализован.** Base path `/api/v1`, JSON UTF-8, runtime Node. Перед реализацией каталога оформить OpenAPI 3.1 и contract tests (TRAVEL-010). Auth endpoints зависят от будущей библиотеки и не выдумываются сейчас.
+Статус: **бизнес-контракты предложены**, 2026-11-18. На этапе1 реализованы только GET /health/live, /health/ready и /api/v1 (metadata {data:{apiVersion:'v1',stage:'foundation'}}). Все places/map/routes/trips/auth endpoints ниже остаются будущими и не имитируются заглушками. Base path `/api/v1`, JSON UTF-8, Node runtime. OpenAPI3.1 для каталога — TRAVEL-010.
 
 ## Общие правила
 

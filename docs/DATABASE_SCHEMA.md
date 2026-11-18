@@ -1,12 +1,12 @@
 # Проект схемы данных
 
-Статус: **предложено**, 2026-11-18. Таблицы, расширения и миграции **не созданы**. Каталог — реализация этапа 1/2; аккаунты и личные данные — этапа 5. Связанные задачи: TRAVEL-006, TRAVEL-007, TRAVEL-009.
+Статус: **каталожная основа создана на этапе1**, 2026-11-18. В изолированных dev/test БД применены четыре forward-only миграции; PostGIS/pg_trgm и admin-owned marker provisioned отдельно. Реальных POI/пилотных seed нет. Аккаунты/поездки/личные данные ниже — проект этапа5, их таблицы не созданы. Связанные задачи: TRAVEL-006/007; контент — будущая TRAVEL-009.
 
 ## Соглашения
 
 UUID для сущностей (генерировать UUIDv4), text + CHECK для конечных статусов, timestamptz для технического времени, date для календарных дат, IANA timezone как text с валидацией библиотекой. `created_at`, `updated_at` устанавливаются сервером, не принимаются произвольно из API. Все обязательные FK индексируются по реальным query patterns. Не создавать весь будущий набор таблиц на этапе 1.
 
-Основное местоположение: `geography(Point,4326)`; longitude ∈ [-180,180], latitude ∈ [-90,90]. Геометрия участка маршрута — `geometry(LineString,4326)`, а не массив произвольных JSON-координат. Внешние GeoJSON всегда `[longitude, latitude]`. KZ-only — ограничение набора контента, не ограничение координатной модели.
+Основное местоположение: **geometry(Point,4326)** с CHECK longitude ∈ [-180,180], latitude ∈ [-90,90] и not-empty; для метров используется cast в geography. Решение этапа1: geography нормализует выход за диапазон до CHECK, geometry позволяет отклонить181° непосредственно в БД. Геометрия будущего маршрута — geometry(LineString,4326). GeoJSON всегда `[longitude, latitude]`. KZ-only — ограничение контента, не координатной модели.
 
 ## Каталог: первая схема
 
@@ -18,21 +18,21 @@ UUID для сущностей (генерировать UUIDv4), text + CHECK �
 | region_translations | region_id FK, locale, name | PK(region_id,locale) |
 | categories | id UUID PK, code text UNIQUE | стабильные машинные коды |
 | category_translations | category_id FK, locale, name | PK(category_id,locale) |
-| places | id UUID PK, country_code FK, region_id, location geography, status text, visit_duration_minutes int nullable, timezone text, address_text nullable, verified_at timestamptz nullable, version int default 1, created_at, updated_at | FK(region_id,country_code) → regions(id,country_code); status draft/published/archived; duration 1…1440, version >0 |
+| places | id UUID PK, country_code FK, region_id, location geometry(Point,4326), status text, visit_duration_minutes int nullable, timezone text, address_text nullable, verified_at timestamptz nullable, version int default 1, created_at, updated_at | FK(region_id,country_code) → regions(id,country_code); status draft/published/archived; duration 1…1440, version >0; range/not-empty CHECK |
 | place_translations | place_id FK, locale, name, description text nullable | PK(place_id,locale); name 1…200; description plain text ≤20 000 |
 | place_categories | place_id FK, category_id FK | PK(place_id,category_id) |
 | data_sources | id UUID PK, name text, canonical_url text, license_code text, attribution_text text | URL и лицензия обязательны; неизвестная лицензия не считается разрешённой |
 | place_sources | place_id FK, source_id FK, external_id text nullable, source_url text, retrieved_at timestamptz, checked_at timestamptz | PK(place_id,source_id); partial UNIQUE(source_id,external_id) WHERE external_id IS NOT NULL |
 | place_media | id UUID PK, place_id FK, storage_key text, alt_text text, author text nullable, license_code text, source_url text, position int | позиция ≥0, UNIQUE(place_id,position); без произвольного browser URL upload |
 
-Локали первого выпуска: ru/kk/en, валидируются allowlist. Возможность добавить локаль через конфигурацию и миграцию ограничений; не размножать колонки name_ru/name_kk на каждой сущности. Место перед публикацией должно иметь ≥1 перевод, ≥1 категорию, ≥1 проверенный лицензированный источник и verified_at. Наличие дочерней записи нельзя гарантировать простым CHECK: публикация и изменение источников/переводов выполняются в одной транзакции с блокировкой места и integration-тестами инварианта. Если будут независимые писатели в БД — добавить deferred constraint trigger до их допуска. Runtime не получает прямой публичный Data API.
+Локали ru/kk/en подтверждены владельцем и ограничены CHECK. Место перед публикацией должно иметь ≥1 перевод, ≥1 категорию, ≥1 проверенный лицензированный источник и verified_at. **Deferred constraint triggers уже созданы**: блокируют родительское место и проверяют инвариант, включая оба места при переносе дочерней записи. Runtime каталога имеет только SELECT; публичного Data API нет. Текст лицензии/даты — структурная проверка, не автоматическое юридическое подтверждение источника.
 
 На первом этапе часы работы и сезонность — проверенный текст с источником в описании. Не интерпретировать текст как структурированное расписание. Отдельная будущая таблица `place_opening_rules` нужна только перед планированием: day_of_week, local open/close time, valid_from/to, exceptions и timezone. Для неё потребуются отдельный ADR и миграция этапа 6; неизвестное расписание остаётся неизвестным. Цены и доступность инвалидной коляски не выводятся из отсутствующих данных.
 
 ## Индексы каталога
 
 - B-tree `places(status,country_code,region_id,id)` для публичных фильтров/порядка; дополнительный `(status,updated_at DESC,id)` только при использовании этой сортировки.
-- GiST по `places.location` для geography/ST_DWithin; expression GiST по `(location::geometry)` для bbox, если выбран такой SQL. EXPLAIN на тестовом объёме подтверждает соответствие выражений.
+- Реализованы GiST по places.location для bbox и expression GiST по `(location::geography)` для ST_DWithin в метрах. EXPLAIN на реалистичном synthetic объёме нужен до API/performance приёмки; результат указывается в STAGE1_REPORT, не подразумевается наличием индекса.
 - pg_trgm GIN по нормализованному `lower(name)` в place_translations для ILIKE/substring; вход и индекс используют одинаковую нормализацию. Длина q минимум 2, максимум 100.
 - `place_categories(category_id,place_id)` в дополнение к PK; индексы по FK region/place/source согласно доступу.
 - В небольших таблицах planner может обоснованно выбрать seq scan: приёмка не требует искусственно отключать его ради индекса. Использовать реалистичный набор в 10 000 синтетических мест.
@@ -76,4 +76,4 @@ UUID для сущностей (генерировать UUIDv4), text + CHECK �
 5. Проверить ограничения/индексы, ошибки данных и smoke каталога; зафиксировать результат в CHANGELOG.
 6. Миграции в production — только отдельное разрешение. Откат приложения требует обратно совместимой схемы; destructive down не является штатным rollback.
 
-Настоящий файл — модель, а не SQL для применения к существующему серверу. Версионная таблица мигратора появится при его настройке. PostGIS должен быть проверен через PostGIS_Version() в новой разрешённой БД; наличие файлов расширения само по себе недостаточно.
+Текущий SQL: [каталог](../db/migrations/1794960000000_catalog.sql), [reparent-инвариант](../db/migrations/1794960000001_publication_move_guard.sql), [нормализация лицензии](../db/migrations/1794960000002_license_normalization.sql), [runtime TEMP privileges](../db/migrations/1794960000003_runtime_privileges.sql). History: public.travel_migrations; checksum: public.travel_migration_checksums. Применённые файлы неизменны, SQL/checksum атомарны. До первого DDL выполняется readonly проверка admin-owned public.travel_database_identity: project_id, purpose и cluster_name. Marker не переносится из dump на другую БД. PostGIS_Version(), distance и EXPLAIN bbox/radius/name на10k synthetic проверены; GIN после bulk load получает штатный pending-list flush, seqscan не отключается.

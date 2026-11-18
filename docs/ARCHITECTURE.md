@@ -1,6 +1,6 @@
 # Предлагаемая архитектура
 
-Статус: **предложено**, 2026-11-18. Ничего из описанной структуры ещё не создано. Решение владельца: TRAVEL-003 / ADR-001. Фактический исходный проект — в AUDIT_REPORT.
+Статус: **модульный монолит Next.js/TypeScript + PostgreSQL/PostGIS утверждён владельцем**, 2026-11-18. Минимальная структура и инфраструктурные проверки созданы на этапе1; routing/auth/trips implementations, planner и карта остаются будущими. Исходное состояние сохранено в AUDIT_REPORT; текущее — в STAGE1_REPORT. Ниже сравнение вариантов и целевая модель, не заявление о готовности всего продукта.
 
 ## Варианты
 
@@ -27,7 +27,7 @@
 | Тестирование | Vitest + PostgreSQL/PostGIS integration + Playwright Test | Проверять логику, реальную геобазу и сценарии браузера разными слоями |
 | Локальный запуск | npm + один web-процесс + изолированный PostGIS | Docker Compose предпочтителен для воспроизводимости; native-вариант требует явного решения |
 
-Версии на этапе 0 **не установлены и не зафиксированы**. В TRAVEL-005/006 выбрать совместимые поддерживаемые stable-версии, проверить advisories, зафиксировать exact runtime/package manager, npm lock и immutable container digest. Не использовать floating latest в воспроизводимой среде. Для PostgreSQL предлагается ветка 17 с совместимой поддерживаемой PostGIS 3.x; окончательная пара зависит от проверенного образа. Имеющийся psql 16.1 не обязывает менять или использовать существующий сервер.
+На этапе0 версии не были установлены. На этапе1 закреплены Node26.13.1/npm11.20.0, Next16.4.6/React19.3.1/TypeScript5.9.3, pg8.23.1, node-pg-migrate9, Vitest5.1, Playwright1.65.1. Native Postgres17.12/PostGIS3.7 проверены; Compose/CI image17-3.7 закреплён digest. ESLint9.39.5 выбран из-за peers; EOL и upstream dev advisory явно разобраны в DEPENDENCY_REVIEW. Существующий PostgreSQL16/psql16.1 не изменялся.
 
 Официальная [документация установки Next.js](https://nextjs.org/docs/app/getting-started/installation) — источник runtime/React prerequisites; [политика Node](https://nodejs.org/en/about/previous-releases) — для выбора LTS, а не предположение по установленной версии. Проверить совместимость инструментов с выбранным Node до фиксации. [Политика PostgreSQL](https://www.postgresql.org/support/versioning/) — для оценки поддержки и обновлений, без автоматического обновления локальной службы.
 
@@ -95,7 +95,7 @@ docs/                          # настоящий пакет документ�
 
 **Каталог:** parse/normalize query → use case → repository с allowlisted ORDER BY и параметрами → bounded SELECT → DTO. Поиск по имени перевода; JSON не содержит служебные поля БД. Independent fetches выполняются параллельно там, где это действительно устраняет waterfall. Не загружать всю страну ради списка/карты.
 
-**Радиус:** публичная точка хранится как geography(Point,4326); расстояние в метрах через ST_DWithin и GiST. Для bbox использовать корректное выражение geometry и совпадающий индекс. Не использовать cast, который лишает запрос нужного индекса, без EXPLAIN. Поведение функции и единицы сверены по [PostGIS ST_DWithin](https://postgis.net/docs/ST_DWithin.html).
+**Радиус:** точка хранится как geometry(Point,4326) с CHECK longitude/latitude; geography автоматически нормализует невалидные координаты до CHECK и потому не выбрана каноническим типом. Для метров — `location::geography`, ST_DWithin и соответствующий expression GiST; для bbox — отдельный GiST geometry. Не использовать cast без совпадающего индекса и EXPLAIN. Поведение единиц сверено по [PostGIS ST_DWithin](https://postgis.net/docs/ST_DWithin.html); реальная distance-query проверена integration.
 
 **Поездка:** auth → owner-scoped SELECT/version check → одна транзакция замены stop-порядка и версии → commit → приватный DTO. При конкурентной правке 409 и перечитывание, без last-write-wins. Provider HTTP не держит открытую транзакцию. Геометрия/время расчёта хранятся snapshot и помечаются stale после правки остановок или исходных координат.
 
@@ -111,13 +111,13 @@ docs/                          # настоящий пакет документ�
 
 ## Локальная среда и эксплуатация
 
-Предложение: web на loopback 3000, изолированный PostGIS на loopback **55432**, отдельные dev/test роли и БД. Не занимать 5432 существующей службы. Docker команда сейчас не обнаружена; установку Docker/WSL и изменение системных настроек сначала согласовать. Native PostgreSQL — допустимый альтернативный способ только после проверки владельца существующего экземпляра и PostGIS. Не подключаться к неизвестной существующей БД.
+Реализовано: web loopback3000; отдельный portable PostgreSQL/PostGIS loopback**55433**; отдельные dev/test/runtime/migrator роли и БД. 5432 и55432 заняты существующими listener и не меняются. Docker/WSL не устанавливались; native бинарники и data directory только в ignored .local, с проверкой владения cluster. Compose предложен как альтернативный воспроизводимый запуск на машине с Docker, здесь не исполнялся.
 
 Будущие переменные: DATABASE_URL (runtime), MIGRATION_DATABASE_URL, TEST_DATABASE_URL, APP_BASE_URL, выбранные provider endpoints; секретные значения не публиковать. `.env.example` содержит только вымышленные локальные значения. Перед integration/reset проверить loopback host, отдельное имя `travel_test_*` и роль; одного NODE_ENV недостаточно. Destructive reset dev/production запрещён.
 
-Будущие команды npm: dev, build, lint, typecheck, test:unit, test:integration, test:e2e, db:migrate, db:seed; точные scripts появятся только на этапе 1. CI использует временную тестовую БД и не получает production credentials. Миграции не запускаются автоматически из build/start приложения. Readiness проверяет соединение/версию схемы, health — жизнь процесса; логи структурированы и редактируют секреты.
+Команды dev/build/lint/typecheck/test:unit/test:integration/test:e2e/db:migrate и quality scripts созданы; db:seed отложен до проверенного контента. CI-конфигурация подготовлена с disposable PostGIS и без production credentials, на GitHub не запускалась. Миграции не запускаются из build/start. Readiness проверяет соединение/PostGIS/последнюю миграцию, live — процесс; ошибки не возвращают SQL/credentials.
 
-До появления личных данных нужен проверенный restore. Облачный провайдер, регион размещения, production SLA/RPO/RTO, почта и observability backend пока не выбраны. Создание ресурсов и платных интеграций не разрешено этим проектом архитектуры.
+Restore проверен в отдельной новой test DB. Владелец задал будущую инфраструктуру Railway+Neon+AWS SES+Cloudflare; регион, production SLA/RPO/RTO и настройки интеграций ещё не определены. Создание ресурсов, подключение аккаунтов/почты/платных API и deploy сейчас не разрешены.
 
 ## Карты и внешние данные
 

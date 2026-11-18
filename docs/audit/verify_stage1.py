@@ -12,10 +12,17 @@ root = Path(__file__).resolve().parents[2]
 docs = root / 'docs'
 failures = []
 baseline = json.loads((docs / 'audit/baseline.json').read_text(encoding='utf-8-sig'))
+canonical_lf = 0
 for item in baseline:
     path = root / item['Path'].replace('\\', '/')
-    if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != item['SHA256']:
-        failures.append('Original skill/lock changed: ' + item['Path'])
+    if not path.is_file(): failures.append('Original skill/lock missing: ' + item['Path']); continue
+    data = path.read_bytes()
+    if hashlib.sha256(data).hexdigest() != item['SHA256']:
+        # Git stores LF because of .gitattributes. Accept ONLY a pure LF file
+        # whose exact CRLF reconstruction reproduces the historical SHA-256.
+        if b'\r' not in data and hashlib.sha256(data.replace(b'\n', b'\r\n')).hexdigest() == item['SHA256']:
+            canonical_lf += 1
+        else: failures.append('Original skill/lock changed: ' + item['Path'])
 required = ['PROJECT_VISION', 'TECHNICAL_SPECIFICATION', 'ARCHITECTURE', 'DATABASE_SCHEMA', 'API_CONTRACTS', 'ROADMAP', 'TEST_PLAN', 'ISSUES', 'CHANGELOG', 'DECISIONS', 'STAGE1_PLAN', 'STAGE1_REPORT', 'LOCAL_DEVELOPMENT', 'BACKUP_RESTORE', 'DEPENDENCY_REVIEW']
 for name in required:
     if not (docs / (name + '.md')).is_file(): failures.append('Missing document: ' + name)
@@ -39,5 +46,5 @@ if remotes.returncode or (not os.environ.get('CI') and remotes.stdout.strip()): 
 ignored = ['.env.local', '.local/database-state.json', '.local/backups/private.dump', 'node_modules/package.json', 'test-results/result.json']
 for path in ignored:
     if subprocess.run([*git, 'check-ignore', '-q', path]).returncode: failures.append('Sensitive/generated path not ignored: ' + path)
-print(json.dumps({'status': 'FAIL' if failures else 'PASS', 'original_hashes_checked': len(baseline), 'markdown_files': len(markdown), 'failures': failures}, indent=2, ensure_ascii=True))
+print(json.dumps({'status': 'FAIL' if failures else 'PASS', 'original_hashes_checked': len(baseline), 'canonical_LF_verified': canonical_lf, 'markdown_files': len(markdown), 'failures': failures}, indent=2, ensure_ascii=True))
 sys.exit(1 if failures else 0)

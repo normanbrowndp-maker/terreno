@@ -3,6 +3,7 @@ import { Pool } from 'pg';
 import { parseServerConfig } from '@/shared/config/env';
 import { assertLocalDatabaseTarget } from './target';
 import { foundationMigration } from './schema-version';
+import { assertDatabaseIdentity } from './identity';
 
 let pool: Pool | undefined;
 
@@ -19,6 +20,8 @@ function runtimePool(): Pool {
 
 export async function checkDatabaseReadiness(): Promise<void> {
   const db = runtimePool();
+  const target = assertLocalDatabaseTarget(parseServerConfig(process.env).databaseUrl!, 'runtime');
+  await assertDatabaseIdentity(db, target.database === 'travel_dev' ? 'development' : 'test');
   const result = await db.query<{ ready: boolean }>(
     `SELECT EXISTS (SELECT 1 FROM public.travel_migrations WHERE name = $1)
        AND EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'postgis') AS ready`,
