@@ -1,0 +1,135 @@
+﻿{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "checkpoint_manifest_count",
+      "passed": true,
+      "detail": 188
+    },
+    {
+      "check": "protected_files_unchanged",
+      "passed": true,
+      "detail": "184 protected files match; only 4 analyzed files may change"
+    },
+    {
+      "check": "exact_modified_scope",
+      "passed": true,
+      "detail": [
+        "docs/audit/verify_stage0.py",
+        "docs/CHANGELOG.md",
+        "docs/README.md",
+        "docs/SKILLS_AUDIT.md"
+      ]
+    },
+    {
+      "check": "exact_new_scope",
+      "passed": true,
+      "detail": [
+        "AGENTS.md",
+        "docs/WORKFLOW.md",
+        "docs/audit/WORKFLOW_VALIDATION.md",
+        "docs/audit/skill_scan.json",
+        "docs/audit/verify_workflow.py",
+        "docs/audit/workflow_baseline.json",
+        "docs/audit/workflow_validation.json"
+      ]
+    },
+    {
+      "check": "root_policy",
+      "passed": true,
+      "detail": "Priorities, scope, skill selection, docs and safety present"
+    },
+    {
+      "check": "five_skill_definitions",
+      "passed": true,
+      "detail": [
+        "frontend-design",
+        "ui-ux-pro-max",
+        "vercel-composition-patterns",
+        "vercel-react-best-practices",
+        "web-design-guidelines"
+      ]
+    },
+    {
+      "check": "no_skill_bytecode",
+      "passed": true,
+      "detail": "Smoke/scanner must not alter installed packages"
+    },
+    {
+      "check": "travel_011_task_fields",
+      "passed": true,
+      "detail": "7 required task fields"
+    },
+    {
+      "check": "stage0_regression",
+      "passed": true,
+      "detail": {
+        "status": "PASS",
+        "scope": "Documentation/baseline only; no product tests",
+        "checks": [
+          {
+            "check": "required_documents",
+            "passed": true,
+            "detail": "10 required Markdown documents"
+          },
+          {
+            "check": "baseline_count",
+            "passed": true,
+            "detail": "170"
+          },
+          {
+            "check": "originals_unchanged",
+            "passed": true,
+            "detail": "170 hashes match"
+          },
+          {
+            "check": "no_out_of_scope_files",
+            "passed": true,
+            "detail": "Only docs and authorized root AGENTS.md added"
+          },
+          {
+            "check": "local_markdown_links",
+            "passed": true,
+            "detail": "All local targets exist"
+          },
+          {
+            "check": "markdown_fences",
+            "passed": true,
+            "detail": "Balanced code fences"
+          },
+          {
+            "check": "first_ten_tasks",
+            "passed": true,
+            "detail": "TRAVEL-001, TRAVEL-002, TRAVEL-003, TRAVEL-004, TRAVEL-005, TRAVEL-006, TRAVEL-007, TRAVEL-008, TRAVEL-009, TRAVEL-010"
+          },
+          {
+            "check": "task_required_fields",
+            "passed": true,
+            "detail": "7 fields in each task"
+          },
+          {
+            "check": "roadmap_stages_0_to_8",
+            "passed": true,
+            "detail": "9 stage rows"
+          },
+          {
+            "check": "five_skills_present",
+            "passed": true,
+            "detail": "Original five skills, including ui-ux-pro-max"
+          },
+          {
+            "check": "no_product_manifests",
+            "passed": true,
+            "detail": "No scaffolding, dependency install or git init"
+          }
+        ],
+        "passed": 11,
+        "failed": 0,
+        "markdown_files": 18
+      }
+    }
+  ],
+  "passed": 9,
+  "failed": 0,
+  "scope": "Instructions/docs only; no application tests"
+}

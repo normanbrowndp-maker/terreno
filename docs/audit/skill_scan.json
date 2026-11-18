@@ -1,0 +1,171 @@
+{
+  "task": "TRAVEL-011",
+  "date": "2026-11-18",
+  "method": "Existing skill-scanner via python -B; PyYAML already installed; no dependency installs",
+  "scope": "Structural pattern scan, not a complete security certification",
+  "results": [
+    {
+      "skill": "frontend-design",
+      "exit": 0,
+      "frontmatter_name": "frontend-design",
+      "finding_counts": {},
+      "tools": null,
+      "findings": []
+    },
+    {
+      "skill": "ui-ux-pro-max",
+      "exit": 0,
+      "frontmatter_name": "ui-ux-pro-max",
+      "finding_counts": {
+        "high": 17
+      },
+      "tools": null,
+      "findings": [
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_catalog_refresh.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_catalog_summary_line_endings.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_core.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_core_data_quality.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_data_contracts.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_design_system_mode.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_design_system_preview.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_design_system_stack.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_design_system_tokens.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_ime_composition.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_native_desktop_stack_freshness.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_relevance_evaluator.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_rtl_support.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_skill_script_paths.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_style_taxonomy.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_text_layout_resilience.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        },
+        {
+          "type": "Test File Auto-Discovery",
+          "severity": "high",
+          "location": "scripts\\tests\\test_web_stack_freshness.py",
+          "description": "pytest discovers and runs test_*.py files automatically. Bundled test files execute as a side effect of running the test suite — review file contents for hidden payloads.",
+          "category": "Test File RCE"
+        }
+      ]
+    },
+    {
+      "skill": "vercel-composition-patterns",
+      "exit": 0,
+      "frontmatter_name": "vercel-composition-patterns",
+      "finding_counts": {},
+      "tools": null,
+      "findings": []
+    },
+    {
+      "skill": "vercel-react-best-practices",
+      "exit": 0,
+      "frontmatter_name": "vercel-react-best-practices",
+      "finding_counts": {},
+      "tools": null,
+      "findings": []
+    },
+    {
+      "skill": "web-design-guidelines",
+      "exit": 0,
+      "frontmatter_name": "web-design-guidelines",
+      "finding_counts": {},
+      "tools": null,
+      "findings": []
+    }
+  ],
+  "interpretation": "All 17 ui-ux-pro-max flags concern test file discovery. Malicious execution was not established; tests were not run."
+}

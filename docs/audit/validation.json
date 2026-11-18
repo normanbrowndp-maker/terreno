@@ -1,0 +1,69 @@
+﻿{
+  "status": "PASS",
+  "scope": "Documentation/baseline only; no product tests",
+  "checks": [
+    {
+      "check": "required_documents",
+      "passed": true,
+      "detail": "10 required Markdown documents"
+    },
+    {
+      "check": "baseline_count",
+      "passed": true,
+      "detail": "170"
+    },
+    {
+      "check": "originals_unchanged",
+      "passed": true,
+      "detail": "170 hashes match"
+    },
+    {
+      "check": "checkpoint_matches",
+      "passed": true,
+      "detail": "170 backup hashes match"
+    },
+    {
+      "check": "no_out_of_scope_files",
+      "passed": true,
+      "detail": "Only docs added"
+    },
+    {
+      "check": "local_markdown_links",
+      "passed": true,
+      "detail": "All local targets exist"
+    },
+    {
+      "check": "markdown_fences",
+      "passed": true,
+      "detail": "Balanced code fences"
+    },
+    {
+      "check": "first_ten_tasks",
+      "passed": true,
+      "detail": "TRAVEL-001, TRAVEL-002, TRAVEL-003, TRAVEL-004, TRAVEL-005, TRAVEL-006, TRAVEL-007, TRAVEL-008, TRAVEL-009, TRAVEL-010"
+    },
+    {
+      "check": "task_required_fields",
+      "passed": true,
+      "detail": "7 fields in each task"
+    },
+    {
+      "check": "roadmap_stages_0_to_8",
+      "passed": true,
+      "detail": "9 stage rows"
+    },
+    {
+      "check": "five_skills_present",
+      "passed": true,
+      "detail": "Original five skills, including ui-ux-pro-max"
+    },
+    {
+      "check": "no_product_manifests",
+      "passed": true,
+      "detail": "No scaffolding, dependency install or git init"
+    }
+  ],
+  "passed": 12,
+  "failed": 0,
+  "markdown_files": 15
+}
