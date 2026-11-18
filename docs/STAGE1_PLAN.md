@@ -2,7 +2,7 @@
 
 Дата: 2026-11-18. Основание: владелец утвердил модульный монолит Next.js/TypeScript, PostgreSQL/PostGIS, версионируемый API, пилот Астана/Алматы/Бурабай, данные ru/kk/en и разрешил локальную разработку этапа1. Railway/Neon/AWS SES/Cloudflare — планируемые интеграции, без развёртывания и подключения.
 
-Исполнение: последовательно в текущей папке, по TRAVEL-003…008. Существующие документы и скиллы сохраняются. Состояние и фактические результаты фиксируются в STAGE1_REPORT. Первые этапы каталога, карты, маршрутизации и авторизации не реализуются.
+Исполнение: последовательно в текущей папке, по TRAVEL-003…008 и TRAVEL-012. Существующие документы и скиллы сохраняются. Состояние и фактические результаты фиксируются в STAGE1_REPORT. Первые этапы каталога, карты, маршрутизации и авторизации не реализуются.
 
 ## Цель и структура
 
@@ -20,34 +20,34 @@
 
 ### TRAVEL-003/004 — решения, Git и checkpoint
 
-- [ ] Проверить файлы/настройки/резервные копии; создать проверенную копию текущего состояния.
-- [ ] Создать безопасные .gitignore/.gitattributes, локальный Git и author из предоставленного email; просмотреть staging и выполнить проверку секретов перед commit.
-- [ ] Сохранить baseline commit; работать на foundation/stage-1 без remote/push. Текущая папка задана пользователем, дополнительный worktree не создаётся.
-- [ ] Адресно записать утверждённые решения, не считать выбранным провайдер routing/auth.
+- [x] Проверить файлы/настройки/резервные копии; создать проверенную копию текущего состояния.
+- [x] Создать безопасные .gitignore/.gitattributes, локальный Git и author из предоставленного email; просмотреть staging и выполнить проверку секретов перед commit.
+- [x] Сохранить baseline commit; работать на foundation/stage-1 без remote/push. Текущая папка задана пользователем, дополнительный worktree не создаётся.
+- [x] Адресно записать утверждённые решения, не считать выбранным провайдер routing/auth.
 
 ### TRAVEL-005 — Next.js и unit quality
 
-- [ ] Уточнить stable-версии; закрепить зависимости/lock и npm scripts.
-- [ ] Сначала failing tests: безопасная env validation, loopback DB-target guard, координаты и locale fallback.
-- [ ] Реализовать минимальные config/domain helpers; доказать GREEN без утечки значений.
-- [ ] Добавить стартовую страницу, live/readiness, versioned API contract metadata; тестировать HTTP и явные503 без БД.
-- [ ] Проверить lint/typecheck/unit/build, commit.
+- [x] Уточнить stable-версии; закрепить зависимости/lock и npm scripts.
+- [x] Сначала failing tests: безопасная env validation, loopback DB-target guard, координаты и locale fallback.
+- [x] Реализовать минимальные config/domain helpers; доказать GREEN без утечки значений.
+- [x] Добавить стартовую страницу, live/readiness, versioned API contract metadata; тестировать HTTP и явные503 без БД.
+- [x] Проверить lint/typecheck/unit/build, commit.
 
 ### TRAVEL-006/007 — изолированная БД и миграции
 
-- [ ] Проверить доступность локального PostgreSQL/PostGIS без записи в существующие БД. Изолированная среда: loopback55432/55433 или Compose, собственный data directory.
-- [ ] Подготовить versioned SQL migration runner с advisory lock, checksum, транзакцией, запретом destructive SQL и отдельной runtime ролью.
-- [ ] Подготовить только catalog/geography schema по DATABASE_SCHEMA; будущие аккаунты/поездки остаются интерфейсами.
-- [ ] Integration: fresh/repeat/checksum/FK/publication/rollback, PostGIS метры, runtime rights; тестовые БД только с guard и без reset чужих данных.
-- [ ] Доказать dump→restore в отдельную новую БД, если среда доступна; commit.
+- [x] Проверить доступность локального PostgreSQL/PostGIS без записи в существующие БД. Изолированная среда: loopback55432/55433 или Compose, собственный data directory.
+- [x] Подготовить versioned SQL migration runner с advisory lock, checksum, транзакцией, запретом destructive SQL и отдельной runtime ролью.
+- [x] Подготовить только catalog/geography schema по DATABASE_SCHEMA; будущие аккаунты/поездки остаются интерфейсами.
+- [x] Integration: fresh/repeat/checksum/FK/publication/rollback, PostGIS метры, runtime rights; тестовые БД только с guard и без reset чужих данных.
+- [x] Доказать dump→restore в отдельную новую БД, если среда доступна; commit.
 
 ### TRAVEL-008 — CI и итоговая регрессия
 
-- [ ] Vitest раздельно unit/DB integration; Playwright для smoke foundation, не для будущих функций.
-- [ ] GitHub Actions без remote: frozen install/lint/typecheck/unit/real-PostGIS integration/build/E2E.
-- [ ] Архитектурная проверка импортов, безопасные error DTO, secret scan staged/tracked, локальный dev/production HTTP smoke.
-- [ ] Независимый итоговый code review по executing-plans; исправить значимые findings, повторить релевантные проверки.
-- [ ] Обновить README/docs/статусы по фактическим результатам; итоговый локальный commit без push.
+- [x] Vitest раздельно unit/DB integration; Playwright для smoke foundation, не для будущих функций.
+- [x] GitHub Actions без remote: frozen install/lint/typecheck/unit/real-PostGIS integration/build/E2E.
+- [x] Архитектурная проверка импортов, безопасные error DTO, secret scan staged/tracked, локальный dev/production HTTP smoke.
+- [x] Независимый итоговый code review по executing-plans; исправить значимые findings, повторить релевантные проверки.
+- [x] Обновить README/docs/статусы по фактическим результатам; итоговый локальный commit без push.
 
 ## Области усиленной проверки
 
