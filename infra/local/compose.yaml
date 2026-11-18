@@ -1,0 +1,21 @@
+name: travel-foundation
+services:
+  postgres:
+    image: postgis/postgis:17-3.7@sha256:b2379049e1d7623127ec61ba802a44706109bf91c23ec76b8f323888fd037ed9
+    environment:
+      POSTGRES_USER: travel_admin
+      POSTGRES_PASSWORD: ${TRAVEL_LOCAL_ADMIN_PASSWORD:?Set a local admin password}
+      POSTGRES_DB: postgres
+      POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale-provider=builtin --builtin-locale=C.UTF-8
+    ports:
+      - "127.0.0.1:${TRAVEL_LOCAL_PORT:-55433}:5432"
+    volumes:
+      - travel_pg17:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/20-travel.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U travel_admin -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+volumes:
+  travel_pg17:

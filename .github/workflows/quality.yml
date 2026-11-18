@@ -1,0 +1,57 @@
+name: Foundation quality
+on:
+  push:
+    branches: [main, foundation/stage-1]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgis/postgis:17-3.7@sha256:b2379049e1d7623127ec61ba802a44706109bf91c23ec76b8f323888fd037ed9
+        env:
+          POSTGRES_USER: travel_admin
+          POSTGRES_PASSWORD: local-example
+          POSTGRES_DB: postgres
+          POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale-provider=builtin --builtin-locale=C.UTF-8
+        ports: ["127.0.0.1:55432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U travel_admin -d postgres"
+          --health-interval 5s --health-timeout 3s --health-retries 12
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      DATABASE_URL: postgresql://travel_runtime:local-example@127.0.0.1:55432/travel_dev
+      MIGRATION_DATABASE_URL: postgresql://travel_migrator:local-example@127.0.0.1:55432/travel_dev
+      TEST_DATABASE_URL: postgresql://travel_test_migrator:local-example@127.0.0.1:55432/travel_test_foundation
+      TEST_RUNTIME_DATABASE_URL: postgresql://travel_test_runtime:local-example@127.0.0.1:55432/travel_test_foundation
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - name: Provision only the disposable service databases
+        env:
+          PGPASSWORD: local-example
+        run: psql -h 127.0.0.1 -p 55432 -U travel_admin -d postgres -v ON_ERROR_STOP=1 -f infra/local/init.sql
+      - run: npm run db:migrate
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always()
+        with:
+          name: foundation-test-diagnostics
+          path: |
+            playwright-report/
+            test-results/
+            .local/dependency-audit.json
+          retention-days: 7
