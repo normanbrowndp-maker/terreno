@@ -44,3 +44,19 @@ GitHub-плагин подтвердил public-репозиторий `normanbr
 Railway, AWS, Neon и Cloudflare не используются. Деплой не запускался; GitHub Actions может автоматически выполнять сохранённые quality checks по событию push.
 
 Дополнение TRAVEL-017: локальный docs gate теперь допускает только ранее явно разрешённый exact origin terreno (fetch/push); неизвестные remote/destinations продолжают отклоняться. Историческое ограничение «никакого remote» выше исправлено без отключения проверки. Текущая итальянская работа не отправляется на GitHub без нового разрешения.
+
+## TRAVEL-018 — разрешённая публикация TERRENO Italy
+
+2026-11-18. Владелец дал новое явное разрешение: «разрешаю загружай в гитхаб». Предыдущий запрет push в TRAVEL-014…017 относится к завершённому этапу реализации; разрешение не распространяется на deploy или изменение инфраструктуры.
+
+- **Цель:** сохранить текущую итальянскую версию и всю существующую историю в ранее указанном репозитории terreno.
+- **План реализации:** проверить Git/remote/историю и секреты; сохранить документационный checkpoint; обычным push создать `feature/terreno-italia`; сверить SHA и полное дерево GitHub API; записать результат без изменения приложения.
+- **Зависимости:** существующий exact origin, штатная Git/GCM авторизация, доступ публичного GitHub API. Новые сервисы/пакеты не нужны.
+- **Критерии приёмки:** ветка доступна на GitHub, SHA/tree/path/mode/blob совпадают; история сохранена; foundation/default branch не изменены; нет секретов, generated/local data, force, merge или deploy.
+- **Тесты:** index/worktree scan, полный reachable-history scan, fsck,170 исходных skill/lock hashes, staged diff/path review, ls-remote до/после и GitHub REST ref/tree comparison. Код/зависимости не меняются;53 unit/24 integration/14 E2E и production build реально проверены на этапе реализации, повторный запуск ради одной публикации не требуется.
+- **Риски:** публичность репозитория; чужое конкурентное изменение должно блокировать non-fast-forward push. Существующий quality workflow запускается на main/foundation или PR, поэтому публикация отдельной feature-ветки сама по себе не доказывает новый remote CI PASS. В workflow нет deploy.
+- **Статус:** проверки до отправки пройдены, выполняется публикация и удалённая сверка.
+
+Исходный checkpoint `6db9550a5f0b304891565cc65c04a4179269d953`, чистый index/worktree. История8 коммитов/435 reachable blobs/18112627 bytes: credential findings0; index/worktree scan PASS, docs hashes170 PASS. `fsck --full` exit0; два dangling blob от локальной подготовки не достижимы из веток и не отправляются обычным push. На origin только `foundation/stage-1`=`9e8c8fa593d3943853cdcd73d0a75ffc145aaa8a`, это также default HEAD. Новая feature-ветка отсутствует; destination не меняется, других remote нет.
+
+GitHub connector оказался недоступен (`Unknown tool github.fetch`); публикация идёт штатным Git, независимая проверка — публичным GitHub REST API без чтения credential values. Секреты/`.env.local`, БД, backups, node_modules, .next, .local и локальные screenshot artifacts остаются исключены. Лицензированные фото/шрифты, их атрибуции, все проектные скиллы, код, документы, тесты, миграции и CI входят в tracked tree.
