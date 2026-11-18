@@ -83,3 +83,70 @@ it("rejects associating a place with a city in a different country", async () =>
     await client.query("ROLLBACK");
   }
 });
+
+it("rejects incomplete versioned collections instead of publishing a partial catalog", async () => {
+  await client.query("BEGIN");
+  try {
+    await client.query("UPDATE places SET status='draft' WHERE id=$1", [
+      italyDemo.places[0]!.id,
+    ]);
+    await expect(readItalyCatalog(client)).rejects.toThrow(
+      "Incomplete Italy demo seed",
+    );
+  } finally {
+    await client.query("ROLLBACK");
+  }
+  await client.query("BEGIN");
+  try {
+    await client.query("UPDATE cities SET dataset='production' WHERE id=$1", [
+      italyDemo.cities.at(-1)!.id,
+    ]);
+    await expect(readItalyCatalog(client)).rejects.toThrow(
+      "Incomplete Italy demo seed",
+    );
+  } finally {
+    await client.query("ROLLBACK");
+  }
+});
+
+it.each(["cities", "places"] as const)(
+  "rolls back before child writes when a guarded %s upsert loses ownership",
+  async (table) => {
+    const id =
+      table === "cities" ? italyDemo.cities[0]!.id : italyDemo.places[0]!.id;
+    let injected = false;
+    let childWrites = 0;
+    const guarded = {
+      query: async (sql: string, values?: unknown[]) => {
+        if (sql.includes(`INSERT INTO ${table}(`) && !injected) {
+          injected = true;
+          // The ownership change is introduced after preflight, at the exact race boundary.
+          // It lives in the seed transaction so its rollback also cleans this test fixture.
+          await client.query(
+            `UPDATE ${table} SET dataset='production' WHERE id=$1`,
+            [id],
+          );
+        }
+        if (injected && sql.includes("INSERT INTO place_translations"))
+          childWrites++;
+        return client.query(sql, values);
+      },
+    };
+    try {
+      await expect(
+        seedItalyDemo(guarded as typeof client, "test"),
+      ).rejects.toThrow("Demo record ownership changed");
+      expect(childWrites).toBe(0);
+      expect(
+        (await client.query(`SELECT dataset FROM ${table} WHERE id=$1`, [id]))
+          .rows[0].dataset,
+      ).toBe(italyDemo.dataset);
+    } finally {
+      // Also clean the intentionally RED implementation, which erroneously commits the race fixture.
+      await client.query(`UPDATE ${table} SET dataset=$2 WHERE id=$1`, [
+        id,
+        italyDemo.dataset,
+      ]);
+    }
+  },
+);

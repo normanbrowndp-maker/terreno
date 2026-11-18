@@ -46,4 +46,4 @@ Total48 unique cities,19 represented regions; the PDF does not cover Molise. Do 
 - Real geographic outlines and points replace the schematic Italy drawing. Offline geographic overview offers city/place selection, zoom and pan; it does not promise directions, live tiles, navigation or a complete street directory. External navigation links use actual coordinates.
 - Demo content has a dataset identifier and independent factual/media provenance; the existing database architecture is extended additively where safe. No production data or credentials are modified.
 
-Acceptance and implementation tasks: [ITALY_IMPLEMENTATION_PLAN](ITALY_IMPLEMENTATION_PLAN.md). Actual comparison/results will be recorded separately after browser verification.
+Acceptance and implementation tasks: [ITALY_IMPLEMENTATION_PLAN](ITALY_IMPLEMENTATION_PLAN.md). Actual comparison, verified results and deliberate differences are recorded in [ITALY_REPORT](ITALY_REPORT.md). The two bottom-of-PDF alternative mobile-home explorations are reference variants, not additional application modes; the main home composition is implemented.

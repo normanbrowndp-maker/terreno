@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-18 — завершение Italy review и проверок
+
+- Исправлены обе Important и обе Minor находки независимого source review: completeness/ownership guards, URL filters и pending browser saves.
+- Полный check:53 unit/24 real integration/strict/lint/build/gates PASS; final production E2E14/14.34 скриншота и10 PDF comparisons, отсутствие overflow/runtime errors. Реальный owned-DB outage/recovery проверен.
+- Production audit0;16 известных dev-only findings остаются открытыми. Только локальная ветка, без push/deploy. Подробности в [ITALY_REPORT](ITALY_REPORT.md).
+
 ## 2026-11-18 — TERRENO Italy, TRAVEL-014…017
 
 - Прежняя география заменена Италией по новому запросу; PDF визуально исследован, точный48-city inventory извлечён и независимо проверен по country/coordinates/region ancestry.

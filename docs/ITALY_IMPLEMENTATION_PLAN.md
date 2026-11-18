@@ -35,9 +35,9 @@
 - **Acceptance:** Five screen families and mobile variants recorded; all48 names/19 regions transcribed; Italy is current scope; no invented factual cafe/event.
 - **Tests:** PDF inventory/hash, unique city count and source cross-check; original170 skill/lock hashes.
 - **Risks:** PDF Type3 fonts do not expose original serif family; geographic silhouette and imagery require factual replacements.
-- **Status:** In progress.
+- **Status:** Complete; verified 2026-11-18.
 - [x] Inspect PDF and existing foundation; restore frozen dependencies.
-- [ ] Commit analysed design/scope documentation locally.
+- [x] Commit analysed design/scope documentation locally.
 
 ## TRAVEL-015 — sourced catalog, geography and read API
 
@@ -47,9 +47,9 @@
 - **Acceptance:** Every published sample has real ID/location/category/description/source/date/photo metadata; APIs declare demo dataset and actual backend; no production sample insertion; no external request or secret in runtime catalog.
 - **Tests:** RED→GREEN data/query/API tests; real PostGIS isolation, repeated seed, coordinates, search and publication regression.
 - **Risks:** Source/image availability, license differences, immutable schema history; fail closed on unknown permissions and use placeholders.
-- [ ] Capture sources and media rights; write failing tests, then implement.
-- [ ] Apply only new forward migration/seed to owned dev/test DB and verify integration.
-- **Status:** Not started.
+- [x] Capture sources and media rights; write failing tests, then implement.
+- [x] Apply only new forward migration/seed to owned dev/test DB and verify integration.
+- **Status:** Complete; verified 2026-11-18.
 
 ## TRAVEL-016 — PDF screens and device saving
 
@@ -59,9 +59,9 @@
 - **Acceptance:** Navigation/deep links,48-city index,12+ verified places, search/filter/reset and saved/remove/filter work; no fake auth/open state/routes; neutral media fallback; visible focus.
 - **Tests:** E2E initially RED, then browser flows, cross-tab/corrupt storage, unknown routes, API and media failure; screenshots1440/768/390/360.
 - **Risks:** Dense mobile controls, map gestures, hydration/storage mismatch, approximate unnamed serif family.
-- [ ] Add browser scenarios before UI implementation.
-- [ ] Implement and visually compare every screen family against rendered PDF.
-- **Status:** Not started.
+- [x] Add browser scenarios before UI implementation.
+- [x] Implement and visually compare every screen family against rendered PDF.
+- **Status:** Complete; verified 2026-11-18.
 
 ## TRAVEL-017 — regression, review and report
 
@@ -71,11 +71,20 @@
 - **Acceptance:** Actual commands/results recorded; screens and screenshots linked; no claimed untested functionality, no push/deploy, clean tracked credentials scan.
 - **Tests:** `npm run check`, `npm run test:e2e`, screenshot/HTTP/geography/media assertions and history integrity.
 - **Risks:** Known dev-only dependency advisory/EOL ESLint from stage1 remains explicit, CI is not deployment approval.
-- [ ] Run final suite, review, corrections and documentation.
-- **Status:** Not started.
+- [x] Run final suite, review, corrections and documentation.
+- **Status:** Complete; verified 2026-11-18.
 
 ## Execution ledger
 
 - Checkpoint:9e8c8fa; working tree was clean; local branch `feature/terreno-italia`, no push.
 - Ruling: Use the English copy of the supplied PDF for the first interface; Italian proper names remain exact. This follows the visual reference, not a new translation promise.
 - Ruling: The explicit implementation request authorizes these screen/data changes. Existing stage1-only limits are superseded for this task; external infrastructure remains prohibited.
+
+## Verified completion ledger — 2026-11-18
+
+- Candidate checkpoint: `53381b3`; one independent source review completed on that candidate. Two Important and two Minor findings were reproduced and fixed in one correction pass; the coordinator verified the fixes with fresh regression tests. No second independent review or external approval is claimed.
+- Final `npm run check`: exit0; lint/strict/architecture52 files/secrets/docs170 original hashes/dependency gate,53 unit tests and24 real PostgreSQL integration tests, production build. Final CSS cascade adjustment was followed by fresh lint/build and all14 production Chromium E2E tests.
+-34 screenshots cover1440/768/390/360, empty/populated saves, search/empty/focus, full pages and exact PDF artboard heights. Ten side-by-side comparisons were visually inspected; differences and local artifact paths are in [ITALY_REPORT](ITALY_REPORT.md).
+- Real outage probe: only owned55433 cluster stopped/restarted. `/health/live`200, `/health/ready`503, places API200/bundled/database-unavailable, visible offline notice; recovery ready200 and postgres/ready. Unknown existing5432/55432 untouched.
+- Production `npm audit --omit=dev` reports0 vulnerabilities. Full audit remains16 reviewed dev-only findings; no checks disabled.
+- No push, merge, deploy, paid service, new cloud connection, destructive migration or environment-secret change. Work remains on `feature/terreno-italia`.

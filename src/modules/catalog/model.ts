@@ -92,5 +92,9 @@ export type EditorialCatalog = z.infer<typeof collectionSchema>;
 export interface CatalogSnapshot extends EditorialCatalog {
   backend: "postgres" | "bundled";
   availability:
-    "ready" | "database-unavailable" | "not-seeded" | "database-not-configured";
+    | "ready"
+    | "database-unavailable"
+    | "not-seeded"
+    | "incomplete-seed"
+    | "database-not-configured";
 }

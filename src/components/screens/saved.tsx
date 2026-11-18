@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
 import { CollectionNotice, SavingNotice } from "../site-shell";
 import { categoryLabel } from "../catalog-ui";
+import { useQueryValue } from "../query-state";
 
 export function SavedScreen() {
   const { catalog, savedIds, toggleSaved } = useCatalog();
-  const [cityFilter, setCityFilter] = useState("");
+  const [cityFilter, setCityFilter] = useQueryValue("city");
   const saved = catalog.places.filter((place) => savedIds.includes(place.id));
   const effectiveCityFilter = saved.some(
     (place) => place.citySlug === cityFilter,

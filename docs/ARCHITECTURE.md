@@ -132,3 +132,8 @@ Restore проверен в отдельной новой test DB. Владел�
 ## Карты и внешние данные
 
 MapLibre не поставляет карту самостоятельно: отдельно выбрать style, тайлы, glyphs и attribution. Собственный POI-каталог не зависит от live Overpass/Nominatim. [Политика публичных OSM-тайлов](https://operations.osmfoundation.org/policies/tiles/) описывает ограничения, attribution и отсутствие гарантии доступности. [Политика публичного Nominatim](https://operations.osmfoundation.org/policies/nominatim/) ограничивает суммарную частоту и запрещает клиентский autocomplete. Не строить production-поиск на этих сервисах по умолчанию.
+
+
+### Integrity and browser-state corrections after the Italy review
+
+Read readiness checks the exact IDs/slugs and city–place membership of the named versioned collection before exposing PostgreSQL data. A partial seed is explicitly `bundled/incomplete-seed`; SQL/credentials are not serialized. Seed parent upserts require `RETURNING id` ownership before any dependent translation/media/association write; rejection rolls back the whole transaction. Local filter state uses the installed Next router's native History integration, preserving reload/back/deep links. A tab's unsaved temporary additions/removals are reconciled with cross-tab disk changes rather than discarded.

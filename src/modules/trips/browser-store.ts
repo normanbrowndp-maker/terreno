@@ -7,6 +7,7 @@ import {
 /** One store per mounted browser provider, never a shared server singleton. */
 export function createSavedPlacesStore(allowed: readonly string[]) {
   let temporary: string | null = null;
+  const pending = new Map<string, boolean>();
   const listeners = new Set<() => void>();
   const notify = () => {
     for (const listener of listeners) listener();
@@ -26,7 +27,16 @@ export function createSavedPlacesStore(allowed: readonly string[]) {
       listeners.add(listener);
       const onStorage = (event: StorageEvent) => {
         if (event.key === savedPlacesKey || event.key === null) {
-          temporary = null;
+          if (temporary !== null) {
+            const external = new Set(
+              parseSavedPlaces(event.newValue, allowed).ids,
+            );
+            for (const [id, saved] of pending) {
+              if (saved) external.add(id);
+              else external.delete(id);
+            }
+            temporary = JSON.stringify({ version: 1, ids: [...external] });
+          }
           notify();
         }
       };
@@ -41,12 +51,14 @@ export function createSavedPlacesStore(allowed: readonly string[]) {
       const previous = snapshot();
       const raw = previous.slice(previous.indexOf("|") + 1) || null;
       const next = toggleSavedPlace(parseSavedPlaces(raw, allowed).ids, id);
+      pending.set(id, next.includes(id));
       const serialized = JSON.stringify({ version: 1, ids: next });
       try {
         window.localStorage.setItem(savedPlacesKey, serialized);
         if (window.localStorage.getItem(savedPlacesKey) !== serialized)
           throw new Error("Storage write not retained");
         temporary = null;
+        pending.clear();
       } catch {
         temporary = serialized;
       }

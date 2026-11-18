@@ -1276,7 +1276,7 @@ nav a[aria-current="page"] {
   }
   .map-editorial {
     width: 240px;
-    right: 24px;
+    right: 80px;
     padding: 16px;
   }
   .map-editorial h2 {
@@ -1323,6 +1323,29 @@ nav a[aria-current="page"] {
   }
   .brand-block .brand-caption {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-view-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-home-mode.mobile-copy {
+    display: flex;
+    padding: 4px;
+    background: var(--line);
+    border-radius: 8px;
+    font-size: 11px;
+  }
+  .mobile-home-mode a {
+    padding: 8px 10px;
+    border-radius: 5px;
+  }
+  .mobile-home-mode a[aria-current] {
+    background: var(--paper);
+    color: var(--red);
   }
 }
 @media (max-width: 767px) {

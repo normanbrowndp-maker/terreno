@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { CityScreen } from "@/components/screens/city";
-import { categories, type PlaceCategory } from "@/modules/catalog";
 import { getItalyCatalog } from "@/modules/catalog/server";
 
 export async function generateMetadata({
@@ -16,27 +15,10 @@ export async function generateMetadata({
 }
 export default async function CityPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ category?: string }>;
 }) {
-  const [{ slug }, query, catalog] = await Promise.all([
-    params,
-    searchParams,
-    getItalyCatalog(),
-  ]);
+  const [{ slug }, catalog] = await Promise.all([params, getItalyCatalog()]);
   if (!catalog.cities.some((city) => city.slug === slug)) notFound();
-  const category =
-    typeof query.category === "string" &&
-    categories.includes(query.category as PlaceCategory)
-      ? (query.category as PlaceCategory)
-      : "";
-  return (
-    <CityScreen
-      key={`${slug}:${category}`}
-      slug={slug}
-      initialCategory={category}
-    />
-  );
+  return <CityScreen key={slug} slug={slug} />;
 }

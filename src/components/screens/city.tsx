@@ -1,23 +1,26 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import { filterPlaces, type PlaceCategory } from "@/modules/catalog";
+import {
+  categories,
+  filterPlaces,
+  type PlaceCategory,
+} from "@/modules/catalog";
 import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
 import { CollectionNotice } from "../site-shell";
 import { FilterTabs, EmptyPlaces, PlaceCard, formatDate } from "../catalog-ui";
+import { useQueryValue } from "../query-state";
 
-export function CityScreen({
-  slug,
-  initialCategory = "",
-}: {
-  slug: string;
-  initialCategory?: PlaceCategory | "";
-}) {
+export function CityScreen({ slug }: { slug: string }) {
   const { catalog } = useCatalog();
   const city = catalog.cities.find((item) => item.slug === slug)!;
-  const [category, setCategory] = useState<PlaceCategory | "">(initialCategory);
+  const [categoryValue, setCategory] = useQueryValue(
+    "category",
+    "",
+    categories,
+  );
+  const category = categoryValue as PlaceCategory | "";
   const allPlaces = catalog.places.filter((place) => place.citySlug === slug);
   const places = filterPlaces(allPlaces, category ? { category } : {});
   return (

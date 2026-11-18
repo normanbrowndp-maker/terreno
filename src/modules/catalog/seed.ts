@@ -54,12 +54,12 @@ export async function seedItalyDemo(
       );
     }
     for (const [index, city] of data.cities.entries()) {
-      await db.query(
+      const inserted = await db.query<{ id: string }>(
         `INSERT INTO cities(id,country_code,region_id,slug,name,aliases,location,subtitle,description,photo,wikidata_id,source_url,verified_at,featured,ordinal,dataset)
         VALUES($1,'IT',$2,$3,$4,$5,ST_SetSRID(ST_MakePoint($6,$7),4326),$8,$9,$10::jsonb,$11,$12,$13,$14,$15,$16)
         ON CONFLICT(id) DO UPDATE SET name=EXCLUDED.name,aliases=EXCLUDED.aliases,location=EXCLUDED.location,subtitle=EXCLUDED.subtitle,
         description=EXCLUDED.description,photo=EXCLUDED.photo,verified_at=EXCLUDED.verified_at
-        WHERE cities.dataset=EXCLUDED.dataset`,
+        WHERE cities.dataset=EXCLUDED.dataset RETURNING id`,
         [
           city.id,
           regionIds.get(city.regionSlug),
@@ -79,6 +79,8 @@ export async function seedItalyDemo(
           data.dataset,
         ],
       );
+      if (inserted.rows[0]?.id !== city.id)
+        throw new Error("Demo record ownership changed");
     }
     const sourceId = "e0000000-0000-4000-8000-000000000001";
     await db.query(
@@ -114,12 +116,12 @@ export async function seedItalyDemo(
       const city = data.cities.find(
         (candidate) => candidate.slug === place.citySlug,
       )!;
-      await db.query(
+      const inserted = await db.query<{ id: string }>(
         `INSERT INTO places(id,country_code,region_id,location,status,timezone,address_text,verified_at,city_id,slug,dataset,official_url,editorial_subtitle,sources_metadata)
         VALUES($1,'IT',$2,ST_SetSRID(ST_MakePoint($3,$4),4326),'published','Europe/Rome',$5,$6,$7,$8,$9,$10,$11,$12::jsonb)
         ON CONFLICT(id) DO UPDATE SET location=EXCLUDED.location,address_text=EXCLUDED.address_text,verified_at=EXCLUDED.verified_at,
         official_url=EXCLUDED.official_url,editorial_subtitle=EXCLUDED.editorial_subtitle,sources_metadata=EXCLUDED.sources_metadata
-        WHERE places.dataset=EXCLUDED.dataset`,
+        WHERE places.dataset=EXCLUDED.dataset RETURNING id`,
         [
           place.id,
           regionIds.get(city.regionSlug),
@@ -135,6 +137,8 @@ export async function seedItalyDemo(
           JSON.stringify(place.sources),
         ],
       );
+      if (inserted.rows[0]?.id !== place.id)
+        throw new Error("Demo record ownership changed");
       await db.query(
         `INSERT INTO place_translations(place_id,locale,name,description) VALUES($1,'en',$2,$3)
         ON CONFLICT(place_id,locale) DO UPDATE SET name=EXCLUDED.name,description=EXCLUDED.description`,

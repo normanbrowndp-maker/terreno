@@ -3,7 +3,7 @@ import { cache } from "react";
 import { withCatalogDatabase } from "@/shared/db/pool";
 import { italyDemo } from "./demo";
 import { collectionSchema, type CatalogSnapshot } from "./model";
-import { readItalyCatalog } from "./postgres";
+import { readItalyCatalog, IncompleteItalySeedError } from "./postgres";
 
 /** Shared by SSR and API; the actual storage source is always disclosed. */
 export const getItalyCatalog = cache(async (): Promise<CatalogSnapshot> => {
@@ -19,7 +19,13 @@ export const getItalyCatalog = cache(async (): Promise<CatalogSnapshot> => {
     return catalog
       ? { ...catalog, backend: "postgres", availability: "ready" }
       : { ...bundled, backend: "bundled", availability: "not-seeded" };
-  } catch {
+  } catch (error) {
+    if (error instanceof IncompleteItalySeedError)
+      return {
+        ...bundled,
+        backend: "bundled",
+        availability: "incomplete-seed",
+      };
     console.warn("italy_editorial_database_unavailable"); // Never serialize SQL or credentials.
     return {
       ...bundled,

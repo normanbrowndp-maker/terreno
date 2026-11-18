@@ -1,30 +1,82 @@
 import { expect, test } from "@playwright/test";
 import type { City, EditorialPlace } from "../../src/modules/catalog";
 
-test("all five editorial cities and twelve real place pages load with their matching photos", async ({ page, request }) => {
-  const cities = (await (await request.get('/api/v1/cities')).json()).data as City[];
-  const places = (await (await request.get('/api/v1/places')).json()).data as EditorialPlace[];
+test("filter URLs survive reload and back navigation, including clears", async ({
+  page,
+}) => {
+  await page.goto("/cities?q=Roma");
+  const search = page.getByRole("searchbox", { name: "Filter cities" });
+  await search.fill("Florence");
+  await expect(page).toHaveURL(/q=Florence/);
+  await page.reload();
+  await expect(search).toHaveValue("Florence");
+  await page.getByRole("button", { name: "Clear city search" }).click();
+  await expect(page).toHaveURL(/\/cities$/);
+  await page.reload();
+  await expect(page.getByTestId("city-row")).toHaveCount(48);
+  await page.goto("/cities/firenze");
+  await page.getByRole("button", { name: "Cafés", exact: true }).click();
+  await expect(page).toHaveURL(/category=cafe/);
+  await page.reload();
+  await expect(
+    page.getByRole("button", { name: "Cafés", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "All", exact: true }).click();
+  await expect(page).toHaveURL(/\/cities\/firenze$/);
+  await page.goBack();
+  await expect(
+    page.getByRole("button", { name: "Cafés", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+});
+
+test("all five editorial cities and twelve real place pages load with their matching photos", async ({
+  page,
+  request,
+}) => {
+  const cities = (await (await request.get("/api/v1/cities")).json())
+    .data as City[];
+  const places = (await (await request.get("/api/v1/places")).json())
+    .data as EditorialPlace[];
   expect(cities).toHaveLength(48);
   expect(places).toHaveLength(12);
-  expect(cities.filter((city)=>city.featured).map((city)=>city.name).sort()).toEqual(['Firenze','Milano','Napoli','Roma','Venezia']);
+  expect(
+    cities
+      .filter((city) => city.featured)
+      .map((city) => city.name)
+      .sort(),
+  ).toEqual(["Firenze", "Milano", "Napoli", "Roma", "Venezia"]);
   for (const city of cities.filter((item) => item.featured)) {
     await page.goto(`/cities/${city.slug}`);
-    await expect(page.getByRole('heading', { level:1, name:city.name, exact:true })).toBeVisible();
-    expect((await request.get(`/api/v1/cities/${city.slug}`)).status()).toBe(200);
+    await expect(
+      page.getByRole("heading", { level: 1, name: city.name, exact: true }),
+    ).toBeVisible();
+    expect((await request.get(`/api/v1/cities/${city.slug}`)).status()).toBe(
+      200,
+    );
   }
   for (const place of places) {
     await page.goto(`/places/${place.slug}`);
-    await expect(page.getByRole('heading', { level:1, name:place.name, exact:true })).toBeVisible();
-    const photo=page.locator('img[data-photo]:visible').first();
-    await expect(photo).toHaveJSProperty('complete',true);
-    expect(await photo.evaluate((image:HTMLImageElement)=>image.naturalWidth)).toBeGreaterThan(0);
-    const data=await (await request.get(`/api/v1/places/${place.slug}`)).json();
+    await expect(
+      page.getByRole("heading", { level: 1, name: place.name, exact: true }),
+    ).toBeVisible();
+    const photo = page.locator("img[data-photo]:visible").first();
+    await expect(photo).toHaveJSProperty("complete", true);
+    expect(
+      await photo.evaluate((image: HTMLImageElement) => image.naturalWidth),
+    ).toBeGreaterThan(0);
+    const data = await (
+      await request.get(`/api/v1/places/${place.slug}`)
+    ).json();
     expect(data.data.wikidataId).toBe(place.wikidataId);
-    expect(data.meta.backend).toBe('postgres');
+    expect(data.meta.backend).toBe("postgres");
   }
-  await page.goto('/cities/pisa');
-  await expect(page.getByText('Its places are being checked before we publish them.',{exact:false})).toBeVisible();
-  expect((await request.get('/cities/not-a-real-city')).status()).toBe(404);
+  await page.goto("/cities/pisa");
+  await expect(
+    page.getByText("Its places are being checked before we publish them.", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  expect((await request.get("/cities/not-a-real-city")).status()).toBe(404);
 });
 
 test("real city index, search and category empty states navigate to verified details", async ({

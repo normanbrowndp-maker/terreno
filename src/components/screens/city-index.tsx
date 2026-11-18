@@ -1,21 +1,21 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { filterCities, filterPlaces, type City } from "@/modules/catalog";
 import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
 import { CollectionNotice } from "../site-shell";
 import { PlaceCard } from "../catalog-ui";
+import { useQueryValue } from "../query-state";
 
-export function CityIndexScreen({
-  initialQuery = "",
-}: {
-  initialQuery?: string;
-}) {
+export function CityIndexScreen() {
   const { catalog } = useCatalog();
-  const [query, setQuery] = useState(initialQuery);
-  const [sort, setSort] = useState("reference");
+  const [query, setQuery] = useQueryValue("q");
+  const [sort, setSort] = useQueryValue("sort", "reference", [
+    "reference",
+    "region",
+    "city",
+  ]);
   const cities = filterCities(catalog.cities, query);
   const matchedPlaces = query.trim()
     ? filterPlaces(catalog.places, { query })
@@ -52,11 +52,13 @@ export function CityIndexScreen({
           <span className="sr-only">Filter cities</span>
           <input
             type="search"
+            name="q"
+            autoComplete="off"
             aria-label="Filter cities"
             placeholder="Find a city or region…"
             maxLength={80}
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => setQuery(event.target.value, true)}
           />
           {query ? (
             <button aria-label="Clear city search" onClick={() => setQuery("")}>

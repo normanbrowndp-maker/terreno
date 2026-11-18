@@ -2,6 +2,12 @@ import type { CatalogDatabase } from "@/shared/db/catalog-database";
 import { italyDemo } from "./demo";
 import { collectionSchema, type EditorialCatalog } from "./model";
 
+export class IncompleteItalySeedError extends Error {
+  constructor() {
+    super("Incomplete Italy demo seed");
+  }
+}
+
 /** Only this explicitly named demo collection is visible through the preview API. */
 export async function readItalyCatalog(
   db: CatalogDatabase,
@@ -30,10 +36,31 @@ export async function readItalyCatalog(
       [italyDemo.dataset],
     ),
   ]);
-  if (!cities.rowCount) return null;
-  return collectionSchema.parse({
+  if (!cities.rowCount && !places.rowCount) return null;
+  const parsed = collectionSchema.safeParse({
     ...italyDemo,
     cities: cities.rows,
     places: places.rows,
   });
+  if (!parsed.success) throw new IncompleteItalySeedError();
+  const catalog = parsed.data;
+  const completeCities =
+    catalog.cities.length === italyDemo.cities.length &&
+    italyDemo.cities.every((expected) =>
+      catalog.cities.some(
+        (city) => city.id === expected.id && city.slug === expected.slug,
+      ),
+    );
+  const completePlaces =
+    catalog.places.length === italyDemo.places.length &&
+    italyDemo.places.every((expected) =>
+      catalog.places.some(
+        (place) =>
+          place.id === expected.id &&
+          place.slug === expected.slug &&
+          place.citySlug === expected.citySlug,
+      ),
+    );
+  if (!completeCities || !completePlaces) throw new IncompleteItalySeedError();
+  return catalog;
 }

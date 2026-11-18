@@ -1,17 +1,27 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import { filterPlaces, type PlaceCategory } from "@/modules/catalog";
+import {
+  categories,
+  filterPlaces,
+  type PlaceCategory,
+} from "@/modules/catalog";
 import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
 import { CollectionNotice } from "../site-shell";
 import { EmptyPlaces } from "../catalog-ui";
+import { useQueryValue } from "../query-state";
 
 export function HomeScreen() {
   const { catalog } = useCatalog();
-  const [category, setCategory] = useState<PlaceCategory | "">("");
-  const [openNow, setOpenNow] = useState(false);
+  const [categoryValue, setCategory] = useQueryValue(
+    "category",
+    "",
+    categories,
+  );
+  const category = categoryValue as PlaceCategory | "";
+  const [openValue, setOpenValue] = useQueryValue("openNow", "", ["true"]);
+  const openNow = openValue === "true";
   const places = filterPlaces(catalog.places, {
     ...(category ? { category } : {}),
     openNow,
@@ -66,15 +76,25 @@ export function HomeScreen() {
             </button>
           ))}
         </div>
-        <label className="opening-switch">
-          <span>Open now</span>
-          <input
-            type="checkbox"
-            checked={openNow}
-            onChange={(event) => setOpenNow(event.target.checked)}
-          />
-          <span className="switch-track" aria-hidden="true" />
-        </label>
+        <div className="home-view-controls">
+          <label className="opening-switch">
+            <span>Open now</span>
+            <input
+              type="checkbox"
+              checked={openNow}
+              onChange={(event) =>
+                setOpenValue(event.target.checked ? "true" : "")
+              }
+            />
+            <span className="switch-track" aria-hidden="true" />
+          </label>
+          <nav className="mobile-home-mode mobile-copy" aria-label="Home view">
+            <Link href="/" aria-current="page">
+              Map
+            </Link>
+            <Link href="/cities">Index 48</Link>
+          </nav>
+        </div>
         {openNow ? (
           <p className="filter-explanation" role="status">
             Opening times are not independently verified. Check the official
@@ -105,7 +125,7 @@ export function HomeScreen() {
             category={category}
             reset={() => {
               setCategory("");
-              setOpenNow(false);
+              setOpenValue("");
             }}
           />
         )}
