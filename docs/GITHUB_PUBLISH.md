@@ -55,8 +55,18 @@ Railway, AWS, Neon и Cloudflare не используются. Деплой н�
 - **Критерии приёмки:** ветка доступна на GitHub, SHA/tree/path/mode/blob совпадают; история сохранена; foundation/default branch не изменены; нет секретов, generated/local data, force, merge или deploy.
 - **Тесты:** index/worktree scan, полный reachable-history scan, fsck,170 исходных skill/lock hashes, staged diff/path review, ls-remote до/после и GitHub REST ref/tree comparison. Код/зависимости не меняются;53 unit/24 integration/14 E2E и production build реально проверены на этапе реализации, повторный запуск ради одной публикации не требуется.
 - **Риски:** публичность репозитория; чужое конкурентное изменение должно блокировать non-fast-forward push. Существующий quality workflow запускается на main/foundation или PR, поэтому публикация отдельной feature-ветки сама по себе не доказывает новый remote CI PASS. В workflow нет deploy.
-- **Статус:** проверки до отправки пройдены, выполняется публикация и удалённая сверка.
+- **Статус:** выполнено. Обычный push создал feature-ветку; независимая сверка GitHub API подтвердила полное совпадение SHA/дерева/истории. Итоговый отчёт сохраняется отдельным документационным fast-forward коммитом с повторной проверкой.
 
 Исходный checkpoint `6db9550a5f0b304891565cc65c04a4179269d953`, чистый index/worktree. История8 коммитов/435 reachable blobs/18112627 bytes: credential findings0; index/worktree scan PASS, docs hashes170 PASS. `fsck --full` exit0; два dangling blob от локальной подготовки не достижимы из веток и не отправляются обычным push. На origin только `foundation/stage-1`=`9e8c8fa593d3943853cdcd73d0a75ffc145aaa8a`, это также default HEAD. Новая feature-ветка отсутствует; destination не меняется, других remote нет.
 
 GitHub connector оказался недоступен (`Unknown tool github.fetch`); публикация идёт штатным Git, независимая проверка — публичным GitHub REST API без чтения credential values. Секреты/`.env.local`, БД, backups, node_modules, .next, .local и локальные screenshot artifacts остаются исключены. Лицензированные фото/шрифты, их атрибуции, все проектные скиллы, код, документы, тесты, миграции и CI входят в tracked tree.
+
+### Подтверждённый результат TRAVEL-018
+
+- Ветка: [feature/terreno-italia](https://github.com/normanbrowndp-maker/terreno/tree/feature/terreno-italia). Первая опубликованная вершина этой задачи `903dc7c30e009efcf714a1f6fa34aac59569efaa`, tree `19fe20fd164ad29322e044c5a9a9cb706977b3bb`.
+- GitHub REST API подтвердил9 коммитов в том же порядке и342 файла: path/mode/type/blob SHA и корневой tree полностью совпадают, truncated=false, differences0. Сохраняются обе итальянские реализации `53381b3`/`6db9550` и вся исходная история.
+- `foundation/stage-1` остаётся `9e8c8fa593d3943853cdcd73d0a75ffc145aaa8a`; default branch остаётся `foundation/stage-1`. Merge/default-branch switch/force/rebase/удаление веток не выполнялись. Git upstream текущей ветки — `origin/feature/terreno-italia`.
+- До первого push история9 коммитов/439 blobs/18151193 bytes прошла scan: findings0. Финальный документационный коммит также проверяется до обычного fast-forward push; окончательный SHA сообщается в ответе, а не вписывается внутрь собственного коммита.
+- На feature-ветке workflow runs0: существующие push-триггеры ограничены main/foundation, PR не создавался. Новый remote CI PASS не заявляется; реальные локальные результаты реализации —53 unit/24 integration/14 E2E/build — сохранены в ITALY_REPORT. CI и функциональность этой публикацией не менялись.
+- Отправлены только tracked source/assets/docs/tests/migrations/CI/AGENTS/разрешённые проектные скиллы. Локальные скриншоты остаются в ignored artifacts и доступны в исходной рабочей папке; пользовательский PDF и локальные БД/секреты не публиковались.
+- Railway/AWS/Neon/Cloudflare и платные API не использовались, деплой не запускался. Новых запросов авторизации не потребовалось; значения токенов/паролей не читались.

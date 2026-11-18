@@ -20,7 +20,7 @@ npm run dev
 
 Открыть **http://127.0.0.1:3000**. Проектная БД — **127.0.0.1:55433**; существующие5432/55432 не используются. Для чистой Windows-машины сначала `npm run db:download`, затем команды выше. Docker-альтернатива и подробные условия — в [локальной инструкции](docs/LOCAL_DEVELOPMENT.md).
 
-Итог TRAVEL-014…017, реальные проверки, источники и локальные скриншоты: [ITALY_REPORT](docs/ITALY_REPORT.md). Владелец отдельно разрешил публикацию `feature/terreno-italia`; ход и проверенный результат — [GITHUB_PUBLISH](docs/GITHUB_PUBLISH.md).
+Итог TRAVEL-014…017, реальные проверки, источники и локальные скриншоты: [ITALY_REPORT](docs/ITALY_REPORT.md). По отдельному разрешению владельца итальянская версия опубликована в [feature/terreno-italia](https://github.com/normanbrowndp-maker/terreno/tree/feature/terreno-italia); проверенный результат — [GITHUB_PUBLISH](docs/GITHUB_PUBLISH.md). Прежняя ветка фундамента сохранена; деплой не выполнялся.
 
 ## Проверки
 

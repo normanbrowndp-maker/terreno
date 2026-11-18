@@ -2,6 +2,8 @@
 
 2026-11-18. TRAVEL-014…017 completed within the editorial-preview scope. Current geography is Italy. Kazakhstan remains only in historical audit evidence and synthetic foundation fixtures, never in the public catalog. No push, merge, deploy, paid service or new cloud connection was performed.
 
+Subsequent explicit authorization: TRAVEL-018 published the Italian branch to GitHub without deployment. This does not change the historical no-push boundary of the implementation stage above. Current publication evidence: [GITHUB_PUBLISH](GITHUB_PUBLISH.md).
+
 ## Implemented scope
 
 Five screen families: home/Italy map,48-city index, city page, real attraction page, device-saved places. English copy follows the PDF; Italian names remain authentic. Desktop/sidebar and mobile compositions use the supplied palette, local fonts, quiet dividers and restrained states. A sources/credits page makes factual and photograph provenance accessible.
