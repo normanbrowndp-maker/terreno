@@ -18,7 +18,7 @@
 - **Acceptance:** Wrong project/branch/endpoint/db/role/TLS/type/foreign targets fail before client creation; empty registry rejects every actual cloud target; no raw secret serialization/error leak; local operation/locks/checksums preserved; runtime/direct/bootstrap distinct.
 - **Tests:** Pure policy/identity/error and installed-driver TLS tests; real existing local PostGIS regression only; strict/lint/architecture/secrets/docs/build/E2E as relevant. No cloud tests/provisioning/SQL.
 - **Risks:** Misidentifying connector label as org/GitHub; forged/stale metadata; pooled advisory locks; cloned identity marker; TLS URL parameters; accidental URL logging; broad admin runtime role; local env/profile leakage.
-- **Status:** In progress. No cloud writes or GitHub push authorized.
+- **Status:** Complete within the authorized local preparation scope; verified results and cloud blockers in NEON_TEST_PROFILE. No cloud writes or GitHub push authorized.
 
 ## Global constraints
 
@@ -42,9 +42,9 @@
 
 **Interfaces:** `parseNeonTestTarget(unknown)`, `assertNeonTestUrl(url,operation,target,request)` return secret-free verified metadata; `resolveDatabaseConnection(url,purpose,env)` selects local or approved Neon and returns a private-credential holder. The production resolver reads only the checked-in registry; no env JSON approval.
 
-- [ ] Write fake metadata/URL fixture and refusal/identity/serialization tests first; observe RED.
-- [ ] Implement strict readonly schema, exact endpoint mapping, URL allowlist, explicit profile selection and empty registry denial; observe GREEN.
-- [ ] Exercise the installed pg client's TLS options without a network connection.
+- [x] Write fake metadata/URL fixture and refusal/identity/serialization tests first; observe RED.
+- [x] Implement strict readonly schema, exact endpoint mapping, URL allowlist, explicit profile selection and empty registry denial; observe GREEN.
+- [x] Exercise the installed pg client's TLS options without a network connection.
 
 ## Task 2: local-compatible integration boundaries
 
@@ -52,17 +52,17 @@
 
 **Interfaces:** `assertProfileIdentity(db,target,purpose)` delegates unchanged local identity or checks Neon marker plus current database/login/role. Migration and seed reuse the verified connection; no credentials escape the driver sink.
 
-- [ ] Add failing marker mismatch/sanitized-error tests; prove rejects before DDL.
-- [ ] Wire profile into runtime and explicit test migration/seed only; development/restore never route to Neon.
-- [ ] Keep direct session advisory lock/checksum/transaction implementation unchanged; execute local integration regression.
+- [x] Add failing marker mismatch/sanitized-error tests; prove rejects before DDL.
+- [x] Wire profile into runtime and explicit test migration/seed only; development/restore never route to Neon.
+- [x] Keep direct session advisory lock/checksum/transaction implementation unchanged; execute local integration regression.
 
 ## Task 3: evidence, review and completion
 
 **Files:** `docs/NEON_TEST_PROFILE.md`, architecture/decisions/workflow links and AGENTS current scope; preserve historical audit.
 
-- [ ] Record both account bindings, org/project/branch/db names, unavailable GitHub linkage metadata and no fabricated repo binding.
-- [ ] Document approved-target enrollment, separate bootstrap and pre-Railway gates; record remaining blockers rather than auto-provision.
-- [ ] Strict/lint/unit/integration/build/E2E and immutable migration/env integrity checks; one fresh-context review, one correction pass, local checkpoints only.
+- [x] Record both account bindings, org/project/branch/db names, unavailable GitHub linkage metadata and no fabricated repo binding.
+- [x] Document approved-target enrollment, separate bootstrap and pre-Railway gates; record remaining blockers rather than auto-provision.
+- [x] Strict/lint/unit/integration/build/E2E and immutable migration/env integrity checks; one fresh-context review, one correction pass, local checkpoints only.
 
 ## Execution ledger
 
@@ -71,3 +71,10 @@
 - Ruling: the current explicit implementation request supersedes TRAVEL-019's docs-only limit, not the prohibition on cloud resources/SQL/env changes.
 - Pre-flight: Task1 verified target shape is consumed by Task2 identity/pool/migration/seed; keep one shared type and reviewed registry. Bootstrap is a runbook/validator, not an executable privileged path.
 - Ruling: metadata can establish available bindings/orgs/projects, not account ownership identity or absence of a GitHub integration. Do not infer repository binding from matching names, creation_source or a GitHub avatar.
+
+- Final evidence: 116 unit, 24 local integration, 14 E2E; strict/lint/architecture/secrets/docs/dependency/build PASS. Independent review found three Important issues, reproduced and fixed in one correction pass; no second independent review. Empty registry, unchanged six migrations/local guards and unchanged env fingerprint verified.
+- Final: fixed marker ownership/type/modifiability — rejects spoofable marker / denies migrator marker access tests RED→GREEN; full suite116/116 unit,24/24 integration,14/14 E2E.
+- Final: fixed column ACL/privileged membership checks — rejects elevated runtime permission tests RED→GREEN; same full suite PASS.
+- Final: fixed runtime Pool serialization exposure — exposes only a query capability test RED→GREEN; same full suite PASS.
+- Integration ruling: retain the local feature branch and workspace; current owner instruction forbids push, so no merge/PR or redundant integration menu. Cost: local commits are not a remote backup until separately authorized publication.
+- Ruling costs: existing workspace avoids moving portable DB/open files but requires clean Git checks to detect concurrent edits; current implementation permission supersedes docs-only scope but never authorizes cloud writes; metadata-only account mapping leaves human identity/GitHub integration unproven and requires later direct integration verification.

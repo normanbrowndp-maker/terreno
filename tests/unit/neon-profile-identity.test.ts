@@ -36,6 +36,16 @@ const row = () => ({
   database_owner: false,
   schema_create: false,
   can_write: false,
+  column_write: false,
+  database_create: false,
+  temporary_create: false,
+  sequence_write: false,
+  marker_owner: neonFixture.roles.bootstrap,
+  marker_kind: "r",
+  marker_can_modify: false,
+  marker_column_modify: false,
+  bootstrap_member: false,
+  migrator_member: false,
 });
 function database(rows: unknown[], rowCount = rows.length) {
   return {
@@ -96,6 +106,14 @@ it.each([
   "database_owner",
   "schema_create",
   "can_write",
+  "column_write",
+  "database_create",
+  "temporary_create",
+  "sequence_write",
+  "marker_can_modify",
+  "marker_column_modify",
+  "bootstrap_member",
+  "migrator_member",
 ])("rejects elevated runtime permission %s", async (key) => {
   await expect(
     assertProfileIdentity(
@@ -162,4 +180,26 @@ it("preserves the local physical cluster identity check", async () => {
       "test",
     ),
   ).rejects.toThrow();
+});
+
+it.each(["marker_owner", "marker_kind"])("rejects spoofable marker %s", async (key) => {
+  await expect(
+    assertProfileIdentity(
+      database([{ ...row(), [key]: key === "marker_kind" ? "v" : neonFixture.roles.migrations }]),
+      target(), "test",
+    ),
+  ).rejects.toThrow("Project database identity mismatch");
+});
+it("also denies migrator ownership/write access to marker and bootstrap role membership", async () => {
+  const t = assertNeonTestUrl(neonUrl("migrations"), "migrations", parseNeonTestTarget(neonFixture), neonRequest);
+  const migration = {
+    ...row(), actual_role: neonFixture.roles.migrations, session_role: neonFixture.roles.migrations,
+    database_owner: true, schema_create: true, can_write: true, migrator_member: true,
+  };
+  for (const change of [
+    { marker_owner: neonFixture.roles.migrations }, { marker_can_modify: true },
+    { marker_column_modify: true }, { bootstrap_member: true },
+  ])
+    await expect(assertProfileIdentity(database([{ ...migration, ...change }]), t, "test"))
+      .rejects.toThrow("Project database identity mismatch");
 });

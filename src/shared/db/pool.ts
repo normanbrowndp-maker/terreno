@@ -58,5 +58,8 @@ export async function withCatalogDatabase<T>(
     target,
     target.database === "travel_dev" ? "development" : "test",
   );
-  return read(db);
+  // A TypeScript Pick alone would still expose Pool.options.connectionString at runtime.
+  const query = ((...args: unknown[]) =>
+    Reflect.apply(db.query, db, args)) as CatalogDatabase["query"];
+  return read(Object.freeze({ query }));
 }

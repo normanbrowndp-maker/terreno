@@ -86,6 +86,8 @@ export function assertNeonTestUrl(
       host,
       database: target.database,
       username: target.roles[operation],
+      bootstrapRole: target.roles.bootstrap,
+      migrationRole: target.roles.migrations,
       port: 5432,
       verifiedAt: target.verifiedAt,
     });

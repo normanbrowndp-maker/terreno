@@ -2,6 +2,13 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-19 — TRAVEL-020, локальная подготовка Neon test
+
+- Проверены metadata двух подключений: Нурман → norman/gloomi; Primary → yesenovyesen@gmail.com/sidequest-dev. Связь с GitHub через доступный MCP не установлена и не опровергнута.
+- Добавлен явный Neon-test profile с пустым approved registry, точными target/role/TLS guards, разделением runtime pooled / migrations direct / отдельного будущего bootstrap. Исходные шесть миграций, local guards и env не менялись.
+- Исправлены три Important замечания независимого review: marker owner/type/ACL, column privileges/role membership и доступ к внутреннему Pool через callback.
+- Итог:116 unit,24 локальных integration,14 E2E, strict/lint/build и gates PASS. Облачные SQL/ресурсы, env changes, deploy и push не выполнялись. [Подробный отчёт](NEON_TEST_PROFILE.md).
+
 ## 2026-11-18 — завершение Italy review и проверок
 
 - Исправлены обе Important и обе Minor находки независимого source review: completeness/ownership guards, URL filters и pending browser saves.
