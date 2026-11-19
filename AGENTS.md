@@ -8,6 +8,8 @@
 
 ## Сначала контекст
 
+TRAVEL-025.1: подготовлена Windows psql -W/direct verify-full инструкция без получения cloud secrets; docs/NEON_DIRECT_CHANNEL.md. SQL00 расширен и проверен только локально READ ONLY, отдельная команда test:inspection:local не создаёт роли/extensions и не запускает migrations/seed. Запуск инструкции/облачное соединение требуют следующего согласования; CA/fingerprint пока не утверждены. Не исполнять SQL/cloud writes, не активировать pendingTargets/env/Railway/push. Следующий свободный целый ID остаётся TRAVEL-026.
+
 TRAVEL-025: владелец разрешил только read-only cloud inspection exact TERRENO tuple через Нурман при подтверждённом direct PostgreSQL/TLS verify-full и согласованном защищённом credential channel. Metadata проверены; SQL не выполнялся из-за transport/secret-channel gate, см. docs/NEON_CLOUD_INSPECTION.md. Разрешение read-only сохраняется; не повторно спрашивать его, но не обходить требования канала. Любые writes/activation/env changes/push запрещены. Следующий свободный номер — TRAVEL-026.
 
 TRAVEL-024: подготовлены и локально проверены SQL00/10/20 и отдельная ephemeral PG17 rehearsal; docs/NEON_BOOTSTRAP_REPORT.md и docs/NEON_BOOTSTRAP_IMPLEMENTATION_PLAN.md. Это не разрешение выполнять SQL в Neon, получать cloud credentials, менять роли/extensions/ownership или active registry/env/Railway/push. Реестр остаётся pending. Следующий свободный номер — TRAVEL-025. Minor test-harness initdb failure cleanup и реальные Neon capabilities/TLS остаются ограничениями в отчёте.

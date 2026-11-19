@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## TRAVEL-025.1 — Windows TLS channel и inspection SQL
+
+- Офлайн проверены portable psql/libpq17.12, OpenSSL linkage и TLS connection option names; cloud credentials/соединения не использовались.
+- SQL00 расширен memberships/всеми user schemas/ACL/effective privileges/defaults/TLS observation, исправлен wildcard;3 локальных READ ONLY теста RED→GREEN, без DDL/roles/extensions/migrations/seed.
+- Подготовлена [инструкция скрытого psql prompt](NEON_DIRECT_CHANNEL.md). Утверждение CA/терминала и фактическое облачное выполнение остаются отдельными шагами. Нет activation/env/provider/push изменений.
+
 ## TRAVEL-025 — read-only inspection, остановка до SQL
 
 - Повторно подтверждены management metadata exact terreno-test через Нурман. Direct verify-full и скрытая передача credentials не подтверждены доступным SQL/credential tool contract; облачный SQL не вызывался.

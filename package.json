@@ -16,6 +16,7 @@
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "test:e2e": "playwright test",
     "test:bootstrap:local": "vitest run --config vitest.bootstrap.config.ts",
+    "test:inspection:local": "vitest run --config vitest.inspection.config.ts",
     "check:architecture": "tsx scripts/check-architecture.ts",
     "check:secrets": "tsx scripts/check-secrets.ts",
     "check:dependencies": "tsx scripts/check-dependencies.ts",
