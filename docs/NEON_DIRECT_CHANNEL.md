@@ -1,5 +1,7 @@
 # TRAVEL-025.1 — Windows direct TLS channel, без cloud connection
 
+**Обновление TRAVEL-025.2:** официальный Windows CA источник подтверждён, локальный bundle подготовлен и офлайн проверен; [источник, fingerprint и проверки](NEON_CA_VERIFICATION.md). Команда ниже теперь содержит проверенный SHA256. Это не разрешение на cloud connection/SQL; исторические результаты TRAVEL-025.1 ниже сохранены.
+
 ## Результат и границы
 
 Исходная ветка feature/neon-test-profile, checkpoint ad5ce75; дерево/index были чистыми. Metadata TRAVEL-025 и тесты TRAVEL-024 не повторялись без необходимости. Через MCP credentials не получались, cloud socket/SQL не открывались. `.env.local`, pending registry, исходные6 migrations,10_prepare/20_verify и guards не менялись.
@@ -8,7 +10,7 @@
 
 Найден `.local/postgresql/bin/psql.exe`, версия **17.12** (в текущем PATH psql не найден). Проверена именно соседняя `.local/postgresql/bin/libpq.dll`: PQlibVersion170012, OpenSSL dependency libssl-3-x64.dll, поддерживаются sslmode/sslrootcert/ssl_min_protocol_version/sslcertmode/gssencmode/channel_binding/host/hostaddr. Для проверки PQconndefaults читались только имена опций, не значения environment/credentials; сетевых вызовов не было. Это подтверждение локальной возможности TLS, **не успешный handshake**, не проверка сертификата Neon и не доказательство наличия доверенного root CA.
 
-По [libpq17 SSL](https://www.postgresql.org/docs/17/libpq-ssl.html) verify-full проверяет цепочку и hostname. На Windows libpq/OpenSSL trust не следует автоматически отождествлять с Windows Certificate Store: нужен проверенный public CA bundle. Его источник/fingerprint ещё не утверждены. Не использовать скачанный с непроверенного сервера leaf как новый доверенный root, не ослаблять до require/verify-ca.
+По [libpq17 SSL](https://www.postgresql.org/docs/17/libpq-ssl.html) verify-full проверяет цепочку и hostname. На Windows libpq/OpenSSL trust не следует автоматически отождествлять с Windows Certificate Store: нужен проверенный public CA bundle. На момент TRAVEL-025.1 его источник/fingerprint не были определены; TRAVEL-025.2 подготовил официальный Mozilla/curl snapshot 2026-11-05. Не использовать скачанный с непроверенного сервера leaf как новый доверенный root, не ослаблять до require/verify-ca.
 
 ## Credentials — только скрытый prompt владельца
 
@@ -20,15 +22,16 @@
 
 1. В новом обычном PowerShell `-NoProfile` перейти в `C:\Users\EsenovE\Desktop\Ds`. Отключить запись терминала средствами владельца. Не запускать эту инструкцию в инструментальном терминале агента.
 2. Непосредственно перед подключением повторно сверить management tuple через Нурман, включая host без -pooler, branch/endpoint/database/owner/region/PG17. Прежние metadata не являются вечным разрешением для изменённого endpoint. В случае несовпадения — остановка.
-3. Согласовать public CA bundle, его HTTPS-источник и SHA256; поместить только публичные сертификаты в ignored `.local/neon-ca/approved-ca.pem`. Не устанавливать CA в Windows trust store автоматически. Утверждённый fingerprint должен заменить маркер в примере ниже, иначе команда заведомо остановится. CA не секрет, но его подлинность критична.
+3. Проверить подготовленный `.local/neon-ca/approved-ca.pem` командой `python -B docs/audit/verify_neon_ca.py` (только офлайн). Источник — официальный curl/Mozilla snapshot, SHA256 зафиксирован ниже и в [отчёте](NEON_CA_VERIFICATION.md). Не устанавливать CA в Windows trust store. При отсутствии файла, изменении fingerprint или истечении CA — остановиться; не скачивать замену автоматически. CA не секрет, но его подлинность критична.
 4. После отдельного согласования выполнить следующий **не содержащий секретов** код. Он устанавливает только локальные переменные процесса; `.env.local` не используется и не меняется.
 
 ```powershell
+$ErrorActionPreference = 'Stop'
 if (@(Get-ChildItem Env: | Where-Object Name -Match '^(PG|PSQL|OPENSSL_)').Count) {
   throw 'Inherited PostgreSQL/OpenSSL settings detected; use a clean terminal.'
 }
 $caFile = (Resolve-Path -LiteralPath '.local/neon-ca/approved-ca.pem').Path
-if ((Get-FileHash -LiteralPath $caFile -Algorithm SHA256).Hash -ne '<APPROVED_SHA256>') {
+if ((Get-FileHash -LiteralPath $caFile -Algorithm SHA256).Hash -ne '427c064216761a1e72a8b30f0d954d08cb6e4435a82091fb865afd20c8497285') {
   throw 'Unapproved CA bundle fingerprint.'
 }
 $caForLibpq = $caFile.Replace('\','/')
@@ -53,4 +56,4 @@ if ($LASTEXITCODE -ne 0) { throw 'Read-only inspection failed; stop, do not down
 
 Финальные адресные проверки TRAVEL-025.1: `npm run typecheck` и `npm run lint` — PASS; `npm run test:unit -- tests/unit/neon-bootstrap-plan.test.ts` — **10/10 PASS**; `npm run test:inspection:local` — **3/3 PASS**; `npm run check:docs` — PASS (170 исторических hashes,42 Markdown files); `npm run check:secrets` — PASS (index + working/untracked, значения скрыты); `git diff --check` — PASS. Отдельно подтверждены неизменность `.env.local` по прежнему SHA256 и отсутствие diff в src/scripts/исходных migrations/10/20/package-lock. Production build, полный integration/E2E и bootstrap rehearsal не повторялись: приложение/guards/migrations не менялись, новый SQL проверен отдельной локальной integration-командой. Проверки не доказывают облачную совместимость или TLS handshake.
 
-Остались: согласовать источник/fingerprint CA, доверенный терминал и скрытый ввод владельца, точную процедуру получения им доступа без передачи секрета агенту; затем отдельно согласовать выполнение этой инструкции. Текущее задание запрещает cloud connection/SQL. После успешного разрешённого inspection — отдельное решение по10/20; никакой автоматической активации targets, DDL/migrations/seed, Railway или push. Наличие локального psql снимает только клиентскую часть блокера TRAVEL-025.
+На момент TRAVEL-025.1 оставалось определить источник/fingerprint CA; этот пункт закрыт TRAVEL-025.2. Остаются доверенный терминал и скрытый ввод владельца, согласованный доступ к паролю без передачи секрета агенту; затем отдельное согласование выполнения инструкции. Текущее задание запрещает cloud connection/SQL. После успешного разрешённого inspection — отдельное решение по10/20; никакой автоматической активации targets, DDL/migrations/seed, Railway или push. Наличие psql и CA не доказывает реальную доступность endpoint, TLS handshake или SQL identity.

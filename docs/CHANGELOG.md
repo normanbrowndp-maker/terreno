@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## TRAVEL-025.2 — доверенный CA без cloud connection
+
+- Подтверждена рекомендация Neon для Windows: официальный Mozilla/curl CA bundle. Snapshot2026-11-05 и checksum скачаны по проверенному HTTPS только в ignored `.local/neon-ca/`.
+- Совпали SHA256,118 CA/сроки/DER ISRG Root X1; файл загружен соседним с psql17.12 OpenSSL без подключения к серверу. Добавлен воспроизводимый офлайн verifier, проверено отклонение изменённой копии.
+- Уточнены pinned CA path/hash, точный direct host/verify-full и ручной скрытый ввод через psql -W. Cloud credentials/SQL/ресурсы, `.env.local`, guards/migrations/pendingTargets и GitHub не затронуты.
+
 ## TRAVEL-025.1 — Windows TLS channel и inspection SQL
 
 - Офлайн проверены portable psql/libpq17.12, OpenSSL linkage и TLS connection option names; cloud credentials/соединения не использовались.

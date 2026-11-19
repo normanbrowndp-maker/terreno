@@ -8,6 +8,8 @@
 
 ## Сначала контекст
 
+TRAVEL-025.2: официальный curl/Mozilla CA snapshot подготовлен в ignored `.local/neon-ca/`, SHA256 закреплён, офлайн проверены118 CA/ISRG Root X1 и загрузка в OpenSSL psql17.12. Отчёт docs/NEON_CA_VERIFICATION.md, verifier docs/audit/verify_neon_ca.py; будущая инструкция docs/NEON_DIRECT_CHANNEL.md обновлена. Это не разрешение на cloud connection/SQL или получение credentials: остановиться до отдельного согласования. `.env.local`, guards, migrations и pendingTargets сохранять. Следующий свободный целый ID — TRAVEL-026.
+
 TRAVEL-025.1: подготовлена Windows psql -W/direct verify-full инструкция без получения cloud secrets; docs/NEON_DIRECT_CHANNEL.md. SQL00 расширен и проверен только локально READ ONLY, отдельная команда test:inspection:local не создаёт роли/extensions и не запускает migrations/seed. Запуск инструкции/облачное соединение требуют следующего согласования; CA/fingerprint пока не утверждены. Не исполнять SQL/cloud writes, не активировать pendingTargets/env/Railway/push. Следующий свободный целый ID остаётся TRAVEL-026.
 
 TRAVEL-025: владелец разрешил только read-only cloud inspection exact TERRENO tuple через Нурман при подтверждённом direct PostgreSQL/TLS verify-full и согласованном защищённом credential channel. Metadata проверены; SQL не выполнялся из-за transport/secret-channel gate, см. docs/NEON_CLOUD_INSPECTION.md. Разрешение read-only сохраняется; не повторно спрашивать его, но не обходить требования канала. Любые writes/activation/env changes/push запрещены. Следующий свободный номер — TRAVEL-026.

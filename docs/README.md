@@ -1,5 +1,7 @@
 # Документация туристической платформы
 
+**TRAVEL-025.2 — [проверенный CA bundle для Windows psql](NEON_CA_VERIFICATION.md).** Официальный curl/Mozilla snapshot и SHA256,118 CA/ISRG Root X1, офлайн загрузка в OpenSSL psql17.12; реального подключения/TLS handshake не было.
+
 **TRAVEL-025.1 — [Windows direct TLS инструкция и локальная проверка inspection](NEON_DIRECT_CHANNEL.md).** psql/libpq17.12/OpenSSL проверены офлайн,00 расширен и READ ONLY проверен локально. CA/канал/реальный handshake ещё не согласованы и не выполнялись.
 
 **TRAVEL-025 — [cloud inspection остановлен до SQL](NEON_CLOUD_INSPECTION.md):** metadata подтверждены, direct verify-full/защищённая передача credentials не подтверждены доступным каналом. Реальные SQL результаты отсутствуют; bootstrap не разрешён.
