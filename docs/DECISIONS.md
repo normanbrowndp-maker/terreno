@@ -1,5 +1,11 @@
 # Решения и открытые архитектурные вопросы
 
+## ADR-010 — локальная подготовка Neon test
+
+2026-11-19: владелец разрешил fail-closed Neon test profile, тесты и metadata audit двух bindings. Не разрешены создание проектов/баз/ролей, cloud SQL/migrations, env/secret changes, provider connections/deploy/push. Registry точных project/branch/endpoint/host/db/role metadata остаётся пустым до нового проверенного terreno-test; environment не может одобрить target. Runtime pooled, migrations/seed direct, bootstrap отдельно; старые local guards/physical identity/SQL/checksums сохраняются.
+
+Рекомендация — Нурман/org norman, отдельный Free проект; технического преимущества Free-квот над Primary нет. Account/region/provisioning — ещё решения владельца. MCP binding не равен Neon org или GitHub owner; доступный MCP не подтверждает repository linkage и не доказывает его отсутствие. [Профиль и границы](NEON_TEST_PROFILE.md), [план TRAVEL-020](NEON_TEST_PLAN.md).
+
 ## ADR-009 — TERRENO Italy, принято владельцем
 
 2026-11-18: окончательная география — **только Италия**. Это решение заменяет казахстанские пилоты ADR-003 и прежнюю отсрочку дизайна. Владелец разрешил пять семейств экранов desktop/mobile по terreno-1.pdf,48 реальных городов, подтверждённые места/фото и локальный demo-набор. Backend/история миграций сохраняются; изменение production, deploy, paid API и новый push запрещены. Старые отчёты/решения ниже остаются историей, а не текущим ТЗ.

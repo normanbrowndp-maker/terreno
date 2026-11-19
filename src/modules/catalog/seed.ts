@@ -1,5 +1,7 @@
 import type { CatalogDatabase } from "@/shared/db/catalog-database";
 import { assertDatabaseIdentity } from "@/shared/db/identity";
+import { assertProfileIdentity } from "@/shared/db/profile-identity";
+import type { DatabaseTarget } from "@/shared/db/connection-profile";
 import { italyDemo } from "./demo";
 import { collectionSchema } from "./model";
 
@@ -7,8 +9,10 @@ import { collectionSchema } from "./model";
 export async function seedItalyDemo(
   db: CatalogDatabase,
   purpose: "development" | "test",
+  target?: DatabaseTarget,
 ): Promise<void> {
-  await assertDatabaseIdentity(db, purpose);
+  if (target) await assertProfileIdentity(db, target, purpose);
+  else await assertDatabaseIdentity(db, purpose);
   const data = collectionSchema.parse(italyDemo);
   const ids = [
     ...data.cities.map((city) => city.id),

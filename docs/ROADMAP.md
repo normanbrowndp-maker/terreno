@@ -1,5 +1,7 @@
 # Пошаговый ROADMAP и первые 10 задач
 
+**TRAVEL-020:** [локальный профиль Neon test](NEON_TEST_PROFILE.md), [план](NEON_TEST_PLAN.md), без provisioning. До cloud подключения нужны account selection, verified IDs/target approval и отдельные разрешения создания/bootstrap/migrations. gloomi/sidequest не являются автоматически базой TERRENO.
+
 **Текущий план TERRENO — Италия:** [TRAVEL-014…017](ITALY_IMPLEMENTATION_PLAN.md). Новый запрос владельца разрешил реализацию пяти экранов по PDF,48 подтверждённых городов, проверенный demo-каталог и API/географию/сохранение на устройстве. Старое ограничение «этап2 не разрешён» ниже относится к историческому плану начала этапа1 и заменено этим запросом. Автоматический push/deploy запрещены.
 
 Текущий результат TRAVEL-014…017: выполнен и проверен; [отчёт](ITALY_REPORT.md). Каталог/UI/карта в границах editorial demo, production import/auth/routing/cloud не реализованы.

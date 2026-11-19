@@ -1,5 +1,7 @@
 # Предлагаемая архитектура
 
+**TRAVEL-020 — [локальный Neon test profile](NEON_TEST_PROFILE.md).** Explicit opt-in и reviewed exact target registry, сейчас пустой. Runtime pooled, migrations/seed direct, bootstrap отдельно. Local guards/identity и шесть миграций сохранены; provisioning/env changes/deploy/push не разрешены.
+
 **Текущая продуктовая география — Италия (TERRENO).** Новый запрос разрешил PDF-интерфейс, подтверждённый каталог и ограниченную географическую карту. Модульный монолит и PostGIS сохраняются; актуальные границы demo/production — [ITALY_IMPLEMENTATION_PLAN](ITALY_IMPLEMENTATION_PLAN.md). Упоминания этапа1 ниже описывают сохранённый фундамент, а не запрет новой разрешённой задачи.
 
 ### Итальянский read model и интерфейс
