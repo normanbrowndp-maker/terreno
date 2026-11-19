@@ -1,5 +1,9 @@
 # Решения и открытые архитектурные вопросы
 
+## ADR-012 — создание изолированного Neon test, без подключения приложения
+
+2026-11-19: отдельный запрос TRAVEL-022 разрешил один create_project по preflight. Создан terreno-test в norman через Нурман, Free/Frankfurt/PG17, test/travel_test_foundation/terreno_bootstrap_owner, compute0.25–0.25 CU и Free-default sleep. [Фактические IDs/проверки](NEON_PROJECT_CREATION.md). Этот запрос заменил только запрет provisioning для одного нового проекта; регистрация approved target, bootstrap/credentials/SQL/seed/env changes/Railway/push остаются за границей. Предыдущие ADR/отчёты сохраняются исторически.
+
 ## ADR-011 — выбор Neon-контекста и разрешение публикации TRAVEL-020
 
 2026-11-19: владелец выбрал Нурман/org norman для нового terreno-test, только Free, Frankfurt при доступности, PostgreSQL17. Разрешён обычный push только feature/neon-test-profile в terreno origin без force/merge/изменения других веток и read-only проверка перед созданием. Это заменяет запрет push для данной ветки в историческом TRAVEL-020, но не разрешает облачные ресурсы/SQL/credentials/env changes/Railway. [Проверка и точные предлагаемые параметры](NEON_CREATION_PREFLIGHT.md). Создание project автоматически создаст root branch/DB/bootstrap-role/compute; отдельное следующее разрешение должно охватывать эти default resources.

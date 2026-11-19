@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-19 — TRAVEL-022, отдельный Neon-проект создан
+
+- Через MCP Нурман создан один terreno-test в norman на Free, AWS Frankfurt, PostgreSQL17, test/travel_test_foundation, owner terreno_bootstrap_owner, compute min=max0.25 CU, сон по Free.
+- Повторно проверены org/план/отсутствие проекта/точные параметры до создания; после — реальные project/branch/endpoint IDs, database owner и параметры compute. [Отчёт](NEON_PROJECT_CREATION.md).
+- Registry остаётся пустым. Приложение, env и миграции не менялись; credentials/SQL/bootstrap/seed/другие провайдеры/GitHub push не выполнялись.
+
 ## 2026-11-19 — TRAVEL-021, публикация и Neon preflight
 
 - TRAVEL-020 опубликован обычным push в feature/neon-test-profile; remote SHA исходной вершины73e0881 совпал с локальным, прежние ветки не изменены. Проверены index/worktree и вся достижимая история на секреты/запрещённые пути.

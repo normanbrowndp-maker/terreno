@@ -1,5 +1,7 @@
 # Пошаговый ROADMAP и первые 10 задач
 
+**TRAVEL-022 — отдельный облачный проект создан:** [проверенные метаданные](NEON_PROJECT_CREATION.md). Создание разрешено и выполнено один раз. Следующая граница — отдельное согласование регистрации exact target и bootstrap; не повторять provisioning, не запускать SQL и не делать push.
+
 **TRAVEL-021 — публикация и read-only preflight:** [результат](NEON_CREATION_PREFLIGHT.md). Нурман/norman выбран; новый terreno-test пока не создан. Следующий шаг — отдельное разрешение создания с проверенными Free/Frankfurt/PG17 параметрами, без использования существующих проектов.
 
 **TRAVEL-020 — локальная подготовка завершена и проверена:** [локальный профиль Neon test](NEON_TEST_PROFILE.md), [план](NEON_TEST_PLAN.md), без provisioning. До cloud подключения нужны account selection, verified IDs/target approval и отдельные разрешения создания/bootstrap/migrations. gloomi/sidequest не являются автоматически базой TERRENO.

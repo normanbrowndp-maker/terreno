@@ -1,5 +1,7 @@
 # TRAVEL-021 — публикация TRAVEL-020 и проверка перед созданием terreno-test
 
+Исторический preflight сохранён. Последующим отдельным разрешением выполнен [TRAVEL-022 — создание одного проекта](NEON_PROJECT_CREATION.md). Утверждённый JSON ниже не менялся; повторно создавать проект по нему нельзя. Registry/bootstrap/SQL остаются отдельной следующей границей.
+
 Дата: 2026-11-19. Этот шаг разрешает обычный push только `feature/neon-test-profile` и чтение Neon metadata. Создание ресурсов, получение credentials/connection strings, SQL/migrations, изменение `.env.local`, Railway и платные действия не выполнялись. Код приложения, пустой target registry и зависимости не изменены.
 
 ## Карточка задачи
