@@ -1,5 +1,7 @@
 # Документация туристической платформы
 
+**2026-11-19 — [TRAVEL-021: GitHub и preflight создания Neon](NEON_CREATION_PREFLIGHT.md).** TRAVEL-020 опубликован в отдельной feature-ветке. Владелец выбрал Нурман/org norman, Free/Frankfurt/PG17; параметры подготовлены, создание ресурсов ещё не разрешено.
+
 **2026-11-19 — [TRAVEL-020: профиль Neon test и account mapping](NEON_TEST_PROFILE.md)**, [план](NEON_TEST_PLAN.md). Разрешены локальные guards/tests; cloud provisioning/SQL, env changes, provider connections и push запрещены. Approved registry пока пуст.
 
 **2026-11-19 — [TRAVEL-019: проверка Neon](NEON_READINESS.md).** MCP/авторизация и проекты проверены только на чтение; отдельная TERRENO не обнаружена. Подготовлены совместимость и план. Создание ресурсов, миграции и изменение существующих БД не разрешены этим шагом.

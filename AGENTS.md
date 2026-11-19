@@ -8,12 +8,14 @@
 
 ## Сначала контекст
 
+TRAVEL-021: владелец разрешил обычную публикацию только `feature/neon-test-profile` в существующий terreno origin и read-only preflight нового Free terreno-test. Выбраны Нурман/org norman, Frankfurt/PG17. Это не разрешение создания ресурсов, credentials retrieval, cloud SQL, env changes, Railway или paid actions. Результат/точные предлагаемые параметры — docs/NEON_CREATION_PREFLIGHT.md. Следующий свободный номер — TRAVEL-022.
+
 TRAVEL-019 — завершённый read-only аудит, docs/NEON_READINESS.md. Новый явный запрос разрешил TRAVEL-020: локальный fail-closed профиль Neon test, unit/regression, проверку двух account bindings и доступности GitHub metadata; план docs/NEON_TEST_PLAN.md. Авторизация MCP не разрешает create/update/delete, cloud SQL/migrations, получение connection strings/секретов, изменение `.env.local`, подключение других провайдеров, paid actions или push. До будущего cloud write выбрать один аккаунт и получить отдельное разрешение. Шесть исходных миграций и local-only guards сохранять.
 
 1. Проверить текущее состояние файлов и Git; не считать папку репозиторием без проверки. Чужие изменения сохранять.
 2. Прочитать относящиеся к задаче [оглавление docs](docs/README.md), [решения](docs/DECISIONS.md), требования и контракт затрагиваемого модуля. Не перечитывать весь каталог для каждой мелкой задачи.
 3. Существующие документы сначала анализировать. Обновлять адресно с объяснением причины, сохраняя принятые решения и исторические результаты. Планируемое не выдавать за реализованное.
-4. Присвоить задаче свободный TRAVEL-ID. TRAVEL-001…010 — ROADMAP; TRAVEL-011 — скиллы, TRAVEL-012 — границы фундамента, TRAVEL-013 — публикация фундамента GitHub. TRAVEL-014…017 — итальянская реализация в docs/ITALY_IMPLEMENTATION_PLAN.md; TRAVEL-018 — её публикация в docs/GITHUB_PUBLISH.md; TRAVEL-019 — read-only Neon audit в docs/NEON_READINESS.md; TRAVEL-020 — локальный профиль Neon test в docs/NEON_TEST_PLAN.md. Следующий свободный номер — TRAVEL-021, если к моменту работы не появились новые задачи.
+4. Присвоить задаче свободный TRAVEL-ID. TRAVEL-001…010 — ROADMAP; TRAVEL-011 — скиллы, TRAVEL-012 — границы фундамента, TRAVEL-013 — публикация фундамента GitHub. TRAVEL-014…017 — итальянская реализация в docs/ITALY_IMPLEMENTATION_PLAN.md; TRAVEL-018 — её публикация в docs/GITHUB_PUBLISH.md; TRAVEL-019 — read-only Neon audit в docs/NEON_READINESS.md; TRAVEL-020 — локальный профиль Neon test в docs/NEON_TEST_PLAN.md; TRAVEL-021 — публикация и preflight в docs/NEON_CREATION_PREFLIGHT.md. Следующий свободный номер — TRAVEL-022, если к моменту работы не появились новые задачи.
 
 ## Выбирать скиллы самостоятельно и по задаче
 

@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-19 — TRAVEL-021, публикация и Neon preflight
+
+- TRAVEL-020 опубликован обычным push в feature/neon-test-profile; remote SHA исходной вершины73e0881 совпал с локальным, прежние ветки не изменены. Проверены index/worktree и вся достижимая история на секреты/запрещённые пути.
+- Нурман/norman подтверждён на Free; найден только gloomi, новый terreno-test не создан. Frankfurt доступен, PG17 поддерживается; подготовлена точная новая project configuration без clone/import.
+- Изменены только документы и границы текущего объёма AGENTS; приложение/registry/миграции/зависимости/env не менялись. Подробности и границы следующего разрешения — [отчёт](NEON_CREATION_PREFLIGHT.md).
+
 ## 2026-11-19 — TRAVEL-020, локальная подготовка Neon test
 
 - Проверены metadata двух подключений: Нурман → norman/gloomi; Primary → yesenovyesen@gmail.com/sidequest-dev. Связь с GitHub через доступный MCP не установлена и не опровергнута.

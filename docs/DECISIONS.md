@@ -1,5 +1,9 @@
 # Решения и открытые архитектурные вопросы
 
+## ADR-011 — выбор Neon-контекста и разрешение публикации TRAVEL-020
+
+2026-11-19: владелец выбрал Нурман/org norman для нового terreno-test, только Free, Frankfurt при доступности, PostgreSQL17. Разрешён обычный push только feature/neon-test-profile в terreno origin без force/merge/изменения других веток и read-only проверка перед созданием. Это заменяет запрет push для данной ветки в историческом TRAVEL-020, но не разрешает облачные ресурсы/SQL/credentials/env changes/Railway. [Проверка и точные предлагаемые параметры](NEON_CREATION_PREFLIGHT.md). Создание project автоматически создаст root branch/DB/bootstrap-role/compute; отдельное следующее разрешение должно охватывать эти default resources.
+
 ## ADR-010 — локальная подготовка Neon test
 
 2026-11-19: владелец разрешил fail-closed Neon test profile, тесты и metadata audit двух bindings. Не разрешены создание проектов/баз/ролей, cloud SQL/migrations, env/secret changes, provider connections/deploy/push. Registry точных project/branch/endpoint/host/db/role metadata остаётся пустым до нового проверенного terreno-test; environment не может одобрить target. Runtime pooled, migrations/seed direct, bootstrap отдельно; старые local guards/physical identity/SQL/checksums сохраняются.
