@@ -1,5 +1,7 @@
 # Документация туристической платформы
 
+**TRAVEL-025 — [cloud inspection остановлен до SQL](NEON_CLOUD_INSPECTION.md):** metadata подтверждены, direct verify-full/защищённая передача credentials не подтверждены доступным каналом. Реальные SQL результаты отсутствуют; bootstrap не разрешён.
+
 **TRAVEL-024 — [точный bootstrap SQL и локальный отчёт](NEON_BOOTSTRAP_REPORT.md)**, [порядок](NEON_BOOTSTRAP_PLAN.md). Final150 unit/24 local integration/15 isolated rehearsal/build/gates PASS. Cloud SQL/credentials/активация/push не выполнялись; известные ограничения явно отмечены.
 
 **2026-11-19 — [TRAVEL-023: неактивная регистрация Neon metadata](NEON_TARGET_REGISTRATION.md).** Одна pending-bootstrap запись, active targets пуст; [план реализации](NEON_REGISTRATION_PLAN.md), [предложение bootstrap](NEON_BOOTSTRAP_PLAN.md). Cloud SQL/credentials/bootstrap/push не разрешены.

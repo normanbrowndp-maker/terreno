@@ -1,5 +1,7 @@
 # Пошаговый ROADMAP и первые 10 задач
 
+**TRAVEL-025 — transport gate:** [отчёт](NEON_CLOUD_INSPECTION.md). Read-only cloud inspection разрешён, но не выполнен до подтверждения direct TLS/secret-safe канала; нельзя переходить к bootstrap по одним metadata. Дополнительно требуется уточнить полное покрытие00.
+
 **TRAVEL-024 — bootstrap подготовлен, только локально:** [отчёт](NEON_BOOTSTRAP_REPORT.md). Следующий отдельный шаг — разрешение первого read-only cloud inspection, затем согласование точного write scope10+20; registry/credentials/migrations/seed/Railway не активируются автоматически.
 
 **TRAVEL-023 — inactive metadata registration:** [проверка и результат](NEON_TARGET_REGISTRATION.md), [план](NEON_REGISTRATION_PLAN.md). Проверенный tuple сохранён в pendingTargets, active targets пуст. Следующий этап — согласование [bootstrap](NEON_BOOTSTRAP_PLAN.md), без автоматической активации или cloud SQL.

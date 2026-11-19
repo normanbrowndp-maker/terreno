@@ -2,6 +2,11 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## TRAVEL-025 — read-only inspection, остановка до SQL
+
+- Повторно подтверждены management metadata exact terreno-test через Нурман. Direct verify-full и скрытая передача credentials не подтверждены доступным SQL/credential tool contract; облачный SQL не вызывался.
+- Записаны неизвестные SQL facts, пробелы покрытия00 и конкретный канал, необходимый для продолжения. Никаких cloud writes/credentials/env/registry changes/push; завершённые тесты TRAVEL-024 не повторялись. [Отчёт](NEON_CLOUD_INSPECTION.md).
+
 ## TRAVEL-024 — bootstrap SQL и локальная репетиция
 
 - Подготовлены manifest/00_inspect/10_prepare/20_verify, pure metadata/direct TLS policy и отдельный ephemeral local PG17 harness; cloud runner/credentials не добавлены.

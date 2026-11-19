@@ -8,6 +8,8 @@
 
 ## Сначала контекст
 
+TRAVEL-025: владелец разрешил только read-only cloud inspection exact TERRENO tuple через Нурман при подтверждённом direct PostgreSQL/TLS verify-full и согласованном защищённом credential channel. Metadata проверены; SQL не выполнялся из-за transport/secret-channel gate, см. docs/NEON_CLOUD_INSPECTION.md. Разрешение read-only сохраняется; не повторно спрашивать его, но не обходить требования канала. Любые writes/activation/env changes/push запрещены. Следующий свободный номер — TRAVEL-026.
+
 TRAVEL-024: подготовлены и локально проверены SQL00/10/20 и отдельная ephemeral PG17 rehearsal; docs/NEON_BOOTSTRAP_REPORT.md и docs/NEON_BOOTSTRAP_IMPLEMENTATION_PLAN.md. Это не разрешение выполнять SQL в Neon, получать cloud credentials, менять роли/extensions/ownership или active registry/env/Railway/push. Реестр остаётся pending. Следующий свободный номер — TRAVEL-025. Minor test-harness initdb failure cleanup и реальные Neon capabilities/TLS остаются ограничениями в отчёте.
 
 TRAVEL-023: разрешена локальная регистрация подтверждённых Neon metadata с тестами, без cloud SQL/credentials/bootstrap. Реальная запись — pendingTargets/state=pending-bootstrap; active targets пуст. Результат docs/NEON_TARGET_REGISTRATION.md, выполнение docs/NEON_REGISTRATION_PLAN.md, следующий предложенный scope docs/NEON_BOOTSTRAP_PLAN.md. Не переносить pending в targets без отдельного согласования bootstrap/SQL evidence. Никаких create/provider/env changes или push. Следующий свободный номер — TRAVEL-024.
@@ -21,7 +23,7 @@ TRAVEL-019 — завершённый read-only аудит, docs/NEON_READINESS.
 1. Проверить текущее состояние файлов и Git; не считать папку репозиторием без проверки. Чужие изменения сохранять.
 2. Прочитать относящиеся к задаче [оглавление docs](docs/README.md), [решения](docs/DECISIONS.md), требования и контракт затрагиваемого модуля. Не перечитывать весь каталог для каждой мелкой задачи.
 3. Существующие документы сначала анализировать. Обновлять адресно с объяснением причины, сохраняя принятые решения и исторические результаты. Планируемое не выдавать за реализованное.
-4. Присвоить задаче свободный TRAVEL-ID. TRAVEL-001…010 — ROADMAP; TRAVEL-011 — скиллы, TRAVEL-012 — границы фундамента, TRAVEL-013 — публикация фундамента GitHub. TRAVEL-014…017 — итальянская реализация в docs/ITALY_IMPLEMENTATION_PLAN.md; TRAVEL-018 — её публикация в docs/GITHUB_PUBLISH.md; TRAVEL-019 — read-only Neon audit в docs/NEON_READINESS.md; TRAVEL-020 — локальный профиль Neon test в docs/NEON_TEST_PLAN.md; TRAVEL-021 — публикация и preflight в docs/NEON_CREATION_PREFLIGHT.md; TRAVEL-022 — создание проекта в docs/NEON_PROJECT_CREATION.md. Следующий свободный номер — TRAVEL-025, если к моменту работы не появились новые задачи.
+4. Присвоить задаче свободный TRAVEL-ID. TRAVEL-001…010 — ROADMAP; TRAVEL-011 — скиллы, TRAVEL-012 — границы фундамента, TRAVEL-013 — публикация фундамента GitHub. TRAVEL-014…017 — итальянская реализация в docs/ITALY_IMPLEMENTATION_PLAN.md; TRAVEL-018 — её публикация в docs/GITHUB_PUBLISH.md; TRAVEL-019 — read-only Neon audit в docs/NEON_READINESS.md; TRAVEL-020 — локальный профиль Neon test в docs/NEON_TEST_PLAN.md; TRAVEL-021 — публикация и preflight в docs/NEON_CREATION_PREFLIGHT.md; TRAVEL-022 — создание проекта в docs/NEON_PROJECT_CREATION.md. Следующий свободный номер — TRAVEL-026, если к моменту работы не появились новые задачи.
 
 ## Выбирать скиллы самостоятельно и по задаче
 
