@@ -1,4 +1,31 @@
 {
   "schemaVersion": 1,
-  "targets": []
+  "targets": [],
+  "pendingTargets": [
+    {
+      "schemaVersion": 1,
+      "state": "pending-bootstrap",
+      "project": {
+        "id": "broad-wind-62771105",
+        "name": "terreno-test",
+        "organizationId": "org-lucky-base-56347525"
+      },
+      "branch": {
+        "id": "br-mute-river-bavdwjwl",
+        "projectId": "broad-wind-62771105"
+      },
+      "endpoint": {
+        "id": "ep-curly-moon-ba3f3csy",
+        "projectId": "broad-wind-62771105",
+        "branchId": "br-mute-river-bavdwjwl",
+        "host": "ep-curly-moon-ba3f3csy.c-8.eu-central-1.aws.neon.tech"
+      },
+      "database": "travel_test_foundation",
+      "bootstrapOwner": "terreno_bootstrap_owner",
+      "region": "aws-eu-central-1",
+      "postgresVersion": 17,
+      "verifiedAt": "2026-11-19T06:05:56Z",
+      "verificationSource": "neon-management-metadata"
+    }
+  ]
 }

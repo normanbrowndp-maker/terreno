@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## 2026-11-19 — TRAVEL-023, неактивные metadata Neon
+
+- Повторно подтверждены реальные org/project/branch/endpoint/host/DB/owner/region/PG17 через безопасные management API Нурман.
+- Добавлены strict readonly pendingTargets и root registry validation, запрет unknown/duplicate/promotion; active targets остаётся пустым, реальные подключения блокируются.
+- Добавлены19 unit cases (RED→GREEN), выполнен check135 unit/24 local integration/build/gates. План будущего bootstrap документирован, не исполнялся; облачный SQL/секреты/env changes/push отсутствуют. [Отчёт](NEON_TARGET_REGISTRATION.md).
+
 ## 2026-11-19 — TRAVEL-022, отдельный Neon-проект создан
 
 - Через MCP Нурман создан один terreno-test в norman на Free, AWS Frankfurt, PostgreSQL17, test/travel_test_foundation, owner terreno_bootstrap_owner, compute min=max0.25 CU, сон по Free.

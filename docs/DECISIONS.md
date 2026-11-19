@@ -1,5 +1,9 @@
 # Решения и открытые архитектурные вопросы
 
+## ADR-013 — metadata discovery отделён от connection approval
+
+TRAVEL-023 разрешает локальную регистрацию metadata, но не SQL/bootstrap/credentials. Активный schema требует runtime/migration roles, ещё не подтверждённых; поэтому реальная запись помещается в strict pendingTargets со state=pending-bootstrap и только известным bootstrapOwner. targets остаётся пустым; resolver выбирает только active targets. Unknown/duplicate records и любые попытки трактовать pending как active отвергаются. [Результат](NEON_TARGET_REGISTRATION.md), [следующий bootstrap scope](NEON_BOOTSTRAP_PLAN.md).
+
 ## ADR-012 — создание изолированного Neon test, без подключения приложения
 
 2026-11-19: отдельный запрос TRAVEL-022 разрешил один create_project по preflight. Создан terreno-test в norman через Нурман, Free/Frankfurt/PG17, test/travel_test_foundation/terreno_bootstrap_owner, compute0.25–0.25 CU и Free-default sleep. [Фактические IDs/проверки](NEON_PROJECT_CREATION.md). Этот запрос заменил только запрет provisioning для одного нового проекта; регистрация approved target, bootstrap/credentials/SQL/seed/env changes/Railway/push остаются за границей. Предыдущие ADR/отчёты сохраняются исторически.

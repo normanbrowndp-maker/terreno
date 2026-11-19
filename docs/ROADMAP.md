@@ -1,5 +1,7 @@
 # Пошаговый ROADMAP и первые 10 задач
 
+**TRAVEL-023 — inactive metadata registration:** [проверка и результат](NEON_TARGET_REGISTRATION.md), [план](NEON_REGISTRATION_PLAN.md). Проверенный tuple сохранён в pendingTargets, active targets пуст. Следующий этап — согласование [bootstrap](NEON_BOOTSTRAP_PLAN.md), без автоматической активации или cloud SQL.
+
 **TRAVEL-022 — отдельный облачный проект создан:** [проверенные метаданные](NEON_PROJECT_CREATION.md). Создание разрешено и выполнено один раз. Следующая граница — отдельное согласование регистрации exact target и bootstrap; не повторять provisioning, не запускать SQL и не делать push.
 
 **TRAVEL-021 — публикация и read-only preflight:** [результат](NEON_CREATION_PREFLIGHT.md). Нурман/norman выбран; новый terreno-test пока не создан. Следующий шаг — отдельное разрешение создания с проверенными Free/Frankfurt/PG17 параметрами, без использования существующих проектов.

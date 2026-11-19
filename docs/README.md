@@ -1,5 +1,7 @@
 # Документация туристической платформы
 
+**2026-11-19 — [TRAVEL-023: неактивная регистрация Neon metadata](NEON_TARGET_REGISTRATION.md).** Одна pending-bootstrap запись, active targets пуст; [план реализации](NEON_REGISTRATION_PLAN.md), [предложение bootstrap](NEON_BOOTSTRAP_PLAN.md). Cloud SQL/credentials/bootstrap/push не разрешены.
+
 **2026-11-19 — [TRAVEL-022: создан один Neon terreno-test](NEON_PROJECT_CREATION.md).** Нурман/norman, Free, Frankfurt/PG17; реальные project/branch/endpoint IDs проверены. Registry пуст, credentials/SQL/bootstrap/push не выполнялись; приложение ещё не подключено.
 
 **2026-11-19 — [TRAVEL-021: GitHub и preflight создания Neon](NEON_CREATION_PREFLIGHT.md).** TRAVEL-020 опубликован в отдельной feature-ветке. Владелец выбрал Нурман/org norman, Free/Frankfurt/PG17; параметры подготовлены, создание ресурсов ещё не разрешено.

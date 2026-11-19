@@ -243,7 +243,7 @@ describe("production resolver cannot authorize fictional or undeclared cloud tar
       resolveDatabaseConnection(raw, "runtime", { TRAVEL_DATABASE_ID: raw }),
     ).toThrow("Project database identity is required");
   });
-  it("keeps the registry empty and rejects opt-in without an approved target", () => {
+  it("keeps the active registry empty and rejects opt-in without an approved target", () => {
     expect(() =>
       resolveDatabaseConnection(neonUrl(), "runtime", neonEnv),
     ).toThrow("Neon test target is not approved");

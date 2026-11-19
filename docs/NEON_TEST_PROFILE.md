@@ -1,5 +1,7 @@
 # TRAVEL-020 — Neon test: код, аккаунты и границы
 
+Актуализация TRAVEL-023: [реальная metadata запись](NEON_TARGET_REGISTRATION.md) сохранена неактивно в pendingTargets; active targets всё ещё пуст. Утверждения о полностью пустом registry ниже — исторический результат TRAVEL-020/022. Bootstrap/SQL/credentials не выполнялись, активация отдельно.
+
 Последующее состояние: по отдельному разрешению [TRAVEL-022](NEON_PROJECT_CREATION.md) создан новый terreno-test; реальные IDs записаны в отчёте. Этот исторический профиль не регистрирует их автоматически: рабочий registry по-прежнему пуст, bootstrap/SQL/credentials ещё не выполнялись.
 
 2026-11-19. Разрешена локальная подготовка и чтение Neon metadata. Облачные ресурсы/SQL/migrations, credentials retrieval, `.env.local` changes, Railway/AWS/Cloudflare, paid actions, deploy и push не выполнялись. План с целью/зависимостями/критериями/тестами/рисками — [NEON_TEST_PLAN](NEON_TEST_PLAN.md). Checkpoint исходного аудита1598ee4, ветка `feature/neon-test-profile`.
