@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "organizationId": "org-lucky-base-56347525",
+  "projectId": "broad-wind-62771105",
+  "branchId": "br-mute-river-bavdwjwl",
+  "endpointId": "ep-curly-moon-ba3f3csy",
+  "host": "ep-curly-moon-ba3f3csy.c-8.eu-central-1.aws.neon.tech",
+  "region": "aws-eu-central-1",
+  "postgresVersion": 17,
+  "database": "travel_test_foundation",
+  "bootstrapOwner": "terreno_bootstrap_owner",
+  "roles": [
+    "travel_test_runtime",
+    "travel_test_migrator"
+  ],
+  "migrations": [
+    {
+      "name": "1794960000000_catalog.sql",
+      "sha256": "ed868322aebaf8ef4837a2a3c6cf3dc990d7b72fad4d9f56b7b8cbf5eff97caa"
+    },
+    {
+      "name": "1794960000001_publication_move_guard.sql",
+      "sha256": "757efbacbc7ef89c92fdb716eb3f7d074b63608212f383c151f058de4199d7a9"
+    },
+    {
+      "name": "1794960000002_license_normalization.sql",
+      "sha256": "db3927ba678b5b3f3e1f4602a7d43537891ea137a9c65a0487d119506c593185"
+    },
+    {
+      "name": "1794960000003_runtime_privileges.sql",
+      "sha256": "1f67b41ceef7e85c2e0462b2ce45b71a22b9449a8f348c559a71f3434dffe8c1"
+    },
+    {
+      "name": "1794960000004_italy_editorial.sql",
+      "sha256": "1061ef77a2c966f55c9f62f2f32b845a81fb42a061c832bae3fcae64a07f1c12"
+    },
+    {
+      "name": "1794960000005_city_country_guard.sql",
+      "sha256": "d4a2c1cbad7f596cb4a7594a467e433b4c1fa77c14fde6acf954d62ae9ca095d"
+    }
+  ]
+}

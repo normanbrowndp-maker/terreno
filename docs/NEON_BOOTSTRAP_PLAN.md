@@ -1,5 +1,17 @@
 # Следующий этап Neon bootstrap — предложение после TRAVEL-023
 
+## TRAVEL-024 — конкретные артефакты, подготовленные и проверенные только локально
+
+Облачное выполнение всё ещё не разрешено. Ниже старое предложение сохранено исторически; конкретный порядок и результаты TRAVEL-024 — [NEON_BOOTSTRAP_REPORT](NEON_BOOTSTRAP_REPORT.md), [план реализации](NEON_BOOTSTRAP_IMPLEMENTATION_PLAN.md).
+
+1. Отдельное разрешение на безопасный административный доступ/read-only SQL. Непосредственно перед первым запросом сверить свежие management metadata и точный direct host; чистая функция [assertBootstrapPlan](../scripts/lib/neon-bootstrap-plan.ts) проверяет org/Free/project/branch/endpoint/DB/owner/region/PG и единственный sslmode=verify-full. Это не cloud runner: она не открывает соединение, не получает credentials и не активирует registry. GUC receipt в SQL — утверждение проверившего клиента, не независимая provider attestation.
+2. [00_inspect.sql](../db/bootstrap/neon-test/00_inspect.sql) — read-only транзакция, фактические версии/owner/роли/objects/SECURITY DEFINER. Никакие поля passwords не читаются. Проверка клиента/сертификата/management tuple обязательна до SQL; сервер не умеет доказать Neon project ID посредством пользовательских GUC.
+3. После отдельного разрешения на перечисленные изменения: [10_prepare.sql](../db/bootstrap/neon-test/10_prepare.sql), затем [20_verify.sql](../db/bootstrap/neon-test/20_verify.sql) **в одной direct-сессии**. Файл10 открывает транзакцию без COMMIT, файл20 проверяет состояние и содержит единственный COMMIT. При ошибке — ROLLBACK/закрытие соединения, не выполнение следующего файла отдельно. Session migration lock23942026 согласован с bootstrap xact advisory lock. Исходные6 migrations не изменяются.
+4. Обе новые роли остаются NOLOGIN, без passwords и membership вверх. Bootstrap→migrator — явно разрешаемая административная downward membership ADMIN/INHERIT/SET, сохраняемая для повторного выполнения и ownership/default ACL. Обратных memberships нет. PostgreSQL17 createrole_self_grant и существующие grants проверяются; если существующий migrator не управляется bootstrap, остановка, а не обход полномочий.
+5. Registry остаётся pending и после подготовки ролей. Выдача credentials/LOGIN, реальный TLS/identity smoke, активная регистрация, migrations/seed и Railway — последующие отдельные разрешения.
+
+SQL разрешает только два ожидаемых владельца БД (bootstrap до подготовки, migrator после), сохраняет bootstrap ownership marker, отвергает dirty flags/memberships/marker. При действующем guard владение БД мигратором необходимо; это доверенная DDL-роль, а не непривилегированный пользовательский writer. Не обещается запрет владельцу БД на весь DDL или на установку всех trusted extensions.
+
 **Статус:** только план; выполнение, cloud SQL, credentials retrieval, создание ролей/расширений и активация targets **не разрешены** TRAVEL-023. Исходный ресурс уже создан — новый проект или новая БД не нужны. Следующий номер задачи выдаётся при согласовании.
 
 **Цель:** подготовить существующую travel_test_foundation к безопасной работе отдельно от локальных БД; не переносить пример infra/local/init.sql в облако. **Зависимости:** новое разрешение владельца на точный bootstrap scope и безопасный административный доступ; повторная metadata сверка [реального tuple](NEON_TARGET_REGISTRATION.md); audit-ready минимальные SQL/rollback меры без destructive migrations.

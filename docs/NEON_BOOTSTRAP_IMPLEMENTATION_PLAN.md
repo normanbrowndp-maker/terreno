@@ -15,7 +15,7 @@
 - **Acceptance:** Exact project/branch/endpoint/host/DB/org/region/PG17 validated; direct TLS bootstrap distinct from pooled runtime; least-privilege NOLOGIN roles, conditional ownership transfer, bootstrap-owned singleton marker; ACL/column/sequence/SECURITY DEFINER checks; repeat/partial cases fail closed or recover atomically; immutable six migrations compatible; registry/env unchanged.
 - **Tests:** static manifest/SQL guard checks, pure URL/metadata negative tests; real local ephemeral PG17 roles/ACL/DDL and six SQL migrations; existing local integration/strict/lint/unit/build/gates. Explicit future cloud smoke plan; never claim cloud PASS.
 - **Risks:** local superuser differs from Neon admin capability; SQL cannot attest provider project/endpoint without trusted management/transport check; ownership implies trusted migration DDL/DoS capability; extension function ACL/version differences; partial external transaction/ambiguous commit; fixtures are not cloud evidence.
-- **Status:** In progress.
+- **Status:** Complete within local preparation scope. Final150 unit/24 existing local integration/build/gates PASS; isolated rehearsal15/15 PASS. One independent review, five Important corrected in one RED→GREEN pass; one Minor deferred and reported. No cloud SQL/credentials/activation/push.
 
 ## Review focus
 
@@ -29,10 +29,10 @@
 
 Files: db/bootstrap/neon-test/{00_inspect.sql,10_prepare.sql,20_verify.sql,manifest.json}; scripts/lib/neon-bootstrap-plan.ts (pure validation only); tests/unit/neon-bootstrap-plan.test.ts; tests/bootstrap-local/{cluster.ts,bootstrap.test.ts}; vitest.bootstrap.config.ts and test:bootstrap:local command. Update docs/NEON_BOOTSTRAP_PLAN.md with exact artifact order/role table/recovery/future writes/approval list; retain historical reports.
 
-- [ ] Write policy/static and rehearsal tests first; observe RED.
-- [ ] Implement constant-target secret-free SQL, pure metadata/transport checks, isolated local harness. No runtime activation or cloud runner.
-- [ ] Observe GREEN: wrong metadata/URL, role/marker/ACL drift, repeat, rollback/partial, six migrations, read-only runtime/SET ROLE/function tests.
-- [ ] Run relevant full checks and one fresh-context review; fix Important/Critical once with RED→GREEN; update real evidence and local commit.
+- [x] Write policy/static and rehearsal tests first; observe RED.
+- [x] Implement constant-target secret-free SQL, pure metadata/transport checks, isolated local harness. No runtime activation or cloud runner.
+- [x] Observe GREEN: wrong metadata/URL, role/marker/ACL drift, repeat, rollback/partial, six migrations, read-only runtime/SET ROLE/function tests.
+- [x] Run relevant full checks and one fresh-context review; fix Important/Critical once with RED→GREEN; update real evidence and local commit.
 
 ## Rulings / execution
 
@@ -41,3 +41,7 @@ Files: db/bootstrap/neon-test/{00_inspect.sql,10_prepare.sql,20_verify.sql,manif
 - Ruling: database ownership transfer is needed by current guard and unchanged migration003 policy; migrator is trusted DDL, not a safe runtime writer. Cost: future redesign may narrow this, but current six migrations/guards are preserved.
 - Ruling: user supplied concrete local-preparation scope, so proceed without redundant workflow approval. No merge/push; local artifacts are not remotely backed up.
 - Pre-flight: one task; SQL/manifest/pure guard/harness share exact IDs and role contracts. SQL metadata settings are a client-verified receipt, never independent provider attestation. Runtime remains pending.
+- Ruling: retained admin→migrator downward membership, explicitly ADMIN/INHERIT/SET, supports PG17 ownership/default ACL/repeat; no outward memberships from either app role. Cost: bootstrap remains a trusted powerful administrator, never application runtime.
+- Final: fixed five Important review findings — recovery intent, all-schema/MAINTAIN ACL, inventory/default grants, marker checks/grantees, exact routine provenance. RED recovery1 FAIL/9 PASS and rehearsal4 FAIL/11 PASS → GREEN10 unit-plan/15 rehearsal; full suite150/24/build/gates PASS.
+- Final: minor (deferred): initdb failure before cleanup may leave ignored local init-secret; disclosed in report/final, no actual cloud credential involved.
+- Final: Ruling: real Neon capabilities/TLS remain unverified because cloud SQL/credentials are prohibited; local simulation is not evidence of managed privilege compatibility. Cost: first future cloud inspection may reveal a blocker requiring a revised plan.

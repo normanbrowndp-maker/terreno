@@ -2,6 +2,12 @@
 
 Здесь только фактические изменения. Планируемые функции находятся в ROADMAP, а не в changelog готовых возможностей.
 
+## TRAVEL-024 — bootstrap SQL и локальная репетиция
+
+- Подготовлены manifest/00_inspect/10_prepare/20_verify, pure metadata/direct TLS policy и отдельный ephemeral local PG17 harness; cloud runner/credentials не добавлены.
+- Проверены repeat/rollback/partial/nullable marker, шесть неизменных migrations и ACL/SET ROLE/SECURITY DEFINER отрицательные сценарии; пять Important review findings исправлены. Итог150 unit/24 local integration/15 rehearsal/build/gates PASS; один Minor cleanup path отложен.
+- Registry, env, application guards и исходные migrations неизменны; cloud SQL/ресурсы/активация/публикация не выполнялись. [Отчёт](NEON_BOOTSTRAP_REPORT.md).
+
 ## 2026-11-19 — TRAVEL-023, неактивные metadata Neon
 
 - Повторно подтверждены реальные org/project/branch/endpoint/host/DB/owner/region/PG17 через безопасные management API Нурман.
