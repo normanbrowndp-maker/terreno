@@ -10,7 +10,7 @@
 
 TRAVEL-023: разрешена локальная регистрация подтверждённых Neon metadata с тестами, без cloud SQL/credentials/bootstrap. Реальная запись — pendingTargets/state=pending-bootstrap; active targets пуст. Результат docs/NEON_TARGET_REGISTRATION.md, выполнение docs/NEON_REGISTRATION_PLAN.md, следующий предложенный scope docs/NEON_BOOTSTRAP_PLAN.md. Не переносить pending в targets без отдельного согласования bootstrap/SQL evidence. Никаких create/provider/env changes или push. Следующий свободный номер — TRAVEL-024.
 
-TRAVEL-022: владелец разрешил и выполнено ровно одно создание Free terreno-test в Нурман/org norman, Frankfurt/PG17. Метаданные/реальные IDs — docs/NEON_PROJECT_CREATION.md. Разрешение создания исчерпано: не создавать второй проект. Runtime target registry остаётся пустым; enrollment/bootstrap/SQL/credentials/env changes/Railway и новый push не разрешены. Следующий свободный номер — TRAVEL-023.
+Исторический TRAVEL-022: создан ровно один Free terreno-test в Нурман/org norman, Frankfurt/PG17; docs/NEON_PROJECT_CREATION.md. Разрешение создания исчерпано: не создавать второй проект. Тогда registry был пуст; последующий TRAVEL-023 разрешил только неактивную регистрацию metadata. Bootstrap/SQL/credentials/env changes/Railway и новый push всё ещё не разрешены.
 
 Исторический TRAVEL-021: владелец разрешил обычную публикацию только `feature/neon-test-profile` в существующий terreno origin и read-only preflight нового Free terreno-test. Выбраны Нурман/org norman, Frankfurt/PG17. Сам TRAVEL-021 не разрешал создание ресурсов, credentials retrieval, cloud SQL, env changes, Railway или paid actions. Результат/точные параметры — docs/NEON_CREATION_PREFLIGHT.md; последующее отдельное создание отражено в TRAVEL-022 выше.
 

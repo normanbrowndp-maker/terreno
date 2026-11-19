@@ -19,7 +19,11 @@ const identityFields = {
       id: z.string().regex(/^ep-[a-z0-9-]+$/),
       projectId,
       branchId: z.string().regex(/^br-[a-z0-9-]+$/),
-      host: z.string().regex(/^ep-[a-z0-9-]+\.[a-z0-9.-]+\.neon\.tech$/),
+      host: z.string().max(253)
+        .regex(/^ep-[a-z0-9-]+\.[a-z0-9.-]+\.neon\.tech$/)
+        .refine((host) => host.split(".").every(
+          (label) => /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(label),
+        )),
     })
     .readonly(),
   database: z.literal("travel_test_foundation"),

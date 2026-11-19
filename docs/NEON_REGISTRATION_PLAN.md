@@ -16,7 +16,7 @@
 - **Acceptance:** Exact known project/branch/endpoint/host/DB/owner/org/region/PG recorded; no assumed role privilege; explicit opt-in still refuses before driver connect; unrelated projects blocked; local guards, TLS and pooled/direct checks remain; env/six migrations unchanged.
 - **Tests:** New pending registry validation/unknown-field/duplicate/promotion/redaction tests; real-entry refusal and pre-connect driver spies with fake credentials; existing URL/TLS/serialization/local tests; TypeScript/ESLint/architecture/secrets/docs and local integration regression as applicable. Never run cloud SQL.
 - **Risks:** Treating discovered metadata as approval; malicious/partial registry; a test fixture accidentally entering production; stale provider IDs; bootstrap ownership transfer vs marker ACL; cloud smoke remains unavailable by scope.
-- **Status:** In progress; baseline2ec5398, clean existing feature/neon-test-profile. Prior local changes already committed; no push.
+- **Status:** Complete within TRAVEL-023: one pending metadata record, no active target; baseline2ec5398. Final140 unit/24 local integration/build/gates PASS; review finding fixed in one RED→GREEN correction pass. No push or cloud SQL.
 
 ## Global constraints / review focus
 
@@ -32,10 +32,10 @@ Files: modify src/shared/db/neon-test-config.ts and neon-test-targets.json; crea
 
 Interface: export `parseNeonTestRegistry(input: unknown)` → readonly schemaVersion1/targets/pendingTargets; pending records share identity validation, add pending-bootstrap/bootstrapOwner/region/postgresVersion; old `parseNeonTestTarget` remains the active-only contract. `approvedNeonTestTarget(request)` reads validated `.targets` only. `pendingTargets` defaults to[] for legacy test fixtures.
 
-- [ ] Write tests for real pending metadata and the parser, run RED (new contract absent).
-- [ ] Implement strict shared identity/root/pending schemas and confirmed JSON; run GREEN.
-- [ ] Run npm run lint, npm run typecheck, npm run test:unit, architecture/secrets/docs; relevant local integration regression. Expected exit0; no cloud.
-- [ ] One fresh-context review, fix Important/Critical once with RED→GREEN if any; document actual checks and blockers, local commit, no push.
+- [x] Write tests for real pending metadata and the parser, run RED (new contract absent).
+- [x] Implement strict shared identity/root/pending schemas and confirmed JSON; run GREEN.
+- [x] Run npm run lint, npm run typecheck, npm run test:unit, architecture/secrets/docs; relevant local integration regression. Expected exit0; no cloud.
+- [x] One fresh-context review, fix Important/Critical once with RED→GREEN if any; document actual checks and blockers, local commit, no push.
 
 ## Execution rulings
 
@@ -43,3 +43,5 @@ Interface: export `parseNeonTestRegistry(input: unknown)` → readonly schemaVer
 - Ruling: Use the owner's explicitly allowed inactive option rather than fabricate role existence or request redundant approval. Cost: real Neon target remains unavailable until separate bootstrap/approval.
 - Ruling: Keep this branch local without merge/push; current owner prohibits publication. Cost: new commits have no remote backup yet.
 - Pre-flight: one task, shared registry/parser interface used by resolver and test-only approval mocks; pending list is optional only at the root for backward compatibility, not an approval flag.
+- Final: fixed malformed DNS hostname acceptance — five DNS regression cases RED5 FAIL/19 PASS → GREEN24 PASS; complete suite140 unit/24 local integration/build/gates PASS. No Critical/Minor/declined items, no second review. Actual metadata compared programmatically against the registry: PASS.
+- Tooling: Git Bash not available for helper scripts; equivalent committed diff package and ledger prepared with native Python/git. Intermediate Windows sandbox tsx ENOMEM is documented; unchanged tests pass outside sandbox.

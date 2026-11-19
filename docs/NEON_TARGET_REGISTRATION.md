@@ -30,11 +30,13 @@ approvedNeonTestTarget читает только validated `.targets`. Явны�
 
 ## Тесты и ограничения доказательств
 
-Новые19 unit cases в `tests/unit/neon-pending-registry.test.ts`: реальный inactive metadata contract; несовпадающие project/branch/endpoint/host/DB/owner, region/PG/state; unknown role/root fields; duplicate/promotion denial; known foreign projects; sanitized errors; actual migration entrypoint refusal с fake credentials и Client/Pool connect spies (вызовов0). RED:18 FAIL/1 PASS до реализации; GREEN:19 PASS после.
+Новые24 unit cases в `tests/unit/neon-pending-registry.test.ts`: реальный inactive metadata contract; несовпадающие project/branch/endpoint/host/DB/owner, region/PG/state; unknown role/root fields; duplicate/promotion denial; known foreign projects; sanitized errors; actual migration entrypoint refusal с fake credentials и Client/Pool connect spies (вызовов0); DNS label/hostname length validation для pending и active. Исходные19: RED18 FAIL/1 PASS до реализации, затем GREEN19 PASS. После review добавлены ещё5 DNS cases: RED5 FAIL/19 PASS → GREEN24 PASS.
 
 Первый полный `npm run check` после реализации: strict/ESLint/architecture/secrets/docs/dependency/build PASS,135 unit и24 integration на прежней **локальной** изолированной PostgreSQL/PostGIS. Integration suite штатно проверяет локальные migration/seed сценарии; это не облачный SQL и не запуск bootstrap нового проекта. Production build прошёл. Новые записи не передавались в integration credentials; Neon соединения не открывались. E2E не запускались: пользовательские сценарии/компоненты не менялись. Изменения поведения реальной облачной БД этими тестами не проверены.
 
-Fresh-context review и итоговые проверки фиксируются ниже после завершения. `.env.local` и исходные6 миграций проверяются по fingerprints до локального коммита. Зависимости, исходные локальные guards и runner locks/checksums не менялись.
+Независимое fresh-context read-only review завершено: одно Important замечание — старый host regex допускал пустые DNS labels. Реальный записанный host корректен. За один correction pass добавлены строгие label bounds/синтаксис и общий максимум253 символа; RED→GREEN выше, затем полный `npm run check` exit0: **140 unit/17 files,24 local integration/3 files, strict/ESLint/build/architecture56 files/secrets/docs38 files/dependencies PASS**. Зависимости не обновлялись; dependency gate вернул0 blocked/0 reviewed, npm audit exit0. Critical/Minor/Declined to judge — нет. Второе независимое review не выполнялось.
+
+Промежуточный отдельный unit-прогон внутри Windows sandbox:134 PASS/1 FAIL из-за известного `uv_os_get_passwd/ENOMEM` в tsx до запуска seed CLI. Тот же неизменённый suite вне sandbox прошёл135/135; итог после DNS fix —140/140. Проверки/пакеты не отключались и не правились для обхода среды. `.env.local` и исходные6 миграций совпали с fingerprint baseline; исходные local guards, URL/TLS guard, SQL identity, pool, migration/seed runner и зависимости неизменны. Изменились registry/parser, тесты и документация.
 
 ## Блокеры и следующий шаг
 

@@ -85,6 +85,19 @@ it("rejects unknown root fields and duplicates, including active/pending identit
     { schemaVersion: 1, targets: [neonFixture], pendingTargets: [fixturePending] },
   ]) expect(() => config.parseNeonTestRegistry(bad)).toThrow("Invalid Neon test registry configuration");
 });
+it.each([
+  "c-8..eu-central-1.aws.neon.tech",
+  "-c-8.eu-central-1.aws.neon.tech",
+  "c-8-.eu-central-1.aws.neon.tech",
+  `${"a".repeat(64)}.eu-central-1.aws.neon.tech`,
+  `${Array(4).fill("a".repeat(63)).join(".")}.neon.tech`,
+])("rejects malformed DNS labels and excessive hostname length %#", (suffix) => {
+  const t = pending();
+  t.endpoint.host = `${t.endpoint.id}.${suffix}`;
+  expect(() => config.parseNeonTestRegistry(root(t))).toThrow("Invalid Neon test registry configuration");
+  const active = { ...neonFixture, endpoint: { ...neonFixture.endpoint, host: `${neonFixture.endpoint.id}.${suffix}` } };
+  expect(() => config.parseNeonTestTarget(active)).toThrow("Invalid Neon test target configuration");
+});
 it("never serializes raw registry validation input or error causes", () => {
   try { config.parseNeonTestRegistry({ ...root(), password: fixtureSecret }); }
   catch (error) {

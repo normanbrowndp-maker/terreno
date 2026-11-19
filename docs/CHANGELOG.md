@@ -6,7 +6,7 @@
 
 - Повторно подтверждены реальные org/project/branch/endpoint/host/DB/owner/region/PG17 через безопасные management API Нурман.
 - Добавлены strict readonly pendingTargets и root registry validation, запрет unknown/duplicate/promotion; active targets остаётся пустым, реальные подключения блокируются.
-- Добавлены19 unit cases (RED→GREEN), выполнен check135 unit/24 local integration/build/gates. План будущего bootstrap документирован, не исполнялся; облачный SQL/секреты/env changes/push отсутствуют. [Отчёт](NEON_TARGET_REGISTRATION.md).
+- Добавлены24 unit cases (RED→GREEN), исправлено Important замечание review о DNS label validation. Итоговый check140 unit/24 local integration/build/gates PASS. План будущего bootstrap документирован, не исполнялся; облачный SQL/секреты/env changes/push отсутствуют. [Отчёт](NEON_TARGET_REGISTRATION.md).
 
 ## 2026-11-19 — TRAVEL-022, отдельный Neon-проект создан
 
