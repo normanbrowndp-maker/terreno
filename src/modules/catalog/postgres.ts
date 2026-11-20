@@ -20,7 +20,7 @@ export async function readItalyCatalog(
       jsonb_build_array(jsonb_build_object('name','Wikidata','url',c.source_url,'license','CC0-1.0','licenseUrl','https://creativecommons.org/publicdomain/zero/1.0/')) AS sources
       FROM cities c JOIN regions r ON r.id=c.region_id
       JOIN region_translations rt ON rt.region_id=r.id AND rt.locale='en'
-      WHERE c.dataset=$1 AND c.country_code='IT' ORDER BY c.ordinal`,
+      WHERE c.dataset=$1 ORDER BY c.ordinal`,
       [italyDemo.dataset],
     ),
     db.query(
@@ -32,7 +32,7 @@ export async function readItalyCatalog(
       (SELECT m.metadata || jsonb_build_object('src',m.storage_key,'author',m.author,'sourceUrl',m.source_url,'license',m.license_code)
        FROM place_media m WHERE m.place_id=p.id ORDER BY m.position LIMIT 1) AS photo,p.sources_metadata AS sources
       FROM places p JOIN cities c ON c.id=p.city_id JOIN place_translations t ON t.place_id=p.id AND t.locale='en'
-      WHERE p.dataset=$1 AND c.dataset=$1 AND p.country_code='IT' AND p.status='published' ORDER BY p.id`,
+      WHERE p.dataset=$1 AND c.dataset=$1 AND p.status='published' ORDER BY p.id`,
       [italyDemo.dataset],
     ),
   ]);

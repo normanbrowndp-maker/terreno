@@ -1,0 +1,6269 @@
+{
+  "task": "TRAVEL-026",
+  "target": {
+    "project": "broad-wind-62771105",
+    "branch": "br-mute-river-bavdwjwl",
+    "endpoint": "ep-curly-moon-ba3f3csy",
+    "database": "travel_test_foundation"
+  },
+  "capture": "single rollback-only post-prepare diagnostic; state rolled back",
+  "count": 778,
+  "normalization": "Merge common with each routine to reconstruct its complete record. No rows omitted.",
+  "common": {
+    "acl": [
+      {
+        "grantee": "PUBLIC",
+        "grantor": "cloud_admin",
+        "grantable": false,
+        "privilege": "EXECUTE"
+      },
+      {
+        "grantee": "cloud_admin",
+        "grantor": "cloud_admin",
+        "grantable": false,
+        "privilege": "EXECUTE"
+      }
+    ],
+    "owner": "cloud_admin",
+    "raw_acl": "{=X/cloud_admin,cloud_admin=X/cloud_admin}",
+    "acl_is_default": false,
+    "execute_sources": [
+      {
+        "via": "PUBLIC",
+        "grantee": "PUBLIC",
+        "grantor": "cloud_admin",
+        "grantable": false
+      }
+    ],
+    "security_definer": false,
+    "runtime_superuser": false,
+    "runtime_owner_access": false,
+    "bootstrap_owner_access": false
+  },
+  "routines": [
+    {
+      "kind": "f",
+      "signature": "public.\"json\"(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_deprecate(oldname text, newname text, version text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_index_extent(tbl regclass, col text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_join_selectivity(regclass, text, regclass, text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_pgsql_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_scripts_pgsql_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_selectivity(tbl regclass, att_name text, geom geometry, mode text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public._postgis_stats(tbl regclass, att_name text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_3ddfullywithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_3ddwithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_3dintersects(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_asgml(integer, geometry, integer, integer, text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_asx3d(integer, geometry, integer, integer, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_bestsrid(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_bestsrid(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_contains(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_containsproperly(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_coveredby(geog1 geography, geog2 geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_coveredby(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_covers(geog1 geography, geog2 geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_covers(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_crosses(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_dfullywithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_distancetree(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_distancetree(geography, geography, double precision, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_distanceuncached(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_distanceuncached(geography, geography, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_distanceuncached(geography, geography, double precision, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_dwithin(geog1 geography, geog2 geography, tolerance double precision, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_dwithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_dwithinuncached(geography, geography, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_dwithinuncached(geography, geography, double precision, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_equals(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_expand(geography, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_geomfromgml(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_intersects(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_linecrossingdirection(line1 geometry, line2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_longestline(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_maxdistance(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_orderingequals(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_overlaps(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_pointoutside(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_sortablehash(geom geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_touches(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_voronoi(g1 geometry, clip geometry, tolerance double precision, return_polygons boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public._st_within(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.addgeometrycolumn(catalog_name character varying, schema_name character varying, table_name character varying, column_name character varying, new_srid_in integer, new_type character varying, new_dim integer, use_typmod boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.addgeometrycolumn(schema_name character varying, table_name character varying, column_name character varying, new_srid integer, new_type character varying, new_dim integer, use_typmod boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.addgeometrycolumn(table_name character varying, column_name character varying, new_srid integer, new_type character varying, new_dim integer, use_typmod boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box2d(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box2d(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box2d_in(cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box2d_out(box2d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box2df_in(cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box2df_out(box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box3d(box2d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box3d(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box3d_in(cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box3d_out(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.box3dtobox(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.bytea(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.bytea(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.contains_2d(box2df, box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.contains_2d(box2df, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.contains_2d(geometry, box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.dropgeometrycolumn(catalog_name character varying, schema_name character varying, table_name character varying, column_name character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.dropgeometrycolumn(schema_name character varying, table_name character varying, column_name character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.dropgeometrycolumn(table_name character varying, column_name character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.dropgeometrytable(catalog_name character varying, schema_name character varying, table_name character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.dropgeometrytable(schema_name character varying, table_name character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.dropgeometrytable(table_name character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.equals(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.find_srid(character varying, character varying, character varying)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geog_brin_inclusion_add_value(internal, internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geog_brin_inclusion_merge(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_analyze(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_cmp(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_distance_knn(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_eq(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_ge(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_compress(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_consistent(internal, geography, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_decompress(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_distance(internal, geography, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_penalty(internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_picksplit(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_same(box2d, box2d, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gist_union(bytea, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_gt(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_in(cstring, oid, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_le(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_lt(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_out(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_overlaps(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_recv(internal, oid, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_send(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_spgist_choose_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_spgist_compress_nd(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_spgist_config_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_spgist_inner_consistent_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_spgist_leaf_consistent_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_spgist_picksplit_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_typmod_in(cstring[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geography_typmod_out(integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geom2d_brin_inclusion_add_value(internal, internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geom2d_brin_inclusion_merge(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geom3d_brin_inclusion_add_value(internal, internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geom3d_brin_inclusion_merge(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geom4d_brin_inclusion_add_value(internal, internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geom4d_brin_inclusion_merge(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_above(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_analyze(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_below(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_cmp(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_contained_3d(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_contains(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_contains_3d(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_contains_nd(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_distance_box(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_distance_centroid(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_distance_centroid_nd(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_distance_cpa(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_eq(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_ge(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_compress_2d(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_compress_nd(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_consistent_2d(internal, geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_consistent_nd(internal, geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_decompress_2d(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_decompress_nd(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_distance_2d(internal, geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_distance_nd(internal, geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_penalty_2d(internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_penalty_nd(internal, internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_picksplit_2d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_picksplit_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_same_2d(geom1 geometry, geom2 geometry, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_same_nd(geometry, geometry, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_sortsupport_2d(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_union_2d(bytea, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gist_union_nd(bytea, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_gt(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_hash(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_in(cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_le(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_left(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_lt(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_neq(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_out(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overabove(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overbelow(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overlaps(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overlaps_3d(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overlaps_nd(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overleft(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_overright(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_recv(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_right(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_same(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_same_3d(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_same_nd(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_send(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_sortsupport(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_choose_2d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_choose_3d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_choose_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_compress_2d(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_compress_3d(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_compress_nd(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_config_2d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_config_3d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_config_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_inner_consistent_2d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_inner_consistent_3d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_inner_consistent_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_leaf_consistent_2d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_leaf_consistent_3d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_leaf_consistent_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_picksplit_2d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_picksplit_3d(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_spgist_picksplit_nd(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_typmod_in(cstring[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_typmod_out(integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_within(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometry_within_nd(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometrytype(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geometrytype(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geomfromewkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.geomfromewkt(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.get_proj4_from_srid(integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gidx_in(cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gidx_out(gidx)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gin_extract_query_trgm(text, internal, smallint, internal, internal, internal, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gin_extract_value_trgm(text, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gin_trgm_consistent(internal, smallint, text, integer, internal, internal, internal, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gin_trgm_triconsistent(internal, smallint, text, integer, internal, internal, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gserialized_gist_joinsel_2d(internal, oid, internal, smallint)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gserialized_gist_joinsel_nd(internal, oid, internal, smallint)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gserialized_gist_sel_2d(internal, oid, internal, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gserialized_gist_sel_nd(internal, oid, internal, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_compress(internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_consistent(internal, text, smallint, oid, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_decompress(internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_distance(internal, text, smallint, oid, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_in(cstring)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_options(internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_out(gtrgm)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_penalty(internal, internal, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_picksplit(internal, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_same(gtrgm, gtrgm, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.gtrgm_union(internal, internal)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.is_contained_2d(box2df, box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.is_contained_2d(box2df, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.is_contained_2d(geometry, box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.jsonb(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_2d(box2df, box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_2d(box2df, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_2d(geometry, box2df)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_geog(geography, gidx)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_geog(gidx, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_geog(gidx, gidx)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_nd(geometry, gidx)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_nd(gidx, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.overlaps_nd(gidx, gidx)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.path(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asflatgeobuf_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asflatgeobuf_transfn(internal, anyelement)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asflatgeobuf_transfn(internal, anyelement, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asflatgeobuf_transfn(internal, anyelement, boolean, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asgeobuf_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asgeobuf_transfn(internal, anyelement)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asgeobuf_transfn(internal, anyelement, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_combinefn(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_deserialfn(bytea, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_serialfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_transfn(internal, anyelement)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_transfn(internal, anyelement, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_transfn(internal, anyelement, text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_transfn(internal, anyelement, text, integer, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_asmvt_transfn(internal, anyelement, text, integer, text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_accum_transfn(internal, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_accum_transfn(internal, geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_accum_transfn(internal, geometry, double precision, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_clusterintersecting_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_clusterwithin_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_collect_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_coverageunion_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_makeline_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_polygonize_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_union_parallel_combinefn(internal, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_union_parallel_deserialfn(bytea, internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_union_parallel_finalfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_union_parallel_serialfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_union_parallel_transfn(internal, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.pgis_geometry_union_parallel_transfn(internal, geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.point(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.polygon(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.populate_geometry_columns(tbl_oid oid, use_typmod boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.populate_geometry_columns(use_typmod boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_addbbox(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_cache_bbox()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_constraint_dims(geomschema text, geomtable text, geomcolumn text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_constraint_srid(geomschema text, geomtable text, geomcolumn text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_constraint_type(geomschema text, geomtable text, geomcolumn text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_dropbbox(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_extensions_upgrade(target_version text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_full_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_geos_compiled_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_geos_noop(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_geos_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_getbbox(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_hasbbox(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_index_supportfn(internal)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_lib_build_date()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_lib_revision()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_lib_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_libjson_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_liblwgeom_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_libprotobuf_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_libxml_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_noop(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_proj_compiled_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_proj_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_scripts_build_date()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_scripts_installed()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_scripts_released()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_srs(auth_name text, auth_srid text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_srs_all()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_srs_codes(auth_name text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_srs_search(bounds geometry, authname text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_svn_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_transform_geometry(geom geometry, text, text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_transform_pipeline_geometry(geom geometry, pipeline text, forward boolean, to_srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_type_name(geomname character varying, coord_dimension integer, use_new_name boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_typmod_dims(integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_typmod_srid(integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_typmod_type(integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.postgis_wagyu_version()",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.set_limit(real)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.show_limit()",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.show_trgm(text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.similarity(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.similarity_dist(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.similarity_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.spheroid_in(cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.spheroid_out(spheroid)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dclosestpoint(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3ddfullywithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3ddistance(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3ddwithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_3dextent(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dintersects(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dlength(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dlineinterpolatepoint(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dlongestline(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dmakebox(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dmaxdistance(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dperimeter(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_3dshortestline(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_addmeasure(geometry, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_addpoint(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_addpoint(geom1 geometry, geom2 geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_angle(line1 geometry, line2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_angle(pt1 geometry, pt2 geometry, pt3 geometry, pt4 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_area(geog geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_area(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_area(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_area2d(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asbinary(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asbinary(geography, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asbinary(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asbinary(geometry, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asencodedpolyline(geom geometry, nprecision integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkb(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkb(geometry, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkt(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkt(geography, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkt(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkt(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asewkt(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asflatgeobuf(anyelement)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asflatgeobuf(anyelement, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asflatgeobuf(anyelement, boolean, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asgeobuf(anyelement)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asgeobuf(anyelement, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgeojson(geog geography, maxdecimaldigits integer, options integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgeojson(geom geometry, maxdecimaldigits integer, options integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgeojson(r record, geom_column text, maxdecimaldigits integer, pretty_bool boolean, id_column text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgeojson(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgml(geog geography, maxdecimaldigits integer, options integer, nprefix text, id text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgml(geom geometry, maxdecimaldigits integer, options integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgml(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgml(version integer, geog geography, maxdecimaldigits integer, options integer, nprefix text, id text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asgml(version integer, geom geometry, maxdecimaldigits integer, options integer, nprefix text, id text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ashexewkb(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ashexewkb(geometry, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_askml(geog geography, maxdecimaldigits integer, nprefix text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_askml(geom geometry, maxdecimaldigits integer, nprefix text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_askml(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_aslatlontext(geom geometry, tmpl text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asmarc21(geom geometry, format text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asmvt(anyelement)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asmvt(anyelement, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asmvt(anyelement, text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asmvt(anyelement, text, integer, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_asmvt(anyelement, text, integer, text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asmvtgeom(geom geometry, bounds box2d, extent integer, buffer integer, clip_geom boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_assvg(geog geography, rel integer, maxdecimaldigits integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_assvg(geom geometry, rel integer, maxdecimaldigits integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_assvg(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astext(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astext(geography, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astext(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astext(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astwkb(geom geometry, prec integer, prec_z integer, prec_m integer, with_sizes boolean, with_boxes boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_astwkb(geom geometry[], ids bigint[], prec integer, prec_z integer, prec_m integer, with_sizes boolean, with_boxes boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_asx3d(geom geometry, maxdecimaldigits integer, options integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_azimuth(geog1 geography, geog2 geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_azimuth(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_bdmpolyfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_bdpolyfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_boundary(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_boundingdiagonal(geom geometry, fits boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_box2dfromgeohash(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(geography, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(geography, double precision, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(geography, double precision, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(geom geometry, radius double precision, options text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(geom geometry, radius double precision, quadsegs integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(text, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(text, double precision, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buffer(text, double precision, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_buildarea(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_centroid(geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_centroid(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_centroid(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_chaikinsmoothing(geometry, integer, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_cleangeometry(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_clipbybox2d(geom geometry, box box2d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_closestpoint(geography, geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_closestpoint(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_closestpoint(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_closestpointofapproach(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "w",
+      "signature": "public.st_clusterdbscan(geometry, eps double precision, minpoints integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_clusterintersecting(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_clusterintersecting(geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "w",
+      "signature": "public.st_clusterintersectingwin(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "w",
+      "signature": "public.st_clusterkmeans(geom geometry, k integer, max_radius double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_clusterwithin(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_clusterwithin(geometry[], double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "w",
+      "signature": "public.st_clusterwithinwin(geometry, distance double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_collect(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_collect(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_collect(geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_collectionextract(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_collectionextract(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_collectionhomogenize(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_combinebbox(box2d, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_combinebbox(box3d, box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_combinebbox(box3d, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_concavehull(param_geom geometry, param_pctconvex double precision, param_allow_holes boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_contains(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_containsproperly(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_convexhull(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_coorddim(geometry geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "w",
+      "signature": "public.st_coverageinvalidedges(geom geometry, tolerance double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "w",
+      "signature": "public.st_coveragesimplify(geom geometry, tolerance double precision, simplifyboundary boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_coverageunion(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_coverageunion(geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_coveredby(geog1 geography, geog2 geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_coveredby(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_coveredby(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_covers(geog1 geography, geog2 geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_covers(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_covers(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_cpawithin(geometry, geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_crosses(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_curven(geometry geometry, i integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_curvetoline(geom geometry, tol double precision, toltype integer, flags integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_delaunaytriangles(g1 geometry, tolerance double precision, flags integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_dfullywithin(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_difference(geom1 geometry, geom2 geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_dimension(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_disjoint(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_distancecpa(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_distancesphere(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_distancesphere(geom1 geometry, geom2 geometry, radius double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_distancespheroid(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_distancespheroid(geom1 geometry, geom2 geometry, spheroid)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_dump(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_dumppoints(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_dumprings(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_dumpsegments(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_endpoint(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_envelope(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_equals(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_estimatedextent(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_estimatedextent(text, text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_estimatedextent(text, text, text, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_expand(box box2d, dx double precision, dy double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_expand(box box3d, dx double precision, dy double precision, dz double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_expand(box2d, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_expand(box3d, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_expand(geom geometry, dx double precision, dy double precision, dz double precision, dm double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_expand(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_extent(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_exteriorring(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_filterbym(geometry, double precision, double precision, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_findextent(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_findextent(text, text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_flipcoordinates(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_force2d(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_force3d(geom geometry, zvalue double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_force3dm(geom geometry, mvalue double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_force3dz(geom geometry, zvalue double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_force4d(geom geometry, zvalue double precision, mvalue double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcecollection(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcecurve(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcepolygonccw(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcepolygoncw(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcerhr(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcesfs(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_forcesfs(geometry, version text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_frechetdistance(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_fromflatgeobuf(anyelement, bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_fromflatgeobuftotable(text, text, bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_generatepoints(area geometry, npoints integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_generatepoints(area geometry, npoints integer, seed integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geogfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geogfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geographyfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geohash(geog geography, maxchars integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geohash(geom geometry, maxchars integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomcollfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomcollfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomcollfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomcollfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geometricmedian(g geometry, tolerance double precision, max_iter integer, fail_if_not_converged boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geometryfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geometryfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geometryn(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geometrytype(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromewkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromewkt(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromgeohash(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromgeojson(json)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromgeojson(jsonb)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromgeojson(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromgml(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromgml(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromkml(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfrommarc21(marc21xml text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromtwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_geomfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_gmltosql(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_gmltosql(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hasarc(geometry geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hasm(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hasz(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hausdorffdistance(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hausdorffdistance(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hexagon(size double precision, cell_i integer, cell_j integer, origin geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_hexagongrid(size double precision, bounds geometry, OUT geom geometry, OUT i integer, OUT j integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_interiorringn(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_interpolatepoint(line geometry, point geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_intersection(geography, geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_intersection(geom1 geometry, geom2 geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_intersection(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_intersects(geog1 geography, geog2 geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_intersects(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_intersects(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_inversetransformpipeline(geom geometry, pipeline text, to_srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isclosed(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_iscollection(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ispolygonccw(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ispolygoncw(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isring(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_issimple(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isvalid(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isvalid(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isvaliddetail(geom geometry, flags integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isvalidreason(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isvalidreason(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_isvalidtrajectory(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_largestemptycircle(geom geometry, tolerance double precision, boundary geometry, OUT center geometry, OUT nearest geometry, OUT radius double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_length(geog geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_length(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_length(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_length2d(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_length2dspheroid(geometry, spheroid)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lengthspheroid(geometry, spheroid)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_letters(letters text, font json)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linecrossingdirection(line1 geometry, line2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineextend(geom geometry, distance_forward double precision, distance_backward double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linefromencodedpolyline(txtin text, nprecision integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linefrommultipoint(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linefromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linefromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linefromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linefromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineinterpolatepoint(geography, double precision, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineinterpolatepoint(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineinterpolatepoint(text, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineinterpolatepoints(geography, double precision, use_spheroid boolean, repeat boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineinterpolatepoints(geometry, double precision, repeat boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_lineinterpolatepoints(text, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linelocatepoint(geography, geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linelocatepoint(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linelocatepoint(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linemerge(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linemerge(geometry, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linestringfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linestringfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linesubstring(geography, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linesubstring(geometry, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linesubstring(text, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_linetocurve(geometry geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_locatealong(geometry geometry, measure double precision, leftrightoffset double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_locatebetween(geometry geometry, frommeasure double precision, tomeasure double precision, leftrightoffset double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_locatebetweenelevations(geometry geometry, fromelevation double precision, toelevation double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_longestline(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_m(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makebox2d(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makeenvelope(double precision, double precision, double precision, double precision, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makeline(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_makeline(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makeline(geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makepointm(double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makepolygon(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makepolygon(geometry, geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makevalid(geom geometry, params text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_makevalid(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_maxdistance(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_maximuminscribedcircle(geometry, OUT center geometry, OUT nearest geometry, OUT radius double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_memcollect(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_memsize(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_memunion(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_minimumboundingcircle(inputgeom geometry, segs_per_quarter integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_minimumboundingradius(geometry, OUT center geometry, OUT radius double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_minimumclearance(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_minimumclearanceline(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mlinefromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mlinefromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mlinefromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mlinefromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpointfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpointfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpointfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpointfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpolyfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpolyfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpolyfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_mpolyfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multi(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multilinefromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multilinestringfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multilinestringfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipointfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipointfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipointfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipolyfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipolyfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipolygonfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_multipolygonfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ndims(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_node(g geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_normalize(geom geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_npoints(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_nrings(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_numcurves(geometry geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_numgeometries(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_numinteriorring(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_numinteriorrings(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_numpatches(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_numpoints(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_offsetcurve(line geometry, distance double precision, params text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_orderingequals(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_orientedenvelope(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_overlaps(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_patchn(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_perimeter(geog geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_perimeter(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_perimeter2d(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointfromgeohash(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointinsidecircle(geometry, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointm(xcoordinate double precision, ycoordinate double precision, mcoordinate double precision, srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointn(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointonsurface(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_points(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointz(xcoordinate double precision, ycoordinate double precision, zcoordinate double precision, srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_pointzm(xcoordinate double precision, ycoordinate double precision, zcoordinate double precision, mcoordinate double precision, srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polyfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polyfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polyfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polyfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polygon(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polygonfromtext(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polygonfromtext(text, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polygonfromwkb(bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polygonfromwkb(bytea, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_polygonize(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_polygonize(geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_project(geog geography, distance double precision, azimuth double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_project(geog_from geography, geog_to geography, distance double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_project(geom1 geometry, distance double precision, azimuth double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_project(geom1 geometry, geom2 geometry, distance double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_quantizecoordinates(g geometry, prec_x integer, prec_y integer, prec_z integer, prec_m integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_reduceprecision(geom geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_relate(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_relate(geom1 geometry, geom2 geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_relate(geom1 geometry, geom2 geometry, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_relatematch(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_removeirrelevantpointsforview(geometry, box2d, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_removepoint(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_removerepeatedpoints(geom geometry, tolerance double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_removesmallparts(geometry, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_reverse(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_rotate(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_rotate(geometry, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_rotate(geometry, double precision, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_rotatex(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_rotatey(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_rotatez(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_scale(geometry, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_scale(geometry, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_scale(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_scale(geometry, geometry, origin geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_scroll(geometry, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_segmentize(geog geography, max_segment_length double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_segmentize(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_seteffectivearea(geometry, double precision, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_setpoint(geometry, integer, geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_sharedpaths(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_shiftlongitude(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_shortestline(geography, geography, use_spheroid boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_shortestline(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_shortestline(text, text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_simplify(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_simplify(geometry, double precision, boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_simplifypolygonhull(geom geometry, vertex_fraction double precision, is_outer boolean)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_simplifypreservetopology(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_simplifyvw(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_snap(geom1 geometry, geom2 geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_snaptogrid(geom1 geometry, geom2 geometry, double precision, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_snaptogrid(geometry, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_snaptogrid(geometry, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_snaptogrid(geometry, double precision, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_split(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_square(size double precision, cell_i integer, cell_j integer, origin geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_squaregrid(size double precision, bounds geometry, OUT geom geometry, OUT i integer, OUT j integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_srid(geog geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_srid(geom geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_startpoint(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_subdivide(geom geometry, maxvertices integer, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_summary(geography)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_summary(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_swapordinates(geom geometry, ords cstring)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_symdifference(geom1 geometry, geom2 geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_symmetricdifference(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_tileenvelope(zoom integer, x integer, y integer, bounds geometry, margin double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_touches(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_transform(geom geometry, from_proj text, to_proj text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_transform(geom geometry, from_proj text, to_srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_transform(geom geometry, to_proj text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_transform(geometry, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_transformpipeline(geom geometry, pipeline text, to_srid integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_translate(geometry, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_translate(geometry, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_transscale(geometry, double precision, double precision, double precision, double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_triangulatepolygon(g1 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_unaryunion(geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_union(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_union(geom1 geometry, geom2 geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_union(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "a",
+      "signature": "public.st_union(geometry, gridsize double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_union(geometry[])",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_voronoilines(g1 geometry, tolerance double precision, extend_to geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_voronoipolygons(g1 geometry, tolerance double precision, extend_to geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_within(geom1 geometry, geom2 geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_wkbtosql(wkb bytea)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_wkttosql(text)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_wrapx(geom geometry, wrap double precision, move double precision)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_xmax(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_xmin(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ymax(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_ymin(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_z(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_zmax(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_zmflag(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.st_zmin(box3d)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.strict_word_similarity(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.strict_word_similarity_commutator_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.strict_word_similarity_dist_commutator_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.strict_word_similarity_dist_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.strict_word_similarity_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.text(geometry)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.updategeometrysrid(catalogn_name character varying, schema_name character varying, table_name character varying, column_name character varying, new_srid_in integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.updategeometrysrid(character varying, character varying, character varying, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.updategeometrysrid(character varying, character varying, integer)",
+      "extensions": [
+        "postgis"
+      ],
+      "volatility": "v"
+    },
+    {
+      "kind": "f",
+      "signature": "public.word_similarity(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.word_similarity_commutator_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "s"
+    },
+    {
+      "kind": "f",
+      "signature": "public.word_similarity_dist_commutator_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.word_similarity_dist_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "i"
+    },
+    {
+      "kind": "f",
+      "signature": "public.word_similarity_op(text, text)",
+      "extensions": [
+        "pg_trgm"
+      ],
+      "volatility": "s"
+    }
+  ]
+}

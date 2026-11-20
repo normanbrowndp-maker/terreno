@@ -1,3 +1,4 @@
+import { countryCodes, type CatalogCountry } from "./countries";
 import {
   categories,
   type City,
@@ -23,6 +24,7 @@ export function filterCities(cities: readonly City[], query = ""): City[] {
   );
 }
 export interface CatalogQuery {
+  country?: CatalogCountry;
   query?: string;
   city?: string;
   category?: PlaceCategory;
@@ -37,6 +39,7 @@ export function filterPlaces(
   const needle = normaliseSearch(query.query ?? "");
   return places.filter(
     (place) =>
+      (!query.country || place.countryCode === query.country) &&
       (!query.city || place.citySlug === query.city) &&
       (!query.category || place.categories.includes(query.category)) &&
       normaliseSearch(
@@ -47,16 +50,18 @@ export function filterPlaces(
 export function parseCatalogQuery(
   params: URLSearchParams,
 ): CatalogQuery & { limit: number } {
-  const allowed = ["q", "city", "category", "openNow", "limit"];
+  const allowed = ["country", "q", "city", "category", "openNow", "limit"];
   for (const key of params.keys())
     if (!allowed.includes(key) || params.getAll(key).length !== 1)
       throw new Error("Invalid catalog query");
+  const country=params.get("country");
   const query = params.get("q")?.trim();
   const city = params.get("city");
   const category = params.get("category");
   const openNow = params.get("openNow");
   const rawLimit = params.get("limit") ?? "50";
   if (
+    (country !== null && !countryCodes.includes(country as CatalogCountry)) ||
     (query && query.length > 80) ||
     (city !== null && !/^[a-z0-9-]{1,80}$/.test(city)) ||
     (category !== null && !categories.includes(category as PlaceCategory)) ||
@@ -67,6 +72,7 @@ export function parseCatalogQuery(
   const limit = Number(rawLimit);
   if (limit < 1 || limit > 50) throw new Error("Invalid catalog query");
   return {
+    ...(country ? {country:country as CatalogCountry} : {}),
     ...(query ? { query } : {}),
     ...(city ? { city } : {}),
     ...(category ? { category: category as PlaceCategory } : {}),

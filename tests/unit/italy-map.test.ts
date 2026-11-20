@@ -12,7 +12,7 @@ it("projects genuine Italian coordinates with north up and preserves relative ge
   const roma = project([12.4828, 41.8931]);
   expect(milano[0]).toBeLessThan(roma[0]);
   expect(milano[1]).toBeLessThan(roma[1]);
-  for (const city of italyDemo.cities) {
+  for (const city of italyDemo.cities.filter(c=>c.countryCode==="IT")) {
     const [x, y] = project([city.longitude, city.latitude]);
     expect(x).toBeGreaterThan(0);
     expect(x).toBeLessThan(1000);

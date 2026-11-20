@@ -23,9 +23,12 @@ export function CityScreen({ slug }: { slug: string }) {
   const category = categoryValue as PlaceCategory | "";
   const allPlaces = catalog.places.filter((place) => place.citySlug === slug);
   const places = filterPlaces(allPlaces, category ? { category } : {});
+  const [mapPlace, setMapPlace] = useQueryValue("place");
+  const selected = places.find(place => place.slug === mapPlace);
   return (
     <main id="main-content" className="split-layout city-layout">
       <section className="editorial-panel city-panel">
+        <div className="editorial-hero">
         <EditorialPhoto
           photo={city.photo}
           name={city.name}
@@ -42,14 +45,18 @@ export function CityScreen({ slug }: { slug: string }) {
           <br />
           {city.description}
         </p>
-        <FilterTabs value={category} onChange={setCategory} />
-        <p className="micro places-counter" aria-live="polite">
+        </div>
+        {allPlaces.length > 0 && (
+          <FilterTabs value={category} onChange={setCategory} places={allPlaces} />
+        )}
+        <h2 className="micro places-counter" aria-live="polite">
           Places to pause / {String(places.length).padStart(2, "0")}
-        </p>
+        </h2>
         {places.length ? (
           <div className="places-grid">
             {places.map((place) => (
-              <PlaceCard key={place.id} place={place} />
+              <PlaceCard key={place.id} place={place} selected={selected?.id === place.id}
+                onSelect={() => setMapPlace(place.slug)} />
             ))}
           </div>
         ) : allPlaces.length ? (
@@ -77,9 +84,12 @@ export function CityScreen({ slug }: { slug: string }) {
         </div>
         <GeographicMap
           key={city.slug}
-          cities={catalog.cities}
+          cities={catalog.cities.filter(c=>c.countryCode===city.countryCode)}
           city={city}
           places={places}
+          selectedPlace={selected}
+          centerOn={selected}
+          onSelectPlace={place => setMapPlace(place.slug)}
         />
         <p className="mobile-map-footnote">
           A few good places, not a checklist.

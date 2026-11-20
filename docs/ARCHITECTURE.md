@@ -1,5 +1,7 @@
 # Предлагаемая архитектура
 
+**Актуально, продолжение TRAVEL-026:** модульный монолит Next.js/TypeScript + PostgreSQL/PostGIS сохранён. Hosting команда выберет позже; terreno-test остаётся кандидатом. В registry одна pending-bootstrap запись и ноль active targets. Каталог локально проверяется через существующий pg adapter, остальные module contracts не выдаются за persistence. [Готовность, Neon-specific блокеры и варианты](NEON_INTEGRATION_HANDOFF.md). Прежняя рекомендация controlled ownership не является решением сменить Neon; записи ниже исторические.
+
 **TRAVEL-022 — [создан отдельный Neon test](NEON_PROJECT_CREATION.md).** Free/Frankfurt/PG17, реальные metadata проверены; приложение ещё не подключено, exact target registry пуст. Enrollment, bootstrap, credentials, SQL и push требуют следующего разрешения. Ограничения provisioning в историческом TRAVEL-020 ниже были заменены только для этого единственного создания.
 
 **TRAVEL-020 — [локальный Neon test profile](NEON_TEST_PROFILE.md).** Explicit opt-in и reviewed exact target registry, сейчас пустой. Runtime pooled, migrations/seed direct, bootstrap отдельно. Local guards/identity и шесть миграций сохранены; provisioning/env changes/deploy/push не разрешены.

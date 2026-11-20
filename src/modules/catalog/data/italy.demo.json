@@ -1,6 +1,6 @@
 {
   "dataset": "italy-editorial-demo-v1",
-  "verifiedAt": "2026-11-18",
+  "verifiedAt": "2026-11-20",
   "countryCode": "IT",
   "sourcePdfSha256": "65408b3c78c3f0a2db1b4f91a952051c0d12346eeabb640c78d379ac2bbb451a",
   "cities": [
@@ -8,7 +8,10 @@
       "id": "c0000000-0000-4000-8000-000000000001",
       "slug": "firenze",
       "name": "Firenze",
-      "aliases": ["Firenze", "Florence"],
+      "aliases": [
+        "Firenze",
+        "Florence"
+      ],
       "countryCode": "IT",
       "region": "Toscana",
       "regionSlug": "toscana",
@@ -46,7 +49,9 @@
       "id": "c0000000-0000-4000-8000-000000000002",
       "slug": "siena",
       "name": "Siena",
-      "aliases": ["Siena"],
+      "aliases": [
+        "Siena"
+      ],
       "countryCode": "IT",
       "region": "Toscana",
       "regionSlug": "toscana",
@@ -71,7 +76,9 @@
       "id": "c0000000-0000-4000-8000-000000000003",
       "slug": "pisa",
       "name": "Pisa",
-      "aliases": ["Pisa"],
+      "aliases": [
+        "Pisa"
+      ],
       "countryCode": "IT",
       "region": "Toscana",
       "regionSlug": "toscana",
@@ -96,7 +103,9 @@
       "id": "c0000000-0000-4000-8000-000000000004",
       "slug": "lucca",
       "name": "Lucca",
-      "aliases": ["Lucca"],
+      "aliases": [
+        "Lucca"
+      ],
       "countryCode": "IT",
       "region": "Toscana",
       "regionSlug": "toscana",
@@ -121,7 +130,9 @@
       "id": "c0000000-0000-4000-8000-000000000005",
       "slug": "arezzo",
       "name": "Arezzo",
-      "aliases": ["Arezzo"],
+      "aliases": [
+        "Arezzo"
+      ],
       "countryCode": "IT",
       "region": "Toscana",
       "regionSlug": "toscana",
@@ -146,7 +157,9 @@
       "id": "c0000000-0000-4000-8000-000000000006",
       "slug": "bologna",
       "name": "Bologna",
-      "aliases": ["Bologna"],
+      "aliases": [
+        "Bologna"
+      ],
       "countryCode": "IT",
       "region": "Emilia-Romagna",
       "regionSlug": "emilia-romagna",
@@ -171,7 +184,9 @@
       "id": "c0000000-0000-4000-8000-000000000007",
       "slug": "parma",
       "name": "Parma",
-      "aliases": ["Parma"],
+      "aliases": [
+        "Parma"
+      ],
       "countryCode": "IT",
       "region": "Emilia-Romagna",
       "regionSlug": "emilia-romagna",
@@ -196,7 +211,9 @@
       "id": "c0000000-0000-4000-8000-000000000008",
       "slug": "modena",
       "name": "Modena",
-      "aliases": ["Modena"],
+      "aliases": [
+        "Modena"
+      ],
       "countryCode": "IT",
       "region": "Emilia-Romagna",
       "regionSlug": "emilia-romagna",
@@ -221,7 +238,9 @@
       "id": "c0000000-0000-4000-8000-000000000009",
       "slug": "ravenna",
       "name": "Ravenna",
-      "aliases": ["Ravenna"],
+      "aliases": [
+        "Ravenna"
+      ],
       "countryCode": "IT",
       "region": "Emilia-Romagna",
       "regionSlug": "emilia-romagna",
@@ -246,7 +265,9 @@
       "id": "c0000000-0000-4000-8000-000000000010",
       "slug": "ferrara",
       "name": "Ferrara",
-      "aliases": ["Ferrara"],
+      "aliases": [
+        "Ferrara"
+      ],
       "countryCode": "IT",
       "region": "Emilia-Romagna",
       "regionSlug": "emilia-romagna",
@@ -271,7 +292,9 @@
       "id": "c0000000-0000-4000-8000-000000000011",
       "slug": "rimini",
       "name": "Rimini",
-      "aliases": ["Rimini"],
+      "aliases": [
+        "Rimini"
+      ],
       "countryCode": "IT",
       "region": "Emilia-Romagna",
       "regionSlug": "emilia-romagna",
@@ -296,7 +319,10 @@
       "id": "c0000000-0000-4000-8000-000000000012",
       "slug": "milano",
       "name": "Milano",
-      "aliases": ["Milano", "Milan"],
+      "aliases": [
+        "Milano",
+        "Milan"
+      ],
       "countryCode": "IT",
       "region": "Lombardia",
       "regionSlug": "lombardia",
@@ -334,7 +360,9 @@
       "id": "c0000000-0000-4000-8000-000000000013",
       "slug": "bergamo",
       "name": "Bergamo",
-      "aliases": ["Bergamo"],
+      "aliases": [
+        "Bergamo"
+      ],
       "countryCode": "IT",
       "region": "Lombardia",
       "regionSlug": "lombardia",
@@ -359,7 +387,9 @@
       "id": "c0000000-0000-4000-8000-000000000014",
       "slug": "brescia",
       "name": "Brescia",
-      "aliases": ["Brescia"],
+      "aliases": [
+        "Brescia"
+      ],
       "countryCode": "IT",
       "region": "Lombardia",
       "regionSlug": "lombardia",
@@ -384,7 +414,9 @@
       "id": "c0000000-0000-4000-8000-000000000015",
       "slug": "como",
       "name": "Como",
-      "aliases": ["Como"],
+      "aliases": [
+        "Como"
+      ],
       "countryCode": "IT",
       "region": "Lombardia",
       "regionSlug": "lombardia",
@@ -409,7 +441,10 @@
       "id": "c0000000-0000-4000-8000-000000000016",
       "slug": "mantova",
       "name": "Mantova",
-      "aliases": ["Mantova", "Mantua"],
+      "aliases": [
+        "Mantova",
+        "Mantua"
+      ],
       "countryCode": "IT",
       "region": "Lombardia",
       "regionSlug": "lombardia",
@@ -434,7 +469,9 @@
       "id": "c0000000-0000-4000-8000-000000000017",
       "slug": "pavia",
       "name": "Pavia",
-      "aliases": ["Pavia"],
+      "aliases": [
+        "Pavia"
+      ],
       "countryCode": "IT",
       "region": "Lombardia",
       "regionSlug": "lombardia",
@@ -459,7 +496,10 @@
       "id": "c0000000-0000-4000-8000-000000000018",
       "slug": "torino",
       "name": "Torino",
-      "aliases": ["Torino", "Turin"],
+      "aliases": [
+        "Torino",
+        "Turin"
+      ],
       "countryCode": "IT",
       "region": "Piemonte",
       "regionSlug": "piemonte",
@@ -484,7 +524,9 @@
       "id": "c0000000-0000-4000-8000-000000000019",
       "slug": "aosta",
       "name": "Aosta",
-      "aliases": ["Aosta"],
+      "aliases": [
+        "Aosta"
+      ],
       "countryCode": "IT",
       "region": "Valle d’Aosta",
       "regionSlug": "valle-daosta",
@@ -509,7 +551,10 @@
       "id": "c0000000-0000-4000-8000-000000000020",
       "slug": "genova",
       "name": "Genova",
-      "aliases": ["Genova", "Genoa"],
+      "aliases": [
+        "Genova",
+        "Genoa"
+      ],
       "countryCode": "IT",
       "region": "Liguria",
       "regionSlug": "liguria",
@@ -534,7 +579,9 @@
       "id": "c0000000-0000-4000-8000-000000000021",
       "slug": "la-spezia",
       "name": "La Spezia",
-      "aliases": ["La Spezia"],
+      "aliases": [
+        "La Spezia"
+      ],
       "countryCode": "IT",
       "region": "Liguria",
       "regionSlug": "liguria",
@@ -559,7 +606,9 @@
       "id": "c0000000-0000-4000-8000-000000000022",
       "slug": "sanremo",
       "name": "Sanremo",
-      "aliases": ["Sanremo"],
+      "aliases": [
+        "Sanremo"
+      ],
       "countryCode": "IT",
       "region": "Liguria",
       "regionSlug": "liguria",
@@ -584,7 +633,10 @@
       "id": "c0000000-0000-4000-8000-000000000023",
       "slug": "venezia",
       "name": "Venezia",
-      "aliases": ["Venezia", "Venice"],
+      "aliases": [
+        "Venezia",
+        "Venice"
+      ],
       "countryCode": "IT",
       "region": "Veneto",
       "regionSlug": "veneto",
@@ -622,7 +674,9 @@
       "id": "c0000000-0000-4000-8000-000000000024",
       "slug": "verona",
       "name": "Verona",
-      "aliases": ["Verona"],
+      "aliases": [
+        "Verona"
+      ],
       "countryCode": "IT",
       "region": "Veneto",
       "regionSlug": "veneto",
@@ -647,7 +701,10 @@
       "id": "c0000000-0000-4000-8000-000000000025",
       "slug": "padova",
       "name": "Padova",
-      "aliases": ["Padova", "Padua"],
+      "aliases": [
+        "Padova",
+        "Padua"
+      ],
       "countryCode": "IT",
       "region": "Veneto",
       "regionSlug": "veneto",
@@ -672,7 +729,9 @@
       "id": "c0000000-0000-4000-8000-000000000026",
       "slug": "vicenza",
       "name": "Vicenza",
-      "aliases": ["Vicenza"],
+      "aliases": [
+        "Vicenza"
+      ],
       "countryCode": "IT",
       "region": "Veneto",
       "regionSlug": "veneto",
@@ -697,7 +756,9 @@
       "id": "c0000000-0000-4000-8000-000000000027",
       "slug": "treviso",
       "name": "Treviso",
-      "aliases": ["Treviso"],
+      "aliases": [
+        "Treviso"
+      ],
       "countryCode": "IT",
       "region": "Veneto",
       "regionSlug": "veneto",
@@ -722,7 +783,9 @@
       "id": "c0000000-0000-4000-8000-000000000028",
       "slug": "trento",
       "name": "Trento",
-      "aliases": ["Trento"],
+      "aliases": [
+        "Trento"
+      ],
       "countryCode": "IT",
       "region": "Trentino-Alto Adige",
       "regionSlug": "trentino-alto-adige",
@@ -747,7 +810,9 @@
       "id": "c0000000-0000-4000-8000-000000000029",
       "slug": "bolzano",
       "name": "Bolzano",
-      "aliases": ["Bolzano"],
+      "aliases": [
+        "Bolzano"
+      ],
       "countryCode": "IT",
       "region": "Trentino-Alto Adige",
       "regionSlug": "trentino-alto-adige",
@@ -772,7 +837,9 @@
       "id": "c0000000-0000-4000-8000-000000000030",
       "slug": "trieste",
       "name": "Trieste",
-      "aliases": ["Trieste"],
+      "aliases": [
+        "Trieste"
+      ],
       "countryCode": "IT",
       "region": "Friuli-Venezia Giulia",
       "regionSlug": "friuli-venezia-giulia",
@@ -797,7 +864,9 @@
       "id": "c0000000-0000-4000-8000-000000000031",
       "slug": "udine",
       "name": "Udine",
-      "aliases": ["Udine"],
+      "aliases": [
+        "Udine"
+      ],
       "countryCode": "IT",
       "region": "Friuli-Venezia Giulia",
       "regionSlug": "friuli-venezia-giulia",
@@ -822,7 +891,9 @@
       "id": "c0000000-0000-4000-8000-000000000032",
       "slug": "perugia",
       "name": "Perugia",
-      "aliases": ["Perugia"],
+      "aliases": [
+        "Perugia"
+      ],
       "countryCode": "IT",
       "region": "Umbria",
       "regionSlug": "umbria",
@@ -847,7 +918,9 @@
       "id": "c0000000-0000-4000-8000-000000000033",
       "slug": "assisi",
       "name": "Assisi",
-      "aliases": ["Assisi"],
+      "aliases": [
+        "Assisi"
+      ],
       "countryCode": "IT",
       "region": "Umbria",
       "regionSlug": "umbria",
@@ -872,7 +945,9 @@
       "id": "c0000000-0000-4000-8000-000000000034",
       "slug": "ancona",
       "name": "Ancona",
-      "aliases": ["Ancona"],
+      "aliases": [
+        "Ancona"
+      ],
       "countryCode": "IT",
       "region": "Marche",
       "regionSlug": "marche",
@@ -897,7 +972,9 @@
       "id": "c0000000-0000-4000-8000-000000000035",
       "slug": "urbino",
       "name": "Urbino",
-      "aliases": ["Urbino"],
+      "aliases": [
+        "Urbino"
+      ],
       "countryCode": "IT",
       "region": "Marche",
       "regionSlug": "marche",
@@ -922,7 +999,10 @@
       "id": "c0000000-0000-4000-8000-000000000036",
       "slug": "roma",
       "name": "Roma",
-      "aliases": ["Roma", "Rome"],
+      "aliases": [
+        "Roma",
+        "Rome"
+      ],
       "countryCode": "IT",
       "region": "Lazio",
       "regionSlug": "lazio",
@@ -960,7 +1040,9 @@
       "id": "c0000000-0000-4000-8000-000000000037",
       "slug": "viterbo",
       "name": "Viterbo",
-      "aliases": ["Viterbo"],
+      "aliases": [
+        "Viterbo"
+      ],
       "countryCode": "IT",
       "region": "Lazio",
       "regionSlug": "lazio",
@@ -985,7 +1067,10 @@
       "id": "c0000000-0000-4000-8000-000000000038",
       "slug": "laquila",
       "name": "L’Aquila",
-      "aliases": ["L’Aquila", "L'Aquila"],
+      "aliases": [
+        "L’Aquila",
+        "L'Aquila"
+      ],
       "countryCode": "IT",
       "region": "Abruzzo",
       "regionSlug": "abruzzo",
@@ -1010,7 +1095,10 @@
       "id": "c0000000-0000-4000-8000-000000000039",
       "slug": "napoli",
       "name": "Napoli",
-      "aliases": ["Napoli", "Naples"],
+      "aliases": [
+        "Napoli",
+        "Naples"
+      ],
       "countryCode": "IT",
       "region": "Campania",
       "regionSlug": "campania",
@@ -1048,7 +1136,9 @@
       "id": "c0000000-0000-4000-8000-000000000040",
       "slug": "salerno",
       "name": "Salerno",
-      "aliases": ["Salerno"],
+      "aliases": [
+        "Salerno"
+      ],
       "countryCode": "IT",
       "region": "Campania",
       "regionSlug": "campania",
@@ -1073,7 +1163,9 @@
       "id": "c0000000-0000-4000-8000-000000000041",
       "slug": "bari",
       "name": "Bari",
-      "aliases": ["Bari"],
+      "aliases": [
+        "Bari"
+      ],
       "countryCode": "IT",
       "region": "Puglia",
       "regionSlug": "puglia",
@@ -1098,7 +1190,9 @@
       "id": "c0000000-0000-4000-8000-000000000042",
       "slug": "lecce",
       "name": "Lecce",
-      "aliases": ["Lecce"],
+      "aliases": [
+        "Lecce"
+      ],
       "countryCode": "IT",
       "region": "Puglia",
       "regionSlug": "puglia",
@@ -1123,7 +1217,9 @@
       "id": "c0000000-0000-4000-8000-000000000043",
       "slug": "matera",
       "name": "Matera",
-      "aliases": ["Matera"],
+      "aliases": [
+        "Matera"
+      ],
       "countryCode": "IT",
       "region": "Basilicata",
       "regionSlug": "basilicata",
@@ -1148,7 +1244,9 @@
       "id": "c0000000-0000-4000-8000-000000000044",
       "slug": "reggio-calabria",
       "name": "Reggio Calabria",
-      "aliases": ["Reggio Calabria"],
+      "aliases": [
+        "Reggio Calabria"
+      ],
       "countryCode": "IT",
       "region": "Calabria",
       "regionSlug": "calabria",
@@ -1173,7 +1271,9 @@
       "id": "c0000000-0000-4000-8000-000000000045",
       "slug": "palermo",
       "name": "Palermo",
-      "aliases": ["Palermo"],
+      "aliases": [
+        "Palermo"
+      ],
       "countryCode": "IT",
       "region": "Sicilia",
       "regionSlug": "sicilia",
@@ -1198,7 +1298,9 @@
       "id": "c0000000-0000-4000-8000-000000000046",
       "slug": "catania",
       "name": "Catania",
-      "aliases": ["Catania"],
+      "aliases": [
+        "Catania"
+      ],
       "countryCode": "IT",
       "region": "Sicilia",
       "regionSlug": "sicilia",
@@ -1223,7 +1325,10 @@
       "id": "c0000000-0000-4000-8000-000000000047",
       "slug": "siracusa",
       "name": "Siracusa",
-      "aliases": ["Siracusa", "Syracuse"],
+      "aliases": [
+        "Siracusa",
+        "Syracuse"
+      ],
       "countryCode": "IT",
       "region": "Sicilia",
       "regionSlug": "sicilia",
@@ -1248,7 +1353,9 @@
       "id": "c0000000-0000-4000-8000-000000000048",
       "slug": "cagliari",
       "name": "Cagliari",
-      "aliases": ["Cagliari"],
+      "aliases": [
+        "Cagliari"
+      ],
       "countryCode": "IT",
       "region": "Sardegna",
       "regionSlug": "sardegna",
@@ -1277,7 +1384,10 @@
       "name": "Giardino Bardini",
       "citySlug": "firenze",
       "countryCode": "IT",
-      "categories": ["garden", "viewpoint"],
+      "categories": [
+        "garden",
+        "viewpoint"
+      ],
       "subtitle": "A different perspective on Firenze.",
       "description": "Terraced gardens on the Oltrarno hillside, looking across the historic centre of Florence. Follow the broad staircase and take time to see the city from above.",
       "address": "Costa San Giorgio 2, Firenze",
@@ -1323,7 +1433,10 @@
       "name": "Basilica di Santa Croce",
       "citySlug": "firenze",
       "countryCode": "IT",
-      "categories": ["landmark", "museum"],
+      "categories": [
+        "landmark",
+        "museum"
+      ],
       "subtitle": "Art, history, and a quieter pause.",
       "description": "A Franciscan monumental complex in Florence. The Bardi Chapel preserves Giotto’s frescoes telling the story of Saint Francis.",
       "address": "Piazza di Santa Croce, Firenze",
@@ -1369,7 +1482,9 @@
       "name": "Piazza Santo Spirito",
       "citySlug": "firenze",
       "countryCode": "IT",
-      "categories": ["landmark"],
+      "categories": [
+        "landmark"
+      ],
       "subtitle": "The everyday, across the Arno.",
       "description": "An Oltrarno square in front of the Basilica di Santo Spirito, designed by Filippo Brunelleschi. Take a moment to look at the square and its surrounding facades.",
       "address": "Piazza Santo Spirito, Firenze",
@@ -1415,7 +1530,9 @@
       "name": "Galleria degli Uffizi",
       "citySlug": "firenze",
       "countryCode": "IT",
-      "categories": ["museum"],
+      "categories": [
+        "museum"
+      ],
       "subtitle": "A closer look at extraordinary art.",
       "description": "The gallery occupies the first and second floors of the building designed by Giorgio Vasari. Its collections bring together ancient sculpture and paintings from the Middle Ages onwards.",
       "address": "Piazzale degli Uffizi 6, Firenze",
@@ -1461,7 +1578,9 @@
       "name": "Colosseo",
       "citySlug": "roma",
       "countryCode": "IT",
-      "categories": ["landmark"],
+      "categories": [
+        "landmark"
+      ],
       "subtitle": "History, on an extraordinary scale.",
       "description": "The Flavian Amphitheatre was built in the first century CE under the Flavian emperors. This ancient Roman arena stands on Piazza del Colosseo.",
       "address": "Piazza del Colosseo, Roma",
@@ -1507,7 +1626,9 @@
       "name": "Pantheon",
       "citySlug": "roma",
       "countryCode": "IT",
-      "categories": ["landmark"],
+      "categories": [
+        "landmark"
+      ],
       "subtitle": "An ancient monument, still part of the city.",
       "description": "A Roman monument on Piazza della Rotonda, rebuilt during Hadrian’s reign. Today it is also the Basilica of Santa Maria ad Martyres.",
       "address": "Piazza della Rotonda, Roma",
@@ -1553,7 +1674,10 @@
       "name": "Duomo di Milano",
       "citySlug": "milano",
       "countryCode": "IT",
-      "categories": ["landmark", "museum"],
+      "categories": [
+        "landmark",
+        "museum"
+      ],
       "subtitle": "The city, gathered around its cathedral.",
       "description": "Milan’s cathedral stands on Piazza del Duomo. The monumental complex also includes a museum and an archaeological area.",
       "address": "Piazza del Duomo, Milano",
@@ -1599,7 +1723,10 @@
       "name": "Castello Sforzesco",
       "citySlug": "milano",
       "countryCode": "IT",
-      "categories": ["landmark", "museum"],
+      "categories": [
+        "landmark",
+        "museum"
+      ],
       "subtitle": "A fortress with more to discover.",
       "description": "The Castello Sforzesco houses museums and collections, including the Pinacoteca and the museum of Michelangelo’s Pietà Rondanini.",
       "address": "Piazza Castello, Milano",
@@ -1645,7 +1772,10 @@
       "name": "Palazzo Ducale",
       "citySlug": "venezia",
       "countryCode": "IT",
-      "categories": ["landmark", "museum"],
+      "categories": [
+        "landmark",
+        "museum"
+      ],
       "subtitle": "A different view of the lagoon.",
       "description": "The Doge’s Palace stands at San Marco by the Venetian waterfront. Its monumental rooms and art collections offer a starting point for discovering the city’s civic history.",
       "address": "Piazza San Marco 1, Venezia",
@@ -1691,7 +1821,9 @@
       "name": "Piazza San Marco",
       "citySlug": "venezia",
       "countryCode": "IT",
-      "categories": ["landmark"],
+      "categories": [
+        "landmark"
+      ],
       "subtitle": "Room to pause, beside the lagoon.",
       "description": "Venice’s monumental square is framed by the basilica, campanile and arcades. The waterfront opens towards the lagoon.",
       "address": "Piazza San Marco, Venezia",
@@ -1737,7 +1869,9 @@
       "name": "Museo Archeologico Nazionale di Napoli",
       "citySlug": "napoli",
       "countryCode": "IT",
-      "categories": ["museum"],
+      "categories": [
+        "museum"
+      ],
       "subtitle": "Ancient stories, seen up close.",
       "description": "Naples’ national archaeological museum includes the Farnese collection, mosaics and numismatics among its collections. A place to begin exploring the archaeology of the region.",
       "address": "Piazza Museo 19, Napoli",
@@ -1783,7 +1917,10 @@
       "name": "Castel Nuovo",
       "citySlug": "napoli",
       "countryCode": "IT",
-      "categories": ["landmark", "museum"],
+      "categories": [
+        "landmark",
+        "museum"
+      ],
       "subtitle": "Five towers, at the edge of the city.",
       "description": "Also known as Maschio Angioino, this fortress houses the Civic Museum. Five cylindrical towers frame its trapezoidal plan near Piazza Municipio.",
       "address": "Via Vittorio Emanuele III, Napoli",
@@ -1820,6 +1957,665 @@
           "url": "https://www.comune.napoli.it/vivere-il-comune/luoghi/castel-nuovo-maschio-angioino/",
           "license": "Factual reference; original description",
           "licenseUrl": "https://www.comune.napoli.it/vivere-il-comune/luoghi/castel-nuovo-maschio-angioino/"
+        }
+      ]
+    },
+    {
+      "id": "d0e8201a-5ed6-57b1-94ef-cf2e85d40d6d",
+      "slug": "boboli-gardens",
+      "name": "Giardino di Boboli",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": [
+        "garden"
+      ],
+      "subtitle": "Formal gardens behind Palazzo Pitti, with sculpture, terraces and historic fountains.",
+      "description": "Formal gardens behind Palazzo Pitti, with sculpture, terraces and historic fountains.",
+      "address": null,
+      "longitude": 11.24661,
+      "latitude": 43.7618,
+      "wikidataId": "Q888825",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.uffizi.it/en/boboli-garden",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q888825.jpg",
+        "depicts": "Giardino di Boboli",
+        "alt": "Giardino di Boboli",
+        "author": "Diego Delso",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jard%C3%ADn_de_B%C3%B3boli,_Florencia,_Italia,_2022-09-19,_DD_26.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Jard%C3%ADn_de_B%C3%B3boli%2C_Florencia%2C_Italia%2C_2022-09-19%2C_DD_26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Diego Delso / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q888825",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.uffizi.it/en/boboli-garden",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.uffizi.it/en/boboli-garden"
+        }
+      ]
+    },
+    {
+      "id": "f8a62eab-8603-54ae-87e1-d427423d6187",
+      "slug": "palazzo-pitti",
+      "name": "Palazzo Pitti",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A former Medici palace on the south bank of the Arno, now home to museum collections.",
+      "description": "A former Medici palace on the south bank of the Arno, now home to museum collections.",
+      "address": null,
+      "longitude": 11.250008,
+      "latitude": 43.765153,
+      "wikidataId": "Q29286",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.uffizi.it/en/pitti-palace",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q29286.jpg",
+        "depicts": "Palazzo Pitti",
+        "alt": "Palazzo Pitti",
+        "author": "Almaak",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palazzo_Pitti_nel_tardo_pomeriggio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Palazzo_Pitti_nel_tardo_pomeriggio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Almaak / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q29286",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.uffizi.it/en/pitti-palace",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.uffizi.it/en/pitti-palace"
+        }
+      ]
+    },
+    {
+      "id": "f112f4a9-360e-5f6f-8d9c-5761cc41418e",
+      "slug": "ponte-vecchio",
+      "name": "Ponte Vecchio",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "The historic shop-lined bridge crosses the Arno between the city centre and Oltrarno.",
+      "description": "The historic shop-lined bridge crosses the Arno between the city centre and Oltrarno.",
+      "address": null,
+      "longitude": 11.253191666667,
+      "latitude": 43.767988888889,
+      "wikidataId": "Q208633",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q208633.jpg",
+        "depicts": "Ponte Vecchio",
+        "alt": "Ponte Vecchio",
+        "author": "Diego Delso",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_sobre_el_r%C3%ADo_Arno,_Florencia,_Italia,_2022-09-19,_DD_02.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Ponte_Vecchio_sobre_el_r%C3%ADo_Arno%2C_Florencia%2C_Italia%2C_2022-09-19%2C_DD_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Diego Delso / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q208633",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf"
+        }
+      ]
+    },
+    {
+      "id": "2b4b956b-1ea8-52f1-94f3-175d830f030f",
+      "slug": "florence-cathedral",
+      "name": "Cattedrale di Santa Maria del Fiore",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "Florence cathedral anchors Piazza del Duomo beneath its great Renaissance dome.",
+      "description": "Florence cathedral anchors Piazza del Duomo beneath its great Renaissance dome.",
+      "address": null,
+      "longitude": 11.256944444444445,
+      "latitude": 43.77305555555556,
+      "wikidataId": "Q191739",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q191739.jpg",
+        "depicts": "Cattedrale di Santa Maria del Fiore",
+        "alt": "Cattedrale di Santa Maria del Fiore",
+        "author": "Petar Milošević",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Florence_Duomo_from_Michelangelo_hill.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Florence_Duomo_from_Michelangelo_hill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Petar Milošević / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 870
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q191739",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ca013998-6a73-5249-a6fa-c6dee7e0d4f4",
+      "slug": "piazzale-michelangelo",
+      "name": "Piazzale Michelangelo",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": [
+        "viewpoint"
+      ],
+      "subtitle": "A hillside terrace overlooking the Arno and the skyline of historic Florence.",
+      "description": "A hillside terrace overlooking the Arno and the skyline of historic Florence.",
+      "address": null,
+      "longitude": 11.26516,
+      "latitude": 43.76292,
+      "wikidataId": "Q1348158",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q1348158.jpg",
+        "depicts": "Piazzale Michelangelo",
+        "alt": "Piazzale Michelangelo",
+        "author": "Michael Wittwer",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blick_auf_und_vom_Piazzale_Michelangelo_(LM28908).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Blick_auf_und_vom_Piazzale_Michelangelo_%28LM28908%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Michael Wittwer / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1348158",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf"
+        }
+      ]
+    },
+    {
+      "id": "2ed602ab-ebdd-54fb-9e8b-f212ad26a788",
+      "slug": "bargello",
+      "name": "Museo Nazionale del Bargello",
+      "citySlug": "firenze",
+      "countryCode": "IT",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A medieval civic palace housing a major collection of Renaissance sculpture.",
+      "description": "A medieval civic palace housing a major collection of Renaissance sculpture.",
+      "address": null,
+      "longitude": 11.258008,
+      "latitude": 43.770398,
+      "wikidataId": "Q388448",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q388448.jpg",
+        "depicts": "Museo Nazionale del Bargello",
+        "alt": "Museo Nazionale del Bargello",
+        "author": "Sailko",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palazzo_del_bargello_visto_da_piazza_san_firenze.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Palazzo_del_bargello_visto_da_piazza_san_firenze.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "attribution": "Sailko / CC BY 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 1800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q388448",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.feelflorence.it/sites/default/files/2025-08/FFF_Mappa_A2_Citta_ENG_agg2024-webres_0.pdf"
+        }
+      ]
+    },
+    {
+      "id": "a37507f8-a443-5557-aedc-b5eb32539546",
+      "slug": "trevi-fountain",
+      "name": "Fontana di Trevi",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "The monumental fountain fills a small square in central Rome with Baroque sculpture.",
+      "description": "The monumental fountain fills a small square in central Rome with Baroque sculpture.",
+      "address": null,
+      "longitude": 12.48331263850277,
+      "latitude": 41.900932251961315,
+      "wikidataId": "Q185382",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.turismoroma.it/en/places/trevi-fountain",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q185382.jpg",
+        "depicts": "Fontana di Trevi",
+        "alt": "Fontana di Trevi",
+        "author": "NikonZ7II",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Trevi_Fountain_-_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "NikonZ7II / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 651
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q185382",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.turismoroma.it/en/places/trevi-fountain",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.turismoroma.it/en/places/trevi-fountain"
+        }
+      ]
+    },
+    {
+      "id": "9544795e-52a2-5962-915a-9989f854ace9",
+      "slug": "roman-forum",
+      "name": "Foro Romano",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "The archaeological remains of civic and religious life in ancient Rome.",
+      "description": "The archaeological remains of civic and religious life in ancient Rome.",
+      "address": null,
+      "longitude": 12.4852,
+      "latitude": 41.8922,
+      "wikidataId": "Q180212",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://parcocolosseo.it/area/foro-romano/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q180212.jpg",
+        "depicts": "Foro Romano",
+        "alt": "Foro Romano",
+        "author": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me a  message. \n\n\n\nThis image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here are not appropriate.\n\n\n\nPlease do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foro_Romano_Musei_Capitolini_Roma.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Foro_Romano_Musei_Capitolini_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but please mention me as the author and send me a  message. \n\n\n\nThis image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here are not appropriate.\n\n\n\nPlease do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract. / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 493
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q180212",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://parcocolosseo.it/area/foro-romano/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://parcocolosseo.it/area/foro-romano/"
+        }
+      ]
+    },
+    {
+      "id": "49761689-c7a3-50aa-8128-9e1f4bbb2b6c",
+      "slug": "palatine-hill",
+      "name": "Palatino",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "Archaeological gardens and palace remains on the hill beside the Roman Forum.",
+      "description": "Archaeological gardens and palace remains on the hill beside the Roman Forum.",
+      "address": null,
+      "longitude": 12.486944444444,
+      "latitude": 41.888333333333,
+      "wikidataId": "Q200642",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q200642.jpg",
+        "depicts": "Palatino",
+        "alt": "Palatino",
+        "author": "Lil Herodotus",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palatine_Hill_from_across_the_Circus_Maximus_April_2019.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Palatine_Hill_from_across_the_Circus_Maximus_April_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Lil Herodotus / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q200642",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "36fef917-87c5-589a-94ee-d894e65b14d8",
+      "slug": "castel-sant-angelo",
+      "name": "Castel Sant’Angelo",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "Hadrian’s former mausoleum became a fortress and is now a museum beside the Tiber.",
+      "description": "Hadrian’s former mausoleum became a fortress and is now a museum beside the Tiber.",
+      "address": null,
+      "longitude": 12.466307,
+      "latitude": 41.903044,
+      "wikidataId": "Q486382",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q486382.jpg",
+        "depicts": "Castel Sant’Angelo",
+        "alt": "Castel Sant’Angelo",
+        "author": "Livioandronico2013",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castel_Sant%27Angelo_at_Night.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Castel_Sant%27Angelo_at_Night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Livioandronico2013 / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 1075
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q486382",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "dbb52597-22d9-5a59-bfd8-1d7b4edddd51",
+      "slug": "piazza-navona",
+      "name": "Piazza Navona",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "An elongated square following an ancient stadium, framed by fountains and churches.",
+      "description": "An elongated square following an ancient stadium, framed by fountains and churches.",
+      "address": null,
+      "longitude": 12.47316,
+      "latitude": 41.89871,
+      "wikidataId": "Q463400",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q463400",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "a6eeddca-03e6-5891-9ed2-6b54f59d2adc",
+      "slug": "spanish-steps",
+      "name": "Scalinata di Trinità dei Monti",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "The broad staircase links Piazza di Spagna with Trinità dei Monti above.",
+      "description": "The broad staircase links Piazza di Spagna with Trinità dei Monti above.",
+      "address": null,
+      "longitude": 12.48278,
+      "latitude": 41.90611,
+      "wikidataId": "Q848072",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q848072.jpg",
+        "depicts": "Scalinata di Trinità dei Monti",
+        "alt": "Scalinata di Trinità dei Monti",
+        "author": "Hugo DK",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scalinata_della_Trinit%C3%A0_dei_Monti.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Scalinata_della_Trinit%C3%A0_dei_Monti.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Hugo DK / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 902
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q848072",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "7e503d61-416a-5a7f-ac56-3408d9ccbdc3",
+      "slug": "baths-of-caracalla",
+      "name": "Terme di Caracalla",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "The imposing remains of an ancient Roman bathing complex south of the historic centre.",
+      "description": "The imposing remains of an ancient Roman bathing complex south of the historic centre.",
+      "address": null,
+      "longitude": 12.492764,
+      "latitude": 41.880264,
+      "wikidataId": "Q502098",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q502098.jpg",
+        "depicts": "Terme di Caracalla",
+        "alt": "Terme di Caracalla",
+        "author": "Ethan Doyle White",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baths_of_Caracalla,_facing_Caldarium.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Baths_of_Caracalla%2C_facing_Caldarium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Ethan Doyle White / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 719
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q502098",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.turismoroma.it/sites/default/files/Mappa_Roma_2026_strappo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "39f23051-bda0-5bc4-92e8-32c30e5ffc98",
+      "slug": "galleria-borghese",
+      "name": "Galleria Borghese",
+      "citySlug": "roma",
+      "countryCode": "IT",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A villa museum in the Borghese gardens with sculpture and painting collections.",
+      "description": "A villa museum in the Borghese gardens with sculpture and painting collections.",
+      "address": null,
+      "longitude": 12.492144,
+      "latitude": 41.91421,
+      "wikidataId": "Q841506",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://galleriaborghese.cultura.gov.it/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/italy/place-Q841506.jpg",
+        "depicts": "Galleria Borghese",
+        "alt": "Galleria Borghese",
+        "author": "Blackcat",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roma_Museo_Borghese.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Roma_Museo_Borghese.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Blackcat / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 675
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q841506",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Official tourism guide",
+          "url": "https://galleriaborghese.cultura.gov.it/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://galleriaborghese.cultura.gov.it/"
         }
       ]
     }

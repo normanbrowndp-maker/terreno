@@ -10,3 +10,5 @@ export function coordinates(longitude: number, latitude: number): Coordinates {
 }
 
 export { italyBoundary, createProjection, clampMapZoom, streetSnapshotCities, type Bounds, type MapPoint } from './projection';
+
+export {supportedCountryAt} from "./supported-country";

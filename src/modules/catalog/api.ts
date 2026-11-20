@@ -11,6 +11,7 @@ export function catalogListResponse(
     const places = filterPlaces(snapshot.places, query);
     const cities = filterCities(snapshot.cities, query.query).filter(
       (city) =>
+        (!query.country || city.countryCode === query.country) &&
         (!query.city || city.slug === query.city) &&
         ((!query.category && !query.openNow) ||
           places.some((place) => place.citySlug === city.slug)),

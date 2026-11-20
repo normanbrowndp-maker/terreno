@@ -27,16 +27,20 @@ test("opens the Italian guide on the preserved foundation and real health/versio
   expect(await (await request.get("/api/v1")).json()).toEqual({
     data: { apiVersion: "v1", stage: "foundation" },
   });
-  const places = await request.get("/api/v1/places");
+  const places = await request.get("/api/v1/places?country=IT");
   expect(places.status()).toBe(200);
   const catalog = await places.json();
-  expect(catalog.data).toHaveLength(12);
+  expect(catalog.data).toHaveLength(26);
   expect(
     catalog.data.every(
       (place: { countryCode: string }) => place.countryCode === "IT",
     ),
   ).toBe(true);
   expect(catalog.meta.backend).toBe("postgres");
+  const international = await (await request.get("/api/v1/places")).json();
+  expect(international.meta).toMatchObject({backend:"postgres",availability:"ready",total:49});
+  expect(international.data).toHaveLength(49);
+  expect([...new Set(international.data.map((place:{countryCode:string})=>place.countryCode))].sort()).toEqual(["CH","FI","IT"]);
 });
 
 test("foundation remains usable at mobile width", async ({ page }) => {

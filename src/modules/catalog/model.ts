@@ -1,3 +1,4 @@
+import { countryCodes, countryContains } from "./countries";
 import { z } from "zod";
 
 const httpsUrl = z
@@ -8,8 +9,8 @@ const httpsUrl = z
     "HTTPS source required",
   );
 const coordinates = {
-  longitude: z.number().min(6).max(19),
-  latitude: z.number().min(35).max(48),
+  longitude: z.number().min(-180).max(180),
+  latitude: z.number().min(-90).max(90),
 };
 export const categories = [
   "cafe",
@@ -28,7 +29,7 @@ export const sourceSchema = z.object({
   licenseUrl: httpsUrl,
 });
 export const photoSchema = z.object({
-  src: z.string().regex(/^\/images\/italy\/[A-Za-z0-9-]+\.jpg$/),
+  src: z.string().regex(/^\/images\/(?:italy|finland|switzerland)\/[A-Za-z0-9-]+\.jpg$/),
   depicts: z.string().min(1),
   alt: z.string().min(1),
   author: z.string().min(1),
@@ -47,7 +48,7 @@ export const citySchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
   aliases: z.array(z.string()),
-  countryCode: z.literal("IT"),
+  countryCode: z.enum(countryCodes),
   region: z.string().min(1),
   regionSlug: z.string().min(1),
   ...coordinates,
@@ -58,14 +59,15 @@ export const citySchema = z.object({
   description: z.string(),
   photo: photoSchema.nullable(),
   sources: z.array(sourceSchema).min(1),
-});
+})
+.refine(c=>countryContains(c.countryCode,c.longitude,c.latitude), "Coordinates outside catalog country");
 export type City = z.infer<typeof citySchema>;
 export const placeSchema = z.object({
   id: z.uuid(),
   slug: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
   citySlug: z.string().min(1),
-  countryCode: z.literal("IT"),
+  countryCode: z.enum(countryCodes),
   categories: z.array(z.enum(categories)).min(1),
   subtitle: z.string(),
   description: z.string().min(1),
@@ -78,7 +80,8 @@ export const placeSchema = z.object({
   admission: z.null(),
   photo: photoSchema.nullable(),
   sources: z.array(sourceSchema).min(2),
-});
+})
+.refine(c=>countryContains(c.countryCode,c.longitude,c.latitude), "Coordinates outside catalog country");
 export type EditorialPlace = z.infer<typeof placeSchema>;
 export const collectionSchema = z.object({
   dataset: z.literal("italy-editorial-demo-v1"),

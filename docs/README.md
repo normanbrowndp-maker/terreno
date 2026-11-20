@@ -1,5 +1,23 @@
 # Документация туристической платформы
 
+**Текущий TRAVEL-026 — [handoff PostgreSQL/Neon для команды](NEON_INTEGRATION_HANDOFF.md).** terreno-test сохраняется; hosting/архитектурный выбор остаётся открытым. Локальная связка runner → runtime pool → каталог/API проверяется отдельно от cloud_admin ACL. Это продолжение существующей работы, без нового cloud bootstrap и без изменения41 predicates. Далее — история предыдущих проверок и рекомендаций, не решение о переезде.
+
+**Текущий TRAVEL-026 — [cloud_admin ACL: варианты проверены локально](NEON_BOOTSTRAP_REPORT.md).** Private schema не эквивалентна function ACL: cast text(geometry) обходит namespace lookup;11 локальных тестов PASS. Поддерживаемый Neon owner-side ACL путь не подтверждён, COMMIT bootstrap заблокирован. Рекомендована среда с контролируемым ownership расширений; production guards/шесть миграций не менялись. Записи ниже — история исследования.
+
+**TRAVEL-026 — [778 конкретных routines и причина EXECUTE установлены](NEON_BOOTSTRAP_REPORT.md).**747 PostGIS/31 pg_trgm, owner cloud_admin, источник PUBLIC; [полный нормализованный список ACL/signatures](audit/neon_routine_evidence.json). Rollback подтверждён. Owner-side исправление проверяется локально; поддержанный Neon путь делегирования ACL пока не подтверждён, COMMIT bootstrap запрещён.
+
+**TRAVEL-026 — [облачный предикат установлен: runtime_routine_allowlist](NEON_BOOTSTRAP_REPORT.md).** Единственная разрешённая rollback-only диагностика вернула P0001; полный откат подтверждён. Лишний effective EXECUTE доказан, конкретная routine/owner/ACL ещё неизвестны; bootstrap с COMMIT не выполнен.
+
+**TRAVEL-026 — [точечная диагностика20 подготовлена локально](NEON_BOOTSTRAP_REPORT.md).** Все41 guard-предикат сохранены; ошибки теперь именованы. Локальная provider ACL модель воспроизведена, точная облачная причина остаётся неизвестной. Нового cloud bootstrap не было; rollback-only диагностика требует отдельного разрешения.
+
+**TRAVEL-026,20 ноября — [0LP01 исправлен, повтор откатился на verify](NEON_BOOTSTRAP_REPORT.md).** Локальные regression/rollback/repeat PASS; единственная разрешённая повторная MCP попытка прошла10 и отказала в20. Откат подтверждён; bootstrap не завершён, дальнейших cloud writes нет.
+
+**TRAVEL-026 — [bootstrap MCP попытка откатилась](NEON_BOOTSTRAP_REPORT.md).** Prepare отказал extensions:0LP01; rollback подтверждён чтением, app roles/extensions/marker не созданы. Перед повтором нужна точечная диагностика ADMIN membership; direct verify-full не заявляется.
+
+**TRAVEL-025.3 — [самостоятельный read-only SQL через MCP выполнен](NEON_CLOUD_INSPECTION.md).** PG17.12/identity/owner/ACL/objects проверены, postgis/pg_trgm доступны, но не установлены; direct TLS verify-full не подтверждён. Bootstrap не запускался.
+
+**TRAVEL-025.3 — [ручной read-only запуск и безопасный ответ](NEON_READ_ONLY_HANDOFF.md).** Свежие management metadata/офлайн CA сверены; ожидается ручной запуск владельца. Реальный TLS/SQL и готовность bootstrap пока неизвестны.
+
 **TRAVEL-025.2 — [проверенный CA bundle для Windows psql](NEON_CA_VERIFICATION.md).** Официальный curl/Mozilla snapshot и SHA256,118 CA/ISRG Root X1, офлайн загрузка в OpenSSL psql17.12; реального подключения/TLS handshake не было.
 
 **TRAVEL-025.1 — [Windows direct TLS инструкция и локальная проверка inspection](NEON_DIRECT_CHANNEL.md).** psql/libpq17.12/OpenSSL проверены офлайн,00 расширен и READ ONLY проверен локально. CA/канал/реальный handshake ещё не согласованы и не выполнялись.

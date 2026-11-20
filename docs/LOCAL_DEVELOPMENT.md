@@ -1,5 +1,7 @@
 # Локальная разработка
 
+Для отдельной проверки текущего DB adapter без изменения `.env.local` и persistent local БД: `npx vitest run --config vitest.bootstrap.config.ts tests/bootstrap-local/application.test.ts`. Нужны существующие portable PG17/PostGIS binaries и свободный55433. Одноразовый localhost кластер проверяет runner/checksums/locks, runtime pool и API handlers; после теста удаляется. Занятый порт означает отказ, чужие службы не останавливаются. Команда не вызывает Neon/bootstrap10/20, не подключает провайдеры и не меняет registry. [Точная область проверки и handoff](NEON_INTEGRATION_HANDOFF.md).
+
 Этап1, TRAVEL-005/006/008. Команды выполняются из корня проекта. Проверенные версии: Node26.13.1, npm11.20.0, Next16.4.6, TypeScript5.9.3, PostgreSQL17.12/PostGIS3.7.0 на Windows. Зависимости закреплены exact versions и package-lock.json; runtime — .node-version. Системные Node/PostgreSQL не обновлялись.
 
 ## Уже подготовленная Windows-среда

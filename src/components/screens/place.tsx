@@ -5,7 +5,8 @@ import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
 import { CollectionNotice, SaveButton, SavingNotice } from "../site-shell";
-import { categoryLabel, formatDate } from "../catalog-ui";
+import { categoryLabel, formatDate, PhotoStory } from "../catalog-ui";
+import { useQueryValue } from "../query-state";
 function distance(a: EditorialPlace, b: EditorialPlace) {
   const r = Math.PI / 180;
   const h =
@@ -13,7 +14,7 @@ function distance(a: EditorialPlace, b: EditorialPlace) {
     Math.cos(a.latitude * r) *
       Math.cos(b.latitude * r) *
       Math.sin(((b.longitude - a.longitude) * r) / 2) ** 2;
-  return 6371008.8 * 2 * Math.asin(Math.sqrt(h));
+  return 6371008.8 * 2 * Math.asin(Math.sqrt(Math.min(1, h)));
 }
 export function PlaceScreen({ slug }: { slug: string }) {
   const { catalog } = useCatalog();
@@ -22,6 +23,8 @@ export function PlaceScreen({ slug }: { slug: string }) {
   const cityPlaces = catalog.places.filter(
     (item) => item.citySlug === city.slug,
   );
+  const [mapPlace, setMapPlace] = useQueryValue("place");
+  const selected = cityPlaces.find(item => item.slug === mapPlace);
   const nearby = cityPlaces
     .filter((item) => item.id !== place.id)
     .map((item) => ({ place: item, metres: distance(place, item) }))
@@ -30,6 +33,7 @@ export function PlaceScreen({ slug }: { slug: string }) {
   return (
     <main id="main-content" className="split-layout place-layout">
       <section className="editorial-panel place-panel">
+        <div className="editorial-hero">
         <EditorialPhoto
           photo={place.photo}
           name={place.name}
@@ -37,16 +41,17 @@ export function PlaceScreen({ slug }: { slug: string }) {
           className="place-hero"
         />
         <p className="micro accent">
-          {categoryLabel[place.categories[0]!]} / {city.name}
+          {categoryLabel[place.categories[0]!]} / <Link href={`/cities/${city.slug}`}>{city.name}</Link>
         </p>
         <h1 className={place.name.length > 28 ? "long-place-title" : ""}>
           {place.name}
         </h1>
         <p className="intro">{place.subtitle}</p>
+        </div>
         <dl className="place-facts">
           <div>
             <dt className="micro">Address</dt>
-            <dd>{place.address ?? `${city.name}, ${city.region}, Italy`}</dd>
+            <dd>{place.address ?? `${city.name}, ${city.region}`}</dd>
           </div>
           <div>
             <dt className="micro">Hours / admission</dt>
@@ -68,18 +73,14 @@ export function PlaceScreen({ slug }: { slug: string }) {
           <section className="nearby-places">
             <h2>Nearby, another perspective</h2>
             <p className="micro">Approximate straight-line distance</p>
-            {nearby.map((item) => (
-              <Link key={item.place.id} href={`/places/${item.place.slug}`}>
-                <span>
-                  {item.place.name}
-                  <small className="micro">
-                    {categoryLabel[item.place.categories[0]!]} / ~
-                    {Math.round(item.metres / 10) * 10} m
-                  </small>
-                </span>
-                <span aria-hidden="true">↗</span>
-              </Link>
-            ))}
+            <div className="nearby-grid">
+              {nearby.map(item => (
+                <PhotoStory key={item.place.id} place={item.place}
+                  caption={`About ${Math.round(item.metres / 10) * 10} m`}
+                  selected={selected?.id === item.place.id}
+                  onSelect={() => setMapPlace(item.place.slug)} />
+              ))}
+            </div>
           </section>
         ) : null}
         <details className="source-details">
@@ -107,6 +108,7 @@ export function PlaceScreen({ slug }: { slug: string }) {
           </p>
         </details>
         <SavingNotice />
+        <CollectionNotice />
         <div className="place-actions">
           <SaveButton id={place.id} />
           <a
@@ -118,15 +120,17 @@ export function PlaceScreen({ slug }: { slug: string }) {
             Open in navigation <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <CollectionNotice />
       </section>
       <div className="map-column">
         <GeographicMap
           key={place.slug}
-          cities={catalog.cities}
+          cities={catalog.cities.filter(c=>c.countryCode===place.countryCode)}
           city={city}
           places={cityPlaces}
-          selectedPlace={place}
+          variant="detail"
+          selectedPlace={selected ?? place}
+          centerOn={selected}
+          onSelectPlace={item => setMapPlace(item.slug)}
         />
       </div>
     </main>

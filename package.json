@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": "^24.0.0 || ^26.0.0", "npm": ">=11 <12" },
+  "engines": {
+    "node": "^24.0.0 || ^26.0.0",
+    "npm": ">=11 <12"
+  },
   "packageManager": "npm@11.20.0",
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
@@ -29,6 +32,7 @@
     "db:restore-check": "tsx scripts/verify-restore.ts"
   },
   "dependencies": {
+    "maplibre-gl": "6.19.0",
     "next": "16.4.6",
     "pg": "8.23.1",
     "react": "19.3.1",
@@ -50,6 +54,8 @@
     "vitest": "5.1.0"
   },
   "overrides": {
-    "node-pg-migrate": { "glob": "14.0.6" }
+    "node-pg-migrate": {
+      "glob": "14.0.6"
+    }
   }
 }

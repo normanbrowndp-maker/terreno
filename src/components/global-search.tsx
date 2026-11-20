@@ -19,6 +19,7 @@ export function GlobalSearch() {
           .slice(0, 4)
           .map((city) => ({
             label: city.name,
+            country: city.countryCode,
             context: city.region,
             href: `/cities/${city.slug}`,
           })),
@@ -26,6 +27,7 @@ export function GlobalSearch() {
           .slice(0, 4)
           .map((place) => ({
             label: place.name,
+            country: place.countryCode,
             context:
               catalog.cities.find((city) => city.slug === place.citySlug)
                 ?.name ?? "",
@@ -33,25 +35,29 @@ export function GlobalSearch() {
           })),
       ]
     : [];
-  const choose = (href: string) => {
+  const clearSearch = () => {
     setOpen(false);
     setQuery("");
     setActive(-1);
-    router.push(href);
   };
   return (
     <form
       className="global-search"
       role="search"
       onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setOpen(false);
+          setActive(-1);
+        }
       }}
       onSubmit={(event) => {
         event.preventDefault();
-        choose(
-          matches[active]?.href ??
-            `/cities?q=${encodeURIComponent(query.trim())}`,
-        );
+        const countryCodes=new Set(matches.map(match=>match.country));
+        const country=countryCodes.size===1 ? matches[0]?.country : undefined;
+        const destination = (open && matches[active]?.href) ||
+          (query.trim() ? `/cities?q=${encodeURIComponent(query.trim())}${country ? `&country=${country}` : ""}` : "/cities");
+        clearSearch();
+        router.push(destination);
       }}
     >
       <svg
@@ -72,14 +78,15 @@ export function GlobalSearch() {
         role="combobox"
         aria-label="Search cities and places"
         aria-expanded={open && Boolean(query.trim())}
-        aria-controls={`${id}-results`}
+        aria-controls={open && query.trim() ? `${id}-results` : undefined}
         aria-autocomplete="list"
         aria-activedescendant={
-          active >= 0 && matches[active] ? `${id}-${active}` : undefined
+          open && active >= 0 && matches[active] ? `${id}-${active}` : undefined
         }
         maxLength={80}
+        name="q"
         autoComplete="off"
-        placeholder="Search 48 cities and their places"
+        placeholder={`Search ${catalog.cities.length} cities and their places…`}
         value={query}
         onFocus={() => setOpen(true)}
         onChange={(event) => {
@@ -89,17 +96,19 @@ export function GlobalSearch() {
         }}
         onKeyDown={(event) => {
           if (event.key === "Escape") {
+            if (open) event.preventDefault();
             setOpen(false);
             setActive(-1);
           }
-          if (event.key === "ArrowDown" && matches.length) {
+          if (matches.length && (event.key === "ArrowDown" || event.key === "ArrowUp")) {
             event.preventDefault();
             setOpen(true);
-            setActive((value) => (value + 1) % matches.length);
-          }
-          if (event.key === "ArrowUp" && matches.length) {
-            event.preventDefault();
-            setActive((value) => (value - 1 + matches.length) % matches.length);
+            const direction = event.key === "ArrowDown" ? 1 : -1;
+            setActive(value =>
+              value < 0
+                ? direction === 1 ? 0 : matches.length - 1
+                : (value + direction + matches.length) % matches.length,
+            );
           }
         }}
       />
@@ -119,10 +128,7 @@ export function GlobalSearch() {
                 aria-selected={index === active}
                 className={index === active ? "is-active" : ""}
                 href={match.href}
-                onClick={(event) => {
-                  event.preventDefault();
-                  choose(match.href);
-                }}
+                onNavigate={clearSearch}
               >
                 <span>{match.label}</span>
                 <small>{match.context}</small>

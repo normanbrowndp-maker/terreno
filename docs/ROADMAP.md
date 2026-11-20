@@ -1,5 +1,11 @@
 # Пошаговый ROADMAP и первые 10 задач
 
+**TRAVEL-028 — пять ПК-макетов, выполнено локально.** Цель и критерии — перенести Home, Index, Firenze, Place и Saved из архива PDF в существующие маршруты, сохранить источник PostgreSQL и проверить размеры 1440, 768, 390 и 360 px. Работа опиралась на текущие фотографии, каталог и географию. Перенесены иконная навигация, курсивная типографика и карточки с текстом на фото. Выбор места связывает карточку, URL, маркер и превью. Основные риски — перекрытие карты и изменение HTTP-статусов при стриминге. Production build и ESLint прошли. В Chromium прошли 19 продуктовых сценариев и две серии снимков. [Сравнение с PDF и мобильные снимки](../artifacts/terreno/travel028/index.html).
+
+**TRAVEL-027 — рабочий сайт TERRENO.** Цель — проверить публичные страницы от production Next.js до локального PostgreSQL/PostGIS и улучшить интерфейс по PDF. План и критерии — сборка → HTTP с подтверждённым источником → проверка клавиатуры, фильтров и карточек → Chromium при 1440/768/390/360 px. Зависимости — шесть существующих миграций, проверенная подборка Италии и локальные тестовые PostgreSQL/Chromium. Риски — принять резервную подборку за данные БД или потерять адаптивность при добавлении категорий. Результаты проверок и изменения перечислены в [отчёте итальянского интерфейса](ITALY_REPORT.md). Италия открывает каталог. Архитектура допускает добавление стран, а текущий редакционный набор и карта относятся к Италии. Статус Neon — **BLOCKED BY PROVIDER ACL**.
+
+**Текущий TRAVEL-026 — продолжение локальной интеграции:** [handoff для команды](NEON_INTEGRATION_HANDOFF.md). Сохраняем terreno-test и архитектуру; проверяем runner/pool/SQL/API локально, hosting решается позднее. Cloud bootstrap остановлен на подтверждённом cloud_admin ACL blocker; повтор прежнего REVOKE запрещён. Никакой автоматической активации или перехода к Railway. Ниже — исторический roadmap, не текущая очередь разрешённых cloud действий.
+
 **TRAVEL-025 — transport gate:** [отчёт](NEON_CLOUD_INSPECTION.md). Read-only cloud inspection разрешён, но не выполнен до подтверждения direct TLS/secret-safe канала; нельзя переходить к bootstrap по одним metadata. Дополнительно требуется уточнить полное покрытие00.
 
 **TRAVEL-024 — bootstrap подготовлен, только локально:** [отчёт](NEON_BOOTSTRAP_REPORT.md). Следующий отдельный шаг — разрешение первого read-only cloud inspection, затем согласование точного write scope10+20; registry/credentials/migrations/seed/Railway не активируются автоматически.
@@ -165,3 +171,13 @@
 5. **Failure в чистой среде:** frozen install, DB outage и restore — TRAVEL-005/008.
 
 Оценки времени появятся после TRAVEL-003 с учётом команды и источников данных. Обещать сроки долгосрочного проекта по пустой папке было бы необоснованно.
+
+
+## TRAVEL-030 ? current application increment
+
+Map stability, country-filtered sample catalog and explicit geolocation: implemented locally; verification/status in [ITALY_REPORT](ITALY_REPORT.md#travel-030--map-stability-international-sample-and-opt-in-location-2026-11-20). Dependencies: existing MapLibre/OpenFreeMap and PostgreSQL/PostGIS, no new migration/provider. Acceptance: real HTTP/Postgres, stable markers/one world, country deep links, privacy/error handling and desktop/mobile regressions. Remaining content work: expand the three thinner international cities to ten independently checked places each, then parks/nature beyond the initial urban set. No cloud activation or transport routing.
+
+
+TRAVEL-031: focused country camera/resize and native city clustering correction verified locally; acceptance, tests and screenshots are recorded in the TRAVEL-031 section of [ITALY_REPORT](ITALY_REPORT.md). Next free ID: TRAVEL-032. No infrastructure or schema change.
+
+TRAVEL-032: ?????????? ?????????? ???????????? ?????????026?031 ? ??????? feature-?????; ??????????? ??????, ???????? ? ??????? ?????????? ? [GITHUB_PUBLISH](GITHUB_PUBLISH.md). ????????? ????????? ID ? TRAVEL-033.

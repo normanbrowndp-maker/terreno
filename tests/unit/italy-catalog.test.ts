@@ -10,6 +10,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 describe("verified Italy editorial collection", () => {
+  const italianCities=italyDemo.cities.filter(c=>c.countryCode==="IT");
   it("passes the full published schema and references actual local images without a public URL prefix", () => {
     expect(() => collectionSchema.parse(italyDemo)).not.toThrow();
     for (const record of [...italyDemo.cities, ...italyDemo.places]) {
@@ -20,11 +21,11 @@ describe("verified Italy editorial collection", () => {
     }
   });
   it("contains the exact 48 unique cities from the PDF and five initial editorial cities", () => {
-    expect(italyDemo.cities).toHaveLength(48);
-    expect(new Set(italyDemo.cities.map((city) => city.slug)).size).toBe(48);
-    expect(new Set(italyDemo.cities.map((city) => city.region)).size).toBe(19);
+    expect(italianCities).toHaveLength(48);
+    expect(new Set(italianCities.map((city) => city.slug)).size).toBe(48);
+    expect(new Set(italianCities.map((city) => city.region)).size).toBe(19);
     expect(
-      italyDemo.cities
+      italianCities
         .filter((city) => city.featured)
         .map((city) => city.name)
         .sort(),
@@ -33,7 +34,7 @@ describe("verified Italy editorial collection", () => {
       true,
     );
     expect(
-      italyDemo.cities.every(
+      italianCities.every(
         (city) =>
           city.countryCode === "IT" &&
           city.longitude > 6 &&
@@ -51,10 +52,12 @@ describe("verified Italy editorial collection", () => {
       ).toBe(true);
       expect(place.sources.length).toBeGreaterThanOrEqual(2);
       expect(place.verifiedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      if (place.photo) {
       expect(place.photo?.depicts).toBe(place.name);
       expect(place.photo?.author).toBeTruthy();
       expect(place.photo?.licenseUrl).toMatch(/^https:\/\//);
       expect(place.photo?.attribution).toBeTruthy();
+      }
       expect(place.hours).toBeNull();
       expect(place.admission).toBeNull();
     }
@@ -70,7 +73,7 @@ describe("verified Italy editorial collection", () => {
       filterCities(italyDemo.cities, "laquila").map((city) => city.name),
     ).toEqual(["L’Aquila"]);
     expect(filterCities(italyDemo.cities, "TOSCANA")).toHaveLength(5);
-    expect(filterCities(italyDemo.cities, "  ")).toHaveLength(48);
+    expect(filterCities(italianCities, "  ")).toHaveLength(48);
     expect(filterCities(italyDemo.cities, "does-not-exist")).toEqual([]);
   });
   it("combines city, category and text filters and never invents an open-now result", () => {

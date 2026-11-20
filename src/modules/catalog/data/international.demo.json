@@ -1,0 +1,1196 @@
+{
+  "cities": [
+    {
+      "id": "0c5000b2-6948-52d5-a4f3-a9a5bf951af3",
+      "slug": "helsinki",
+      "name": "Helsinki",
+      "aliases": [
+        "Helsinki",
+        "Helsinki"
+      ],
+      "countryCode": "FI",
+      "region": "Uusimaa",
+      "regionSlug": "uusimaa",
+      "longitude": 24.9375,
+      "latitude": 60.170833333333334,
+      "wikidataId": "Q1757",
+      "verifiedAt": "2026-11-20",
+      "featured": true,
+      "subtitle": "Baltic islands, architecture and urban nature.",
+      "description": "Baltic islands, architecture and urban nature.",
+      "photo": {
+        "src": "/images/finland/place-Q1757.jpg",
+        "depicts": "Helsinki",
+        "alt": "Helsinki",
+        "author": "Old Pionear",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helsinki_Lutheran_Cathedral_(panoraaman%C3%A4k%C3%B6ala)-2_(s%C3%A4%C3%A4t%C3%B6).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Helsinki_Lutheran_Cathedral_%28panoraaman%C3%A4k%C3%B6ala%29-2_%28s%C3%A4%C3%A4t%C3%B6%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Old Pionear / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 787
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1757",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "5bafebaf-1f33-5292-81b6-206075b3da5e",
+      "slug": "rovaniemi",
+      "name": "Rovaniemi",
+      "aliases": [
+        "Rovaniemi",
+        "Rovaniemi"
+      ],
+      "countryCode": "FI",
+      "region": "Lapland",
+      "regionSlug": "lapland",
+      "longitude": 25.7284789,
+      "latitude": 66.5027903,
+      "wikidataId": "Q103717",
+      "verifiedAt": "2026-11-20",
+      "featured": true,
+      "subtitle": "Culture and northern landscapes by the Arctic Circle.",
+      "description": "Culture and northern landscapes by the Arctic Circle.",
+      "photo": {
+        "src": "/images/finland/place-Q103717.jpg",
+        "depicts": "Rovaniemi",
+        "alt": "Rovaniemi",
+        "author": "MattiKSinisalo at Finnish Wikipedia",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rovaniemi_06101999_rescanned.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Rovaniemi_06101999_rescanned.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "attribution": "MattiKSinisalo at Finnish Wikipedia / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q103717",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "a8260694-4025-5674-97de-e4fac4137d16",
+      "slug": "zurich",
+      "name": "Zürich",
+      "aliases": [
+        "Zürich",
+        "Zurich"
+      ],
+      "countryCode": "CH",
+      "region": "Zürich",
+      "regionSlug": "zurich",
+      "longitude": 8.54111111111111,
+      "latitude": 47.37444444444444,
+      "wikidataId": "Q72",
+      "verifiedAt": "2026-11-20",
+      "featured": true,
+      "subtitle": "Lake shores, art and the old town beside the Limmat.",
+      "description": "Lake shores, art and the old town beside the Limmat.",
+      "photo": {
+        "src": "/images/switzerland/place-Q72.jpg",
+        "depicts": "Zürich",
+        "alt": "Zürich",
+        "author": "Ikiwaner",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuerich_Fraumuenster_St_Peter.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Zuerich_Fraumuenster_St_Peter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "attribution": "Ikiwaner / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q72",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "7ae25560-ca4f-5088-8967-dbb5b290df90",
+      "slug": "luzern",
+      "name": "Luzern",
+      "aliases": [
+        "Lucerne",
+        "Lucerne"
+      ],
+      "countryCode": "CH",
+      "region": "Luzern",
+      "regionSlug": "luzern",
+      "longitude": 8.3059,
+      "latitude": 47.0523,
+      "wikidataId": "Q4191",
+      "verifiedAt": "2026-11-20",
+      "featured": true,
+      "subtitle": "Historic bridges and lakeside walks beneath the Alps.",
+      "description": "Historic bridges and lakeside walks beneath the Alps.",
+      "photo": {
+        "src": "/images/switzerland/place-Q4191.jpg",
+        "depicts": "Luzern",
+        "alt": "Luzern",
+        "author": "W. Bulach",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:00_0055_Buildings_in_Lucerne.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/00_0055_Buildings_in_Lucerne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "W. Bulach / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q4191",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "35448b1c-b72f-54f8-86d2-27ceedf0c68a",
+      "slug": "helsinki-cathedral",
+      "name": "Helsinki Cathedral",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A neoclassical cathedral above Senate Square.",
+      "description": "A neoclassical cathedral above Senate Square.",
+      "address": null,
+      "longitude": 24.95212383,
+      "latitude": 60.17038775,
+      "wikidataId": "Q738015",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://helsingintuomiokirkko.fi/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q738015.jpg",
+        "depicts": "Helsinki Cathedral",
+        "alt": "Helsinki Cathedral",
+        "author": "Hans Hillewaert",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lutheran_Cathedral_Helsinki.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Lutheran_Cathedral_Helsinki.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Hans Hillewaert / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 1336
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q738015",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://helsingintuomiokirkko.fi/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://helsingintuomiokirkko.fi/"
+        }
+      ]
+    },
+    {
+      "id": "e128997d-100b-5ef5-9cc2-1adf664e4919",
+      "slug": "suomenlinna",
+      "name": "Suomenlinna",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "An island sea fortress and maritime landscape reached from Helsinki.",
+      "description": "An island sea fortress and maritime landscape reached from Helsinki.",
+      "address": null,
+      "longitude": 24.984444444444,
+      "latitude": 60.143611111111,
+      "wikidataId": "Q1292442",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.suomenlinna.fi/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q1292442.jpg",
+        "depicts": "Suomenlinna",
+        "alt": "Suomenlinna",
+        "author": "Michal Pise, Michal.Pise",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suomenlinna.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Suomenlinna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "attribution": "Michal Pise, Michal.Pise / CC BY 2.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 902
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1292442",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.suomenlinna.fi/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.suomenlinna.fi/"
+        }
+      ]
+    },
+    {
+      "id": "f21f0548-ec0e-505e-991e-ab69d944902f",
+      "slug": "temppeliaukio-church",
+      "name": "Temppeliaukio Church",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A church built into exposed rock in the Töölö district.",
+      "description": "A church built into exposed rock in the Töölö district.",
+      "address": null,
+      "longitude": 24.9252379,
+      "latitude": 60.17298455,
+      "wikidataId": "Q1132809",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.temppeliaukionkirkko.fi/",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1132809",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.temppeliaukionkirkko.fi/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.temppeliaukionkirkko.fi/"
+        }
+      ]
+    },
+    {
+      "id": "d111878f-3456-52e6-a45d-fcc1e2f34fed",
+      "slug": "ateneum",
+      "name": "Ateneum",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "An art museum beside the railway station, with Finnish national collections.",
+      "description": "An art museum beside the railway station, with Finnish national collections.",
+      "address": null,
+      "longitude": 24.9439789,
+      "latitude": 60.1700846,
+      "wikidataId": "Q754507",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q754507.jpg",
+        "depicts": "Ateneum",
+        "alt": "Ateneum",
+        "author": "Finnish National Gallery",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Art_museum_Ateneum_in_Kluuvi,_Helsinki,_Finland,_2014.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Art_museum_Ateneum_in_Kluuvi%2C_Helsinki%2C_Finland%2C_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Finnish National Gallery / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 818
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q754507",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/"
+        }
+      ]
+    },
+    {
+      "id": "8c6ca017-4f7b-514b-9feb-b2a2c21f8edf",
+      "slug": "kiasma",
+      "name": "Kiasma",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A contemporary art museum in central Helsinki.",
+      "description": "A contemporary art museum in central Helsinki.",
+      "address": null,
+      "longitude": 24.936944444444446,
+      "latitude": 60.17166666666667,
+      "wikidataId": "Q1633361",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://kiasma.fi",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q1633361.jpg",
+        "depicts": "Kiasma",
+        "alt": "Kiasma",
+        "author": "Paasikivi",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiasmamodernartmuseum.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Kiasmamodernartmuseum.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Paasikivi / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 900
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1633361",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://kiasma.fi",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://kiasma.fi"
+        }
+      ]
+    },
+    {
+      "id": "7264390f-702c-5f44-9e41-6c426d8abcd2",
+      "slug": "seurasaari",
+      "name": "Seurasaari",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "garden"
+      ],
+      "subtitle": "A wooded island with coastal paths and an open-air museum.",
+      "description": "A wooded island with coastal paths and an open-air museum.",
+      "address": null,
+      "longitude": 24.884618,
+      "latitude": 60.185742,
+      "wikidataId": "Q2165193",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2165193",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/"
+        }
+      ]
+    },
+    {
+      "id": "a6df094f-63a1-5a53-9c72-6d8c788bcd28",
+      "slug": "sibelius-monument",
+      "name": "Sibelius Monument",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A sculptural tribute to Jean Sibelius in a seaside park.",
+      "description": "A sculptural tribute to Jean Sibelius in a seaside park.",
+      "address": null,
+      "longitude": 24.913342,
+      "latitude": 60.18206,
+      "wikidataId": "Q2584017",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2584017",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/"
+        }
+      ]
+    },
+    {
+      "id": "53fb18e1-0311-5545-939e-be81aaf89e8b",
+      "slug": "helsinki-central-library-oodi",
+      "name": "Helsinki Central Library Oodi",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A contemporary public library beside the city’s civic square.",
+      "description": "A contemporary public library beside the city’s civic square.",
+      "address": null,
+      "longitude": 24.938064,
+      "latitude": 60.1738242,
+      "wikidataId": "Q18659999",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.oodihelsinki.fi/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q18659999.jpg",
+        "depicts": "Helsinki Central Library Oodi",
+        "alt": "Helsinki Central Library Oodi",
+        "author": "Leonhard Lenz",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helsingin_keskustakirjasto_Oodi_2022-09-16_08.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Helsingin_keskustakirjasto_Oodi_2022-09-16_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "attribution": "Leonhard Lenz / CC0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 801
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q18659999",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.oodihelsinki.fi/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.oodihelsinki.fi/"
+        }
+      ]
+    },
+    {
+      "id": "2eaa0efc-0c3e-5788-a49b-fa67be26cd9d",
+      "slug": "uspenski-cathedral",
+      "name": "Uspenski Cathedral",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "An Orthodox cathedral on the rocky rise at Katajanokka.",
+      "description": "An Orthodox cathedral on the rocky rise at Katajanokka.",
+      "address": null,
+      "longitude": 24.96,
+      "latitude": 60.168333333333,
+      "wikidataId": "Q1355001",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.hos.fi/kirkot/uspenskin-katedraali/",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1355001",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.hos.fi/kirkot/uspenskin-katedraali/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.hos.fi/kirkot/uspenskin-katedraali/"
+        }
+      ]
+    },
+    {
+      "id": "413efbed-648a-56f6-bc6a-1ff194b35c90",
+      "slug": "esplanadi",
+      "name": "Esplanadi",
+      "citySlug": "helsinki",
+      "countryCode": "FI",
+      "categories": [
+        "garden"
+      ],
+      "subtitle": "A central park promenade between two of Helsinki’s main streets.",
+      "description": "A central park promenade between two of Helsinki’s main streets.",
+      "address": null,
+      "longitude": 24.94777778,
+      "latitude": 60.1675,
+      "wikidataId": "Q1368319",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q1368319.jpg",
+        "depicts": "Esplanadi",
+        "alt": "Esplanadi",
+        "author": "Daderot",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Johan_Ludvig_Runeberg_in_Helsinki_-_DSC03903.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Statue_of_Johan_Ludvig_Runeberg_in_Helsinki_-_DSC03903.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "attribution": "Daderot / CC0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 900
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1368319",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.myhelsinki.fi/visit-helsinki/things-to-do/attractions/"
+        }
+      ]
+    },
+    {
+      "id": "c9c7381e-2d19-503c-a728-7bc5a7cafbd8",
+      "slug": "arktikum",
+      "name": "Arktikum",
+      "citySlug": "rovaniemi",
+      "countryCode": "FI",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A museum and science centre exploring Lapland and Arctic life.",
+      "description": "A museum and science centre exploring Lapland and Arctic life.",
+      "address": null,
+      "longitude": 25.72541,
+      "latitude": 66.5076,
+      "wikidataId": "Q673871",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.arktikum.fi/en/home.html",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q673871.jpg",
+        "depicts": "Arktikum",
+        "alt": "Arktikum",
+        "author": "Clemensfranz",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rovaniemi_Arktikum_1.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Rovaniemi_Arktikum_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "attribution": "Clemensfranz / CC BY 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 901
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q673871",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.arktikum.fi/en/home.html",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.arktikum.fi/en/home.html"
+        }
+      ]
+    },
+    {
+      "id": "93ba344d-700a-5c48-8a38-a42bc82d24b8",
+      "slug": "santa-claus-village",
+      "name": "Santa Claus Village",
+      "citySlug": "rovaniemi",
+      "countryCode": "FI",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A visitor destination at the Arctic Circle north of Rovaniemi.",
+      "description": "A visitor destination at the Arctic Circle north of Rovaniemi.",
+      "address": null,
+      "longitude": 25.846509,
+      "latitude": 66.54354,
+      "wikidataId": "Q135379",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://santaclausvillage.info/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q135379.jpg",
+        "depicts": "Santa Claus Village",
+        "alt": "Santa Claus Village",
+        "author": "Tom Corser",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Santa_Land_Rovaniemi_Arctic_Circle1.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Santa_Land_Rovaniemi_Arctic_Circle1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Tom Corser / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 676
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q135379",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://santaclausvillage.info/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://santaclausvillage.info/"
+        }
+      ]
+    },
+    {
+      "id": "bed39a2d-2fc5-5bf5-a135-1e8f58c313f7",
+      "slug": "pilke-house",
+      "name": "Pilke House",
+      "citySlug": "rovaniemi",
+      "countryCode": "FI",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A timber building and science centre focused on northern forests.",
+      "description": "A timber building and science centre focused on northern forests.",
+      "address": null,
+      "longitude": 25.7314,
+      "latitude": 66.5111,
+      "wikidataId": "Q11897467",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.tiedekeskus-pilke.fi/",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q11897467",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.tiedekeskus-pilke.fi/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.tiedekeskus-pilke.fi/"
+        }
+      ]
+    },
+    {
+      "id": "b823ba50-164f-53e8-ab59-650c7c02069e",
+      "slug": "korundi-house-of-culture",
+      "name": "Korundi House of Culture",
+      "citySlug": "rovaniemi",
+      "countryCode": "FI",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A former postal vehicle depot housing art and cultural events.",
+      "description": "A former postal vehicle depot housing art and cultural events.",
+      "address": null,
+      "longitude": 25.71927778,
+      "latitude": 66.5015,
+      "wikidataId": "Q11872711",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.visitrovaniemi.fi/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/finland/place-Q11872711.jpg",
+        "depicts": "Korundi House of Culture",
+        "alt": "Korundi House of Culture",
+        "author": "Rovaniemen taidemuseo / Arto Liiti",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:0427_Korundi_urheilukadulta_1.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/0427_Korundi_urheilukadulta_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Rovaniemen taidemuseo / Arto Liiti / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 769
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q11872711",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.visitrovaniemi.fi/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.visitrovaniemi.fi/"
+        }
+      ]
+    },
+    {
+      "id": "dec0c6fe-1290-546e-ba3a-b551e78cebc7",
+      "slug": "grossmuenster",
+      "name": "Grossmünster",
+      "citySlug": "zurich",
+      "countryCode": "CH",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A Romanesque church with twin towers overlooking the Limmat.",
+      "description": "A Romanesque church with twin towers overlooking the Limmat.",
+      "address": null,
+      "longitude": 8.5441666666667,
+      "latitude": 47.37,
+      "wikidataId": "Q684948",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.grossmuenster.ch/de/",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q684948.jpg",
+        "depicts": "Grossmünster",
+        "alt": "Grossmünster",
+        "author": "Ilya Hirschberg (Kreecher)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grossm%C3%BCnster_Zurich_Switzerland_24Jun2021.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Grossm%C3%BCnster_Zurich_Switzerland_24Jun2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Ilya Hirschberg (Kreecher) / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 1496
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q684948",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.grossmuenster.ch/de/",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.grossmuenster.ch/de/"
+        }
+      ]
+    },
+    {
+      "id": "596fd801-15ba-56a2-a1c4-912740bebc46",
+      "slug": "fraumuenster",
+      "name": "Fraumünster",
+      "citySlug": "zurich",
+      "countryCode": "CH",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A historic church in Zürich’s old town, known for its stained glass.",
+      "description": "A historic church in Zürich’s old town, known for its stained glass.",
+      "address": null,
+      "longitude": 8.5411111111111,
+      "latitude": 47.369722222222,
+      "wikidataId": "Q690944",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q690944.jpg",
+        "depicts": "Fraumünster",
+        "alt": "Fraumünster",
+        "author": "sidonius 12:59, 4 June 2006 (UTC)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fraumuenster.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Fraumuenster.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "attribution": "sidonius 12:59, 4 June 2006 (UTC) / CC BY-SA 2.5 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 1600
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q690944",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town"
+        }
+      ]
+    },
+    {
+      "id": "39508026-1836-5518-827a-7b7eb71391de",
+      "slug": "kunsthaus-zurich",
+      "name": "Kunsthaus Zürich",
+      "citySlug": "zurich",
+      "countryCode": "CH",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "An art museum with collections spanning several centuries.",
+      "description": "An art museum with collections spanning several centuries.",
+      "address": null,
+      "longitude": 8.548055555555555,
+      "latitude": 47.37027777777778,
+      "wikidataId": "Q685038",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q685038.jpg",
+        "depicts": "Kunsthaus Zürich",
+        "alt": "Kunsthaus Zürich",
+        "author": "Roland zh",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kunsthaus_Z%C3%BCrich_2011-08-06_18-44-30_ShiftN2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Kunsthaus_Z%C3%BCrich_2011-08-06_18-44-30_ShiftN2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Roland zh / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q685038",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town"
+        }
+      ]
+    },
+    {
+      "id": "b9950774-ff77-51ee-9976-d0e9464277d6",
+      "slug": "swiss-national-museum",
+      "name": "Swiss National Museum",
+      "citySlug": "zurich",
+      "countryCode": "CH",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A museum of Swiss cultural history beside the main railway station.",
+      "description": "A museum of Swiss cultural history beside the main railway station.",
+      "address": null,
+      "longitude": 8.541004,
+      "latitude": 47.379024,
+      "wikidataId": "Q2256718",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.nationalmuseum.ch",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q2256718.jpg",
+        "depicts": "Swiss National Museum",
+        "alt": "Swiss National Museum",
+        "author": "Cd-MaN83",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Swiss_National_Museum_(98846).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Swiss_National_Museum_%2898846%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Cd-MaN83 / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 900
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2256718",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.nationalmuseum.ch",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.nationalmuseum.ch"
+        }
+      ]
+    },
+    {
+      "id": "945181c2-81fb-5e5f-8d58-634c3eb865ef",
+      "slug": "lindenhof",
+      "name": "Lindenhof",
+      "citySlug": "zurich",
+      "countryCode": "CH",
+      "categories": [
+        "viewpoint"
+      ],
+      "subtitle": "A raised historic square overlooking the Limmat and the old town.",
+      "description": "A raised historic square overlooking the Limmat and the old town.",
+      "address": null,
+      "longitude": 8.5412,
+      "latitude": 47.373,
+      "wikidataId": "Q10987378",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q10987378.jpg",
+        "depicts": "Lindenhof",
+        "alt": "Lindenhof",
+        "author": "Ank Kumar",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lindenhof_Square_and_Hill,_Zurich_(Ank_Kumar)_05.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Lindenhof_Square_and_Hill%2C_Zurich_%28Ank_Kumar%29_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Ank Kumar / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 900
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q10987378",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town"
+        }
+      ]
+    },
+    {
+      "id": "f197d609-876c-5794-a7bc-dd635410df0b",
+      "slug": "uetliberg",
+      "name": "Uetliberg",
+      "citySlug": "zurich",
+      "countryCode": "CH",
+      "categories": [
+        "viewpoint"
+      ],
+      "subtitle": "A wooded summit above Zürich with views towards the lake and Alps.",
+      "description": "A wooded summit above Zürich with views towards the lake and Alps.",
+      "address": null,
+      "longitude": 8.4902777777778,
+      "latitude": 47.349722222222,
+      "wikidataId": "Q16524",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q16524.jpg",
+        "depicts": "Uetliberg",
+        "alt": "Uetliberg",
+        "author": "Parpan05",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%9Cetliberg.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/%C3%9Cetliberg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "attribution": "Parpan05 / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 804
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q16524",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.zuerich.com/en/sightseeing-activities/places-to-visit/zurichs-old-town"
+        }
+      ]
+    },
+    {
+      "id": "3eb9f9d3-a557-54f4-a1f8-b5e683931ca1",
+      "slug": "chapel-bridge",
+      "name": "Chapel Bridge",
+      "citySlug": "luzern",
+      "countryCode": "CH",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A covered wooden bridge across the Reuss in the centre of Luzern.",
+      "description": "A covered wooden bridge across the Reuss in the centre of Luzern.",
+      "address": null,
+      "longitude": 8.3075333333333,
+      "latitude": 47.051633333333,
+      "wikidataId": "Q25225",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.luzern.com/fileadmin/Mediendatenbank/Luzern-Tourismus/PDF_Dokumente/Broschueren/2026_Stadtplan_fuer_Gaeste.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": null,
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q25225",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.luzern.com/fileadmin/Mediendatenbank/Luzern-Tourismus/PDF_Dokumente/Broschueren/2026_Stadtplan_fuer_Gaeste.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.luzern.com/fileadmin/Mediendatenbank/Luzern-Tourismus/PDF_Dokumente/Broschueren/2026_Stadtplan_fuer_Gaeste.pdf"
+        }
+      ]
+    },
+    {
+      "id": "7ef86364-532a-5694-917a-62d8f5ebbcc3",
+      "slug": "lion-monument",
+      "name": "Lion Monument",
+      "citySlug": "luzern",
+      "countryCode": "CH",
+      "categories": [
+        "landmark"
+      ],
+      "subtitle": "A lion carved into rock in a quiet garden in Luzern.",
+      "description": "A lion carved into rock in a quiet garden in Luzern.",
+      "address": null,
+      "longitude": 8.310885,
+      "latitude": 47.058447,
+      "wikidataId": "Q688214",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.luzern.com/fileadmin/Mediendatenbank/Luzern-Tourismus/PDF_Dokumente/Broschueren/2026_Stadtplan_fuer_Gaeste.pdf",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q688214.jpg",
+        "depicts": "Lion Monument",
+        "alt": "Lion Monument",
+        "author": "Lukas Ahorn / Bertel Thorvaldsen",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loewe3.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Loewe3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "attribution": "Lukas Ahorn / Bertel Thorvaldsen / CC BY-SA 3.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 900
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q688214",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.luzern.com/fileadmin/Mediendatenbank/Luzern-Tourismus/PDF_Dokumente/Broschueren/2026_Stadtplan_fuer_Gaeste.pdf",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.luzern.com/fileadmin/Mediendatenbank/Luzern-Tourismus/PDF_Dokumente/Broschueren/2026_Stadtplan_fuer_Gaeste.pdf"
+        }
+      ]
+    },
+    {
+      "id": "92473af9-e96c-547a-b08d-d4979a8f06d0",
+      "slug": "swiss-museum-of-transport",
+      "name": "Swiss Museum of Transport",
+      "citySlug": "luzern",
+      "countryCode": "CH",
+      "categories": [
+        "museum"
+      ],
+      "subtitle": "A museum exploring transport and mobility near Lake Lucerne.",
+      "description": "A museum exploring transport and mobility near Lake Lucerne.",
+      "address": null,
+      "longitude": 8.3358333333333,
+      "latitude": 47.052777777778,
+      "wikidataId": "Q670595",
+      "verifiedAt": "2026-11-20",
+      "officialUrl": "https://www.verkehrshaus.ch",
+      "hours": null,
+      "admission": null,
+      "photo": {
+        "src": "/images/switzerland/place-Q670595.jpg",
+        "depicts": "Swiss Museum of Transport",
+        "alt": "Swiss Museum of Transport",
+        "author": "W. Bulach",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:00_9020_Luzern_(CH)_-_Verkehrshaus.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/00_9020_Luzern_%28CH%29_-_Verkehrshaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "W. Bulach / CC BY-SA 4.0 / Wikimedia Commons",
+        "verifiedAt": "2026-11-20",
+        "width": 1200,
+        "height": 800
+      },
+      "sources": [
+        {
+          "name": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q670595",
+          "license": "CC0-1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "name": "Visitor information",
+          "url": "https://www.verkehrshaus.ch",
+          "license": "Facts referenced; text not reproduced",
+          "licenseUrl": "https://www.verkehrshaus.ch"
+        }
+      ]
+    }
+  ]
+}

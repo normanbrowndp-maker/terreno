@@ -15,15 +15,14 @@ export default async function SourcesPage() {
         Clear sources.
       </h1>
       <p className="sources-intro">
-        This is an editorial preview of terreno: 48 confirmed Italian cities and
-        12 independently checked places. It is a separate sample collection, not
+        This is an editorial preview of terreno: 48 confirmed Italian cities,
+        four cities in Finland and Switzerland, and {catalog.places.length} sourced places. It is a separate sample collection, not
         a complete or live visitor directory.
       </p>
       <section>
         <h2>What you can rely on</h2>
         <p>
-          Names and coordinates were checked against Wikidata on 18 November
-          2026. Place descriptions were written from the factual sources linked
+          Names and coordinates were checked against Wikidata; the latest additions were checked on {catalog.verifiedAt}. Place descriptions were written from the factual sources linked
           below. Hours, prices and live opening status have not been
           independently verified: always check the official website before
           visiting.
@@ -37,7 +36,7 @@ export default async function SourcesPage() {
           The geographic overview supports selection, zoom and pan. Italy’s
           outline is real Natural Earth data. City maps use selected
           OpenStreetMap street/building snapshots where available; they are not
-          complete navigation maps. No routes or walking times are calculated.
+          complete navigation maps. No routes or walking times are calculated. Location suggestions use approximate Natural Earth land boundaries and a 25 km city radius. Coastal or border positions may require manual country selection.
         </p>
         <p className="micro">
           Collection: {catalog.dataset}

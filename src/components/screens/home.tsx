@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import {CountrySelect,useCatalogCountry} from "../country-select";
+import {countries} from "@/modules/catalog";
 import {
   categories,
   filterPlaces,
@@ -8,55 +10,72 @@ import {
 import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
-import { CollectionNotice } from "../site-shell";
-import { EmptyPlaces } from "../catalog-ui";
+import { CollectionNotice, MapIndexSwitch } from "../site-shell";
+import { EmptyPlaces, PhotoStory } from "../catalog-ui";
 import { useQueryValue } from "../query-state";
 
 export function HomeScreen() {
   const { catalog } = useCatalog();
+  const country=useCatalogCountry();
+  const countryCities=catalog.cities.filter(c=>c.countryCode===country);
   const [categoryValue, setCategory] = useQueryValue(
     "category",
     "",
     categories,
   );
   const category = categoryValue as PlaceCategory | "";
-  const [openValue, setOpenValue] = useQueryValue("openNow", "", ["true"]);
-  const openNow = openValue === "true";
+  const [mapCity, setMapCity] = useQueryValue("city");
   const places = filterPlaces(catalog.places, {
     ...(category ? { category } : {}),
-    openNow,
+    country,
   });
   const cities =
-    category || openNow
-      ? catalog.cities.filter((city) =>
+    category
+      ? countryCities.filter((city) =>
           places.some((place) => place.citySlug === city.slug),
         )
-      : catalog.cities;
-  const focus = cities.find((city) => city.slug === "firenze") ?? cities[0];
+      : countryCities;
+  const selected = cities.find((city) => city.slug === mapCity);
+  const focus = selected ?? cities.find((city) => city.slug === "firenze") ?? cities[0];
+  const further = places.find(place => place.citySlug === focus?.slug && place.slug === "giardino-bardini")
+    ?? places.find(place => place.citySlug === focus?.slug && place.photo && place.categories.some(c=>c==="garden" || c==="viewpoint"))
+    ?? places.find(place => place.citySlug === focus?.slug && place.photo)
+    ?? places.find(place => place.citySlug === focus?.slug);
   return (
     <main id="main-content" className="split-layout home-layout">
       <section className="editorial-panel home-panel">
-        <p className="micro accent desktop-copy">Italy, at your pace</p>
+        <CountrySelect />
+        <p className="micro accent desktop-copy">{countries[country].name}, at your pace</p>
         <h1>
           <span className="desktop-copy">
             Find your
             <br />
-            kind of Italy.
+            kind of {countries[country].name}.
           </span>
           <span className="mobile-copy">A place to begin.</span>
         </h1>
         <p className="intro desktop-copy">
-          48 cities, thoughtfully explored.
+          {countryCities.length} cities, thoughtfully explored.
           <br />
           Good places. No prescribed route.
         </p>
-        <p className="micro mobile-copy">48 cities / Endless ways to wander</p>
+        <p className="micro mobile-copy">{countryCities.length} cities / Endless ways to wander</p>
+        <div className="home-view-controls">
+          <MapIndexSwitch active="map" />
+          <nav className="mobile-home-mode mobile-copy" aria-label="Home view">
+            <Link href="/" aria-current="page">
+              Map
+            </Link>
+            <Link href="/cities">Index {countryCities.length}</Link>
+          </nav>
+        </div>
         <div
           className="quick-filters"
           role="group"
           aria-label="Explore by category"
         >
           {[
+            { code: "", label: "All" },
             { code: "cafe", label: "Cafés" },
             { code: "food", label: "Restaurants" },
             { code: "viewpoint", label: "Viewpoints" },
@@ -76,33 +95,8 @@ export function HomeScreen() {
             </button>
           ))}
         </div>
-        <div className="home-view-controls">
-          <label className="opening-switch">
-            <span>Open now</span>
-            <input
-              type="checkbox"
-              checked={openNow}
-              onChange={(event) =>
-                setOpenValue(event.target.checked ? "true" : "")
-              }
-            />
-            <span className="switch-track" aria-hidden="true" />
-          </label>
-          <nav className="mobile-home-mode mobile-copy" aria-label="Home view">
-            <Link href="/" aria-current="page">
-              Map
-            </Link>
-            <Link href="/cities">Index 48</Link>
-          </nav>
-        </div>
-        {openNow ? (
-          <p className="filter-explanation" role="status">
-            Opening times are not independently verified. Check the official
-            websites.
-          </p>
-        ) : null}
         {focus ? (
-          <section className="city-in-focus">
+          <section className="city-in-focus" aria-live="polite">
             <p className="micro">City in focus</p>
             <EditorialPhoto photo={focus.photo} name={focus.name} priority />
             <p className="micro accent">
@@ -125,18 +119,24 @@ export function HomeScreen() {
             category={category}
             reset={() => {
               setCategory("");
-              setOpenValue("");
             }}
           />
         )}
-        <div className="editor-note mobile-copy">
+        <div className="editor-note">
           <p className="micro accent">Editor’s note</p>
           <h2>Take the side street.</h2>
         </div>
+        {further && (
+          <section className="home-further">
+            <h2 className="micro">A little further</h2>
+            <PhotoStory place={further} caption={further.subtitle} />
+          </section>
+        )}
         <CollectionNotice />
       </section>
       <div className="map-column">
-        <GeographicMap cities={cities} />
+        <GeographicMap countryCode={country} cities={countryCities} highlightCitySlug={focus?.slug}
+          onSelectCity={city => setMapCity(city.slug)} centerOn={selected} />
       </div>
     </main>
   );

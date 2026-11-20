@@ -1,5 +1,35 @@
 # TRAVEL-025 — остановка до SQL на проверке административного канала
 
+## TRAVEL-025.3 — фактический результат самостоятельного MCP inspection
+
+2026-11-19: последующий явный запрос владельца разрешил самостоятельный read-only SQL через официальный Neon MCP, с честным указанием неизвестных свойств транспорта. Он заменил требование только ручного psql для этой проверки. Использован **Нурман**, exact project `broad-wind-62771105`, branch `br-mute-river-bavdwjwl`, compute `ep-curly-moon-ba3f3csy`, database `travel_test_foundation`, role `terreno_bootstrap_owner`. Свежие management project/org/endpoint/database сверены; другие проекты не запрашивались SQL. Credentials/connection strings не получались и не сохранялись.
+
+Выполнены три `run_sql_transaction`: первая — session identity, вторая —17 catalog SELECT из00, третья — доступность двух extensions и права bootstrap owner. Во всех первой командой было `SET TRANSACTION READ ONLY`, с локальными timeouts. Для второй транзакции использованы неизменённый DO guard из00 и его receipt GUCs, установленные по management tuple; внешние BEGIN/COMMIT заменены транзакционной оболочкой MCP. Исходный00, guards и миграции не менялись. Результаты не усечены, identity вернул read_only=on/true. 10/20 не запускались.
+
+| Проверка | Настоящий SQL результат |
+| --- | --- |
+| PostgreSQL | 17.12 (4d8000a), version_num170012 |
+| current_user / session_user | оба terreno_bootstrap_owner |
+| Database / SQL owner | travel_test_foundation / terreno_bootstrap_owner |
+| Роли приложения | travel_test_runtime и travel_test_migrator отсутствуют |
+| Bootstrap flags | LOGIN/CREATEDB/CREATEROLE/REPLICATION/BYPASSRLS/INHERIT=true, SUPERUSER=false |
+| Membership | bootstrap owner → neon_superuser, ADMIN=false, INHERIT/SET=true; всего11 membership rows |
+| Установленные extensions | только plpgsql1.0; postgis/pg_trgm отсутствуют |
+| Доступные extensions | postgis3.5.7, pg_trgm1.6; это available, не installed |
+| Схемы | из user schemas только public, owner pg_database_owner; PUBLIC USAGE, без PUBLIC CREATE |
+| Пользовательские relations/routines/SECURITY DEFINER |0 строк; таблиц/представлений/последовательностей и пользовательских routine в проверенных user schemas нет |
+| Database ACL | PUBLIC CONNECT/TEMPORARY; bootstrap owner и neon_superuser CREATE/CONNECT/TEMPORARY |
+| Table/column/sequence/function ACL | объектов нет; соответствующие результаты пусты, app-role effective checks также пусты из-за отсутствия ролей |
+| Default ACL |9 provider rows: creator cloud_admin/public, grantee neon_superuser, grant options; не ACL несуществующего migrator |
+| Bootstrap capability observations | database CREATE/public CREATE=true, createrole_self_grant пуст; план10 задаёт его локально |
+| pg_stat_ssl | ssl=false, version/cipher/bits=NULL у наблюдаемого PostgreSQL backend |
+
+**Transport boundary:** запросы реально выполнены через MCP, а не через локальный direct psql. API tool выбирает точную цель, но не раскрывает/не удостоверяет клиентский sslmode, CA или проверку hostname. Backend ssl=false не доказывает состояние внешнего участка MCP/proxy и не является PASS verify-full. TLS verification не отключали; direct TLS verify-full остаётся **не подтверждён**. Успешный SQL и HTTPS connector нельзя выдавать за прямой TLS handshake. Ранее подготовленный CA в этом пути не применялся.
+
+**Сравнение с10/20:** исходный owner/PG17, отсутствие app roles/marker/пользовательских объектов и доступность extensions соответствуют начальному состоянию плана. PUBLIC TEMPORARY должен быть отозван bootstrap; существующий provider cloud_admin/neon_superuser default ACL не считается ACL runtime/migrator и не должен автоматически изменяться. Привилегированный bootstrap owner запрещено использовать runtime. Неожиданных пользовательских объектов в catalog inventory не обнаружено; пользовательские строки не читались. Наличие available extension/CREATEROLE не доказывает успешность будущего CREATE ROLE/EXTENSION/ownership — эти операции не проверялись записью.
+
+**Итог:** read-only inspection через MCP завершён. Состояние БД подходит для следующего отдельно разрешаемого bootstrap; выполнение существующих10/20 с их требованием direct verify-full остаётся не разрешённым/не подтверждённым этим MCP evidence. Следующий шаг — решение владельца о bootstrap scope и административном канале; никаких SQL writes, активации registry, migrations/seed/env/Railway/push здесь не выполнено. Исторический отчёт TRAVEL-025 ниже сохранён.
+
 Последующий TRAVEL-025.1 подготовил [Windows direct TLS канал](NEON_DIRECT_CHANNEL.md) и исправил покрытие00 с локальными READ ONLY тестами. Клиентская часть проверена офлайн; CA/реальный handshake/облачный SQL остаются за границей. Исходные результаты ниже сохранены исторически.
 
 2026-11-19. Исходный checkpoint3692eb6d722c7e142fcf92276c5dc7b423c19633, feature/neon-test-profile; index/worktree перед работой чистые. Старые результаты TRAVEL-024 не перезапускались и не выдаются за cloud evidence.

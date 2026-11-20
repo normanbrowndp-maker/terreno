@@ -23,8 +23,8 @@ it("seeds only the named Italy demo collection, repeatedly, and reads real PostG
   await seedItalyDemo(client, "test");
   await seedItalyDemo(client, "test");
   const catalog = collectionSchema.parse(await readItalyCatalog(client));
-  expect(catalog.cities).toHaveLength(48);
-  expect(catalog.places).toHaveLength(12);
+  expect(catalog.cities).toHaveLength(italyDemo.cities.length);
+  expect(catalog.places).toHaveLength(italyDemo.places.length);
   expect(
     catalog.cities.find((city) => city.slug === "firenze")?.longitude,
   ).toBeCloseTo(11.254166666667, 7);
@@ -57,7 +57,7 @@ it("runtime can read the demo but cannot alter its records", async () => {
   await runtime.connect();
   try {
     const catalog = await readItalyCatalog(runtime);
-    expect(catalog?.cities).toHaveLength(48);
+    expect(catalog?.cities).toHaveLength(italyDemo.cities.length);
     await runtime.query("BEGIN");
     await expect(
       runtime.query("UPDATE cities SET name='wrong' WHERE slug='firenze'"),

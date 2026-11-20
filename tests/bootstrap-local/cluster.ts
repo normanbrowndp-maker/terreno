@@ -7,8 +7,15 @@ import { createServer } from "node:net";
 import manifest from "../../db/bootstrap/neon-test/manifest.json";
 
 /** Local disposable cluster only. Does not read .env.local or current local admin state. */
-export async function localCluster() {
+export async function localCluster(options: { port?: 55432 | 55433 } = {}) {
   if (process.platform !== "win32") throw Error("Bootstrap rehearsal requires the documented Windows portable PG17 binaries");
+  if (options.port !== undefined && ![55432, 55433].includes(options.port)) throw Error("Unsafe application rehearsal port");
+  // Reserve/probe loopback before creating files. Never adopt or stop an occupied listener.
+  const port = await new Promise<number>((ok, fail) => {
+    const s = createServer(); s.once("error", fail); s.listen(options.port ?? 0, "127.0.0.1", () => {
+      const p = (s.address() as { port: number }).port; s.close(() => ok(p));
+    });
+  });
   const bin = resolve(".local/postgresql/bin");
   const root = resolve(".local/bootstrap-rehearsal"); mkdirSync(root, { recursive: true });
   const dir = mkdtempSync(join(root, "run-")), data = join(dir, "data");
@@ -16,11 +23,6 @@ export async function localCluster() {
   // New test-only local secret, never Neon credentials. Values are neither logged nor persisted in tracked files.
   const password = randomBytes(32).toString("hex"), passFile = join(dir, "init-secret");
   writeFileSync(passFile, password, { mode: 0o600 });
-  const port = await new Promise<number>((ok, fail) => {
-    const s = createServer(); s.once("error", fail); s.listen(0, "127.0.0.1", () => {
-      const p = (s.address() as { port: number }).port; s.close(() => ok(p));
-    });
-  });
   function run(exe: string, args: string[]) {
     const r = spawnSync(join(bin, `${exe}.exe`), args, { windowsHide: true, stdio: "ignore" });
     if (r.status !== 0) throw Error(`Local rehearsal ${exe} failed (details kept private)`);
@@ -58,7 +60,7 @@ export async function localCluster() {
         throw Object.assign(Error(`Local bootstrap rehearsal refused (${phase})`), { code: e.code });
       }
     }
-    return { db, admin, sql, prepare, bootstrapSession, dir, async close() {
+    return { db, admin, sql, prepare, bootstrapSession, dir, clusterName, async close() {
       await Promise.all(clients.map(c => c.end()));
       if (started) run("pg_ctl", ["-D", data, "-m", "fast", "-w", "stop"]);
       started = false;

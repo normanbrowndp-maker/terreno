@@ -1,3 +1,4 @@
+import { countries } from "./countries";
 import type { CatalogDatabase } from "@/shared/db/catalog-database";
 import { assertDatabaseIdentity } from "@/shared/db/identity";
 import { assertProfileIdentity } from "@/shared/db/profile-identity";
@@ -27,31 +28,30 @@ export async function seedItalyDemo(
     throw new Error("Demo IDs conflict with unrelated records");
   await db.query("BEGIN");
   try {
-    await db.query(
-      "INSERT INTO countries(code,default_locale) VALUES('IT','en') ON CONFLICT DO NOTHING",
-    );
-    await db.query(
-      "INSERT INTO country_translations(country_code,locale,name) VALUES('IT','en','Italy') ON CONFLICT DO NOTHING",
-    );
+    for (const code of new Set(data.cities.map(c=>c.countryCode))) {
+      await db.query("INSERT INTO countries(code,default_locale) VALUES($1,'en') ON CONFLICT DO NOTHING",[code]);
+      await db.query("INSERT INTO country_translations(country_code,locale,name) VALUES($1,'en',$2) ON CONFLICT DO NOTHING",[code,countries[code].name]);
+    }
     const regions = [
       ...new Map(
-        data.cities.map((city) => [city.regionSlug, city.region]),
+        data.cities.map((city) => [city.countryCode+":"+city.regionSlug, city]),
       ).entries(),
     ];
     const regionIds = new Map<string, string>();
-    for (const [index, [code, name]] of regions.entries()) {
+    for (const [index, [key, city]] of regions.entries()) {
+      const code=city.regionSlug; const name=city.region;
       const id = `a0000000-0000-4000-8000-${String(index + 1).padStart(12, "0")}`;
       await db.query(
-        "INSERT INTO regions(id,country_code,code,timezone) VALUES($1,'IT',$2,'Europe/Rome') ON CONFLICT(country_code,code) DO NOTHING",
-        [id, code],
+        "INSERT INTO regions(id,country_code,code,timezone) VALUES($1,$3,$2,$4) ON CONFLICT(country_code,code) DO NOTHING",
+        [id, code,city.countryCode,countries[city.countryCode].timezone],
       );
       const actual = (
         await db.query<{ id: string }>(
-          "SELECT id FROM regions WHERE country_code='IT' AND code=$1",
-          [code],
+          "SELECT id FROM regions WHERE country_code=$2 AND code=$1",
+          [code,city.countryCode],
         )
       ).rows[0]!.id;
-      regionIds.set(code, actual);
+      regionIds.set(key, actual);
       await db.query(
         "INSERT INTO region_translations(region_id,locale,name) VALUES($1,'en',$2) ON CONFLICT DO NOTHING",
         [actual, name],
@@ -60,13 +60,13 @@ export async function seedItalyDemo(
     for (const [index, city] of data.cities.entries()) {
       const inserted = await db.query<{ id: string }>(
         `INSERT INTO cities(id,country_code,region_id,slug,name,aliases,location,subtitle,description,photo,wikidata_id,source_url,verified_at,featured,ordinal,dataset)
-        VALUES($1,'IT',$2,$3,$4,$5,ST_SetSRID(ST_MakePoint($6,$7),4326),$8,$9,$10::jsonb,$11,$12,$13,$14,$15,$16)
+        VALUES($1,$17,$2,$3,$4,$5,ST_SetSRID(ST_MakePoint($6,$7),4326),$8,$9,$10::jsonb,$11,$12,$13,$14,$15,$16)
         ON CONFLICT(id) DO UPDATE SET name=EXCLUDED.name,aliases=EXCLUDED.aliases,location=EXCLUDED.location,subtitle=EXCLUDED.subtitle,
         description=EXCLUDED.description,photo=EXCLUDED.photo,verified_at=EXCLUDED.verified_at
         WHERE cities.dataset=EXCLUDED.dataset RETURNING id`,
         [
           city.id,
-          regionIds.get(city.regionSlug),
+          regionIds.get(city.countryCode+":"+city.regionSlug),
           city.slug,
           city.name,
           city.aliases,
@@ -81,6 +81,7 @@ export async function seedItalyDemo(
           city.featured,
           index + 1,
           data.dataset,
+          city.countryCode,
         ],
       );
       if (inserted.rows[0]?.id !== city.id)
@@ -122,13 +123,13 @@ export async function seedItalyDemo(
       )!;
       const inserted = await db.query<{ id: string }>(
         `INSERT INTO places(id,country_code,region_id,location,status,timezone,address_text,verified_at,city_id,slug,dataset,official_url,editorial_subtitle,sources_metadata)
-        VALUES($1,'IT',$2,ST_SetSRID(ST_MakePoint($3,$4),4326),'published','Europe/Rome',$5,$6,$7,$8,$9,$10,$11,$12::jsonb)
+        VALUES($1,$13,$2,ST_SetSRID(ST_MakePoint($3,$4),4326),'published',$14,$5,$6,$7,$8,$9,$10,$11,$12::jsonb)
         ON CONFLICT(id) DO UPDATE SET location=EXCLUDED.location,address_text=EXCLUDED.address_text,verified_at=EXCLUDED.verified_at,
         official_url=EXCLUDED.official_url,editorial_subtitle=EXCLUDED.editorial_subtitle,sources_metadata=EXCLUDED.sources_metadata
         WHERE places.dataset=EXCLUDED.dataset RETURNING id`,
         [
           place.id,
-          regionIds.get(city.regionSlug),
+          regionIds.get(city.countryCode+":"+city.regionSlug),
           place.longitude,
           place.latitude,
           place.address,
@@ -139,6 +140,8 @@ export async function seedItalyDemo(
           place.officialUrl,
           place.subtitle,
           JSON.stringify(place.sources),
+          place.countryCode,
+          countries[place.countryCode].timezone,
         ],
       );
       if (inserted.rows[0]?.id !== place.id)

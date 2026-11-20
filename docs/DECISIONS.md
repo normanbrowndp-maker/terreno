@@ -1,5 +1,7 @@
 # Решения и открытые архитектурные вопросы
 
+**Уточнение владельца, продолжение TRAVEL-026:** terreno-test сохраняется; окончательный hosting и возможные архитектурные изменения решает команда позднее. Действующая модульная архитектура и строгие guards остаются. Neon ACL delegation, другая managed DB и контролируемый ownership сравниваются как варианты, а не принятый переезд. [Технический handoff](NEON_INTEGRATION_HANDOFF.md); новое разрешение на cloud SQL/активацию этим не даётся.
+
 ## ADR-014 — транзакционный bootstrap как подготовленный артефакт
 
 TRAVEL-024: точные SQL00_inspect/10_prepare/20_verify и local rehearsal подготовлены без Neon SQL. Новые роли планируются NOLOGIN; bootstrap→migrator downward membership явно административная, app-роли не наследуют admin. Передача DB ownership обусловлена действующим guard/неизменной migration003; мигратор остаётся доверенной DDL-ролью. После migrations повторный10 запрещён inventory-gate, восстановление начинается с read-only inspect-recovery. Catalog runtime остаётся read-only; будущие private identity/trips writers проектируются отдельно. [Доказательства и ограничения](NEON_BOOTSTRAP_REPORT.md).

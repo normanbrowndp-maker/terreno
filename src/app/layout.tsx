@@ -5,9 +5,13 @@ import { getItalyCatalog } from "@/modules/catalog/server";
 import { CatalogProvider } from "@/components/catalog-provider";
 import { MainNavigation, SiteHeader } from "@/components/site-shell";
 import "./globals.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 const display = localFont({
-  src: "../../public/fonts/playfair.ttf",
+  src: [
+    { path: "../../public/fonts/playfair.ttf", style: "normal" },
+    { path: "../../public/fonts/playfair-italic.ttf", style: "italic" },
+  ],
   variable: "--font-display",
   display: "swap",
 });
@@ -25,7 +29,7 @@ const mono = localFont({
 export const metadata: Metadata = {
   title: { default: "terreno — A guide to Italy", template: "%s · terreno" },
   description:
-    "48 Italian cities. Good places, carefully sourced. Your own pace.",
+    "Italy, Finland and Switzerland. Good places, carefully sourced. Your own pace.",
 };
 export const dynamic = "force-dynamic";
 

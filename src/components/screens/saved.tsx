@@ -4,12 +4,13 @@ import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
 import { CollectionNotice, SavingNotice } from "../site-shell";
-import { categoryLabel } from "../catalog-ui";
+import { categoryLabel, ShowOnMap } from "../catalog-ui";
 import { useQueryValue } from "../query-state";
 
 export function SavedScreen() {
   const { catalog, savedIds, toggleSaved } = useCatalog();
   const [cityFilter, setCityFilter] = useQueryValue("city");
+  const [mapPlace, setMapPlace] = useQueryValue("place");
   const saved = catalog.places.filter((place) => savedIds.includes(place.id));
   const effectiveCityFilter = saved.some(
     (place) => place.citySlug === cityFilter,
@@ -22,7 +23,8 @@ export function SavedScreen() {
   const savedCities = catalog.cities.filter((city) =>
     saved.some((place) => place.citySlug === city.slug),
   );
-  const first = filtered[0];
+  const selected = filtered.find(place => place.slug === mapPlace);
+  const first = selected ?? filtered[0];
   return (
     <main id="main-content" className="split-layout saved-layout">
       <section className="editorial-panel saved-panel">
@@ -53,10 +55,11 @@ export function SavedScreen() {
               <article
                 className="saved-row"
                 data-testid="saved-row"
+                data-selected={first?.id === place.id || undefined}
                 key={place.id}
               >
                 <EditorialPhoto photo={place.photo} name={place.name} />
-                <div>
+                <div className="saved-row-copy">
                   <p className="micro accent">
                     {categoryLabel[place.categories[0]!]}
                   </p>
@@ -78,13 +81,8 @@ export function SavedScreen() {
                     Saved ✓
                   </button>
                 </div>
-                <Link
-                  className="row-arrow"
-                  href={`/places/${place.slug}`}
-                  aria-label={`See saved ${place.name}`}
-                >
-                  ↗
-                </Link>
+                <ShowOnMap name={place.name} selected={first?.id === place.id}
+                  onSelect={() => setMapPlace(place.slug)} />
               </article>
             ))}
           </div>
@@ -121,11 +119,15 @@ export function SavedScreen() {
         <GeographicMap
           cities={catalog.cities}
           variant="saved"
-          highlightCitySlug={first?.citySlug ?? "firenze"}
+          highlightCitySlug={first?.citySlug}
+          places={filtered}
+          selectedPlace={first}
+          centerOn={selected}
+          onSelectPlace={place => setMapPlace(place.slug)}
         />
         {first ? (
           <aside className="saved-map-preview">
-            <EditorialPhoto photo={first.photo} name={first.name} />
+            <EditorialPhoto key={first.id} photo={first.photo} name={first.name} />
             <Link href={`/places/${first.slug}`}>
               <span className="micro accent">
                 Saved /{" "}

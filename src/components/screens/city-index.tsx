@@ -1,32 +1,39 @@
 "use client";
 import Link from "next/link";
+import {CountrySelect,useCatalogCountry} from "../country-select";
 import { filterCities, filterPlaces, type City } from "@/modules/catalog";
 import { useCatalog } from "../catalog-provider";
 import { EditorialPhoto } from "../photo";
 import { GeographicMap } from "../geographic-map";
-import { CollectionNotice } from "../site-shell";
-import { PlaceCard } from "../catalog-ui";
+import { CollectionNotice, MapIndexSwitch } from "../site-shell";
+import { LinkProgress, PlaceCard } from "../catalog-ui";
 import { useQueryValue } from "../query-state";
 
 export function CityIndexScreen() {
   const { catalog } = useCatalog();
+  const country=useCatalogCountry();
+  const countryCities=catalog.cities.filter(c=>c.countryCode===country);
   const [query, setQuery] = useQueryValue("q");
+  const [mapCity, setMapCity] = useQueryValue("city");
   const [sort, setSort] = useQueryValue("sort", "reference", [
     "reference",
     "region",
     "city",
   ]);
-  const cities = filterCities(catalog.cities, query);
+  const cities = filterCities(countryCities, query);
   const matchedPlaces = query.trim()
-    ? filterPlaces(catalog.places, { query })
+    ? filterPlaces(catalog.places, { query, country })
     : [];
   const groups = [...new Set(cities.map((city) => city.region))];
+  const selected = cities.find(city => city.slug === mapCity);
   if (sort === "region") groups.sort((a, b) => a.localeCompare(b, "it"));
   const cityRow = (city: City) => (
     <Link
       key={city.id}
       className="city-row"
       data-testid="city-row"
+      data-city-row={city.slug}
+      data-selected={selected?.id === city.id || undefined}
       href={`/cities/${city.slug}`}
     >
       <span className="city-row-thumb">
@@ -40,21 +47,25 @@ export function CityIndexScreen() {
       <span className="row-arrow" aria-hidden="true">
         ↗
       </span>
+      <LinkProgress />
     </Link>
   );
   return (
     <main id="main-content" className="split-layout index-layout">
       <section className="editorial-panel index-panel">
+        <CountrySelect />
         <p className="micro accent">The city index</p>
-        <h1>48 ways in.</h1>
+        <h1>{countryCities.length} ways in.</h1>
         <p className="intro">Find your place, region by region.</p>
-        <label className="index-filter">
-          <span className="sr-only">Filter cities</span>
+        <div className="index-tools">
+          <MapIndexSwitch active="index" />
+          <div className="index-filter">
+          <label htmlFor="city-index-search" className="sr-only">Filter cities</label>
           <input
+            id="city-index-search"
             type="search"
             name="q"
             autoComplete="off"
-            aria-label="Filter cities"
             placeholder="Find a city or region…"
             maxLength={80}
             value={query}
@@ -65,7 +76,8 @@ export function CityIndexScreen() {
               ×
             </button>
           ) : null}
-        </label>
+          </div>
+        </div>
         <div className="index-controls">
           <span className="micro" aria-live="polite">
             {cities.length} cities
@@ -117,7 +129,17 @@ export function CityIndexScreen() {
         <CollectionNotice />
       </section>
       <div className="map-column">
-        <GeographicMap cities={cities} variant="index" />
+        <GeographicMap
+          countryCode={country}
+          cities={countryCities}
+          variant="index"
+          highlightCitySlug={(selected ?? cities.find(city => city.featured))?.slug}
+          centerOn={selected}
+          onSelectCity={city => {
+            setMapCity(city.slug);
+            document.querySelector(`[data-city-row="${city.slug}"]`)?.scrollIntoView({ block: "nearest" });
+          }}
+        />
       </div>
     </main>
   );

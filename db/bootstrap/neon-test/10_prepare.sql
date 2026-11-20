@@ -56,9 +56,14 @@ BEGIN
   stage := 'extensions';
   -- Downward admin->migrator membership is explicit and retained for repeat/default ACL/owner operations.
   -- Neither application role is a member of bootstrap/admin or of the other application role.
+  -- PG17 grants a non-superuser creator ADMIN and createrole_self_grant INHERIT/SET
+  -- through separate grantors. Re-granting ADMIN to oneself creates a forbidden grantor cycle.
   IF NOT EXISTS(SELECT 1 FROM pg_auth_members WHERE roleid='travel_test_migrator'::regrole
-    AND member='terreno_bootstrap_owner'::regrole AND admin_option AND inherit_option AND set_option) THEN
+    AND member='terreno_bootstrap_owner'::regrole AND admin_option) THEN
     GRANT travel_test_migrator TO terreno_bootstrap_owner WITH ADMIN TRUE, INHERIT TRUE, SET TRUE;
+  ELSIF NOT EXISTS(SELECT 1 FROM pg_auth_members WHERE roleid='travel_test_migrator'::regrole
+    AND member='terreno_bootstrap_owner'::regrole AND inherit_option AND set_option) THEN
+    GRANT travel_test_migrator TO terreno_bootstrap_owner WITH INHERIT TRUE, SET TRUE;
   END IF;
   CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
   CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;

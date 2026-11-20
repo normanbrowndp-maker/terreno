@@ -20,3 +20,5 @@ export interface CatalogReader {
 export * from "./model";
 export * from "./queries";
 export { italyDemo } from "./demo";
+
+export * from "./countries";
