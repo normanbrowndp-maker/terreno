@@ -1,5 +1,5 @@
 import { getItalyCatalog } from "@/modules/catalog/server";
-import { catalogMeta } from "@/modules/catalog/api";
+import { catalogMeta, catalogUnavailableResponse } from "@/modules/catalog/api";
 
 export const dynamic = "force-dynamic";
 export async function GET(
@@ -8,6 +8,7 @@ export async function GET(
 ) {
   const { slug } = await context.params;
   const catalog = await getItalyCatalog();
+  if (catalog.backend === "unavailable") return catalogUnavailableResponse(catalog);
   const place = catalog.places.find(
     (item) => item.slug === slug || item.id === slug,
   );

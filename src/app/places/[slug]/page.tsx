@@ -1,13 +1,16 @@
 import { notFound } from "next/navigation";
 import { PlaceScreen } from "@/components/screens/place";
 import { getItalyCatalog } from "@/modules/catalog/server";
+import { CatalogUnavailable } from "@/components/catalog-unavailable";
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const place = (await getItalyCatalog()).places.find(
+  const catalog = await getItalyCatalog();
+  if (catalog.backend === "unavailable") return { title: "Catalog temporarily unavailable" };
+  const place = catalog.places.find(
     (item) => item.slug === slug,
   );
   return {
@@ -22,6 +25,7 @@ export default async function PlacePage({
 }) {
   const { slug } = await params;
   const catalog = await getItalyCatalog();
+  if (catalog.backend === "unavailable") return <CatalogUnavailable />;
   if (!catalog.places.some((place) => place.slug === slug)) notFound();
   return <PlaceScreen key={slug} slug={slug} />;
 }

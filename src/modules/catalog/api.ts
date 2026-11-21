@@ -6,6 +6,7 @@ export function catalogListResponse(
   kind: "cities" | "places",
   params: URLSearchParams,
 ): Response {
+  if (snapshot.backend === "unavailable") return catalogUnavailableResponse(snapshot);
   try {
     const query = parseCatalogQuery(params);
     const places = filterPlaces(snapshot.places, query);
@@ -30,6 +31,12 @@ export function catalogListResponse(
       { status: 400 },
     );
   }
+}
+export function catalogUnavailableResponse(snapshot: CatalogSnapshot) {
+  return Response.json(
+    { error: { code: "CATALOG_UNAVAILABLE", message: "The catalog database is not ready." }, meta: catalogMeta(snapshot) },
+    { status: 503, headers: { "Cache-Control": "no-store" } },
+  );
 }
 export function catalogMeta(
   snapshot: CatalogSnapshot,

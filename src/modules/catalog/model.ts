@@ -93,7 +93,7 @@ export const collectionSchema = z.object({
 });
 export type EditorialCatalog = z.infer<typeof collectionSchema>;
 export interface CatalogSnapshot extends EditorialCatalog {
-  backend: "postgres" | "bundled";
+  backend: "postgres" | "bundled" | "unavailable";
   availability:
     | "ready"
     | "database-unavailable"

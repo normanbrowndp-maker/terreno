@@ -1,5 +1,7 @@
 # Документация туристической платформы
 
+**TRAVEL-032, Railway preparation:** [проверенный локальный запуск, PORT/readiness, GitHub и блокеры внешней БД](RAILWAY_READINESS.md). Сервисы, deployment и подключение GitHub не выполнялись; guards и облачные ресурсы сохранены.
+
 **Текущий TRAVEL-026 — [handoff PostgreSQL/Neon для команды](NEON_INTEGRATION_HANDOFF.md).** terreno-test сохраняется; hosting/архитектурный выбор остаётся открытым. Локальная связка runner → runtime pool → каталог/API проверяется отдельно от cloud_admin ACL. Это продолжение существующей работы, без нового cloud bootstrap и без изменения41 predicates. Далее — история предыдущих проверок и рекомендаций, не решение о переезде.
 
 **Текущий TRAVEL-026 — [cloud_admin ACL: варианты проверены локально](NEON_BOOTSTRAP_REPORT.md).** Private schema не эквивалентна function ACL: cast text(geometry) обходит namespace lookup;11 локальных тестов PASS. Поддерживаемый Neon owner-side ACL путь не подтверждён, COMMIT bootstrap заблокирован. Рекомендована среда с контролируемым ownership расширений; production guards/шесть миграций не менялись. Записи ниже — история исследования.

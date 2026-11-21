@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { getItalyCatalog } from "@/modules/catalog/server";
 import { CatalogProvider } from "@/components/catalog-provider";
 import { MainNavigation, SiteHeader } from "@/components/site-shell";
+import { CatalogUnavailable } from "@/components/catalog-unavailable";
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -45,11 +46,11 @@ export default async function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
       <body>
-        <CatalogProvider catalog={catalog}>
+        {catalog.backend === "unavailable" ? <CatalogUnavailable /> : <CatalogProvider catalog={catalog}>
           <SiteHeader />
           {children}
           <MainNavigation mobile />
-        </CatalogProvider>
+        </CatalogProvider>}
       </body>
     </html>
   );
